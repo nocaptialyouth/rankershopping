@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 메인 홈 -->
+  <url>
+    <loc>https://yourdomain.com/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- 실시간 쇼핑 랭킹 센터 -->
+  <url>
+    <loc>https://yourdomain.com/ranking.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <!-- 연령대별 실시간 쇼핑 랭킹 센터 (20대~70대) -->
+  <url>
+    <loc>https://yourdomain.com/age-ranking.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <!-- 소개 페이지 -->
+  <url>
+    <loc>https://yourdomain.com/about.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 문의 페이지 -->
+  <url>
+    <loc>https://yourdomain.com/contact.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- 개인정보처리방침 -->
+  <url>
+    <loc>https://yourdomain.com/privacy.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 이용약관 -->
+  <url>
+    <loc>https://yourdomain.com/terms.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <!-- 아티클 1: 로봇청소기 가이드 -->
+  <url>
+    <loc>https://yourdomain.com/articles/robot-vacuum-guide.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 아티클 2: 올스텐 에어프라이어 -->
+  <url>
+    <loc>https://yourdomain.com/articles/air-fryer-tips.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 아티클 3: 모니터 패널 비교 -->
+  <url>
+    <loc>https://yourdomain.com/articles/monitor-panel-guide.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 아티클 4: 스마트폰 배터리 수명 -->
+  <url>
+    <loc>https://yourdomain.com/articles/smartphone-battery.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <!-- 아티클 5: 인체공학 의자 선택법 -->
+  <url>
+    <loc>https://yourdomain.com/articles/ergonomics-chair.html</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>

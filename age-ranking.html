@@ -1,0 +1,2419 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연령대별 실시간 쇼핑 랭킹 TOP 20 (0~9세부터 70대까지 전 세대) | 랭커의 쇼핑</title>
+  <meta name="description" content="0~9세 키즈, 10대 학생, 20대 MZ, 30대 육아·리빙, 40대 패밀리, 50대 웰빙, 60대 액티브, 70대 실버케어까지! 8개 세대별 실시간 1위부터 20위 쇼핑 결제 랭킹을 한눈에 비교합니다.">
+  <meta name="keywords" content="랭커의 쇼핑, 연령별 쇼핑 랭킹, 10대 인기상품, 20대 트렌드, 30대 육아 가전, 40대 건강식품, 50대 웰빙, 60대 효도선물, 70대 실버케어">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ========================================================
+       [구글 애드센스 코드 삽입 위치]
+       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+       ======================================================== -->
+</head>
+<body>
+
+  <!-- 상단 네비게이션 헤더 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🏆</span>
+        <span>랭커의 쇼핑</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">홈</a></li>
+          <li><a href="ranking.html" target="_blank" class="nav-link" style="color: #ef4444; font-weight: 800;">🔥 실시간 랭킹</a></li>
+          <li><a href="age-ranking.html" class="nav-link active" style="color: #8b5cf6; font-weight: 800;">👥 연령별 랭킹</a></li>
+          <li><a href="about.html" class="nav-link">소개</a></li>
+          <li><a href="contact.html" class="nav-link">문의하기</a></li>
+          <li><a href="privacy.html" class="nav-link">개인정보처리방침</a></li>
+          <li><a href="terms.html" class="nav-link">이용약관</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="ranking.html" target="_blank" class="search-btn" style="background: #fff1f2; color: #e11d48; border-color: #fecdd3; font-weight: 700;">
+          🏬 7대 몰 랭킹
+        </a>
+        <button class="menu-toggle" aria-label="메뉴 열기">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 연령대별 랭킹 히어로 배너 -->
+  <section class="age-hero-banner">
+    <div class="container">
+      <span class="hero-tag" style="background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); color: white;">
+        👥 0~9세부터 70대까지 전 세대 실시간 결제 TOP 20 집계
+      </span>
+      <h1 class="hero-title" style="margin-bottom: 12px;">연령대별 실시간 쇼핑 랭킹 센터 TOP 20</h1>
+      <p class="hero-desc" style="max-width: 820px; margin: 0 auto 20px;">
+        0~9세 키즈·베이비, 10대 틴에이저, 20대 MZ 트렌드, 30대 육아·리빙, 40대 패밀리·차량, 50대 웰빙·안마, 60대 액티브·관절, 70대 실버케어까지!<br>
+        실제 연령별 구매 데이터와 7대 쇼핑몰 결제 순위를 실시간 TOP 20으로 큐레이션합니다.
+      </p>
+      <div style="font-size: 0.88rem; color: #f0fdfa; font-weight: 600;">
+        ⏱️ 실시간 집계 기준: <span id="ageRankingUpdateTime" style="color: #fef08a; font-weight: 800;">실시간 집계 중</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 본문 컨테이너 -->
+  <div class="container">
+
+    <!-- 상단 랭킹 센터 스위처 (쇼핑몰별 랭킹 vs 연령대별 랭킹) -->
+    <div class="ranking-switcher-bar">
+      <a href="ranking.html" class="switcher-pill">
+        <span>🏬 7대 쇼핑몰별 실시간 TOP 20 보러가기 ↗</span>
+      </a>
+      <a href="age-ranking.html" class="switcher-pill active">
+        <span>👥 연령대별(0~9세부터 70대) 실시간 랭킹 TOP 20</span>
+      </a>
+    </div>
+
+    <!-- 상단 배너 광고 슬롯 -->
+    <div class="ad-slot-container">
+      <div class="ad-slot banner">
+        <span class="ad-label">광고 영역 (AdSense Header Slot)</span>
+        <p>구글 애드센스 상단 반응형 디스플레이 광고 영역</p>
+      </div>
+    </div>
+
+    <!-- 8개 전 세대 탭 버튼 (0~9세, 10대, 20대, 30대, 40대, 50대, 60대, 70대) -->
+    <div class="age-tabs-container">
+      <div class="age-tabs">
+        <button type="button" class="age-tab-btn active age0" data-age="0">
+          <span>👶 0~9세 키즈 TOP 20</span>
+        </button>
+        <button type="button" class="age-tab-btn" data-age="10">
+          <span>🎒 10대 틴에이저 TOP 20</span>
+        </button>
+        <button type="button" class="age-tab-btn" data-age="20">
+          <span>🎧 20대 트렌드 TOP 20</span>
+        </button>
+        <button type="button" class="age-tab-btn" data-age="30">
+          <span>🍼 30대 라이프 TOP 20</span>
+        </button>
+        <button type="button" class="age-tab-btn" data-age="40">
+          <span>🚗 40대 패밀리 TOP 20</span>
+        </button>
+        <button type="button" class="age-tab-btn" data-age="50">
+          <span>🌿 50대 웰빙 TOP 20</span>
+        </button>
+        <button type="button" class="age-tab-btn" data-age="60">
+          <span>🚶 60대 액티브 TOP 20</span>
+        </button>
+        <button type="button" class="age-tab-btn" data-age="70">
+          <span>❤️ 70대 실버케어 TOP 20</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="layout-grid">
+      
+      <!-- 메인 연령별 랭킹 리스트 영역 -->
+      <main class="main-content">
+
+        <!-- [age0-panel] -->
+        <section id="age0-panel" class="tab-content-panel active">
+          <div class="age-summary-box" style="border-left: 5px solid #f59e0b;">
+            <div class="age-summary-icon">👶</div>
+            <div class="age-summary-text">
+              <h4>0~9세 실시간 소비 키워드: #안심기저귀 #프리미엄분유 #체온계 #유아완구 #안전카시트</h4>
+              <p>소중한 우리 아이를 위한 친환경 안심 기저귀, 수입 프리미엄 분유, 안전 인증 카시트와 감각 발달 완구가 압도적 1위를 기록하고 있습니다.</p>
+            </div>
+          </div>
+
+          <div class="ranking-list">
+            <!-- 1위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top1">1</div>
+              <div class="ranking-icon">👶</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">출산/육아 · 기저귀 <span class="age-badge b0">0~9세 1위</span></div>
+                <h3 class="ranking-product-name">하기스 네이처메이드 밴드형 기저귀 3단계 156매</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (국민 기저귀 1위)</span>
+                  <span>• 천연 사탕수수 유래 바이오 소재</span>
+                  <span>• 통기성 에어홀 & 12시간 흡수력</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">62,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="하기스 네이처메이드">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 2위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top2">2</div>
+              <div class="ranking-icon">🍼</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">식품/분유 · 영유아식 <span class="age-badge b0">0~9세 2위</span></div>
+                <h3 class="ranking-product-name">독일 압타밀 프로푸트라 프레(Pre) 분유 800g x 4캔</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (직구 분유 베스트셀러)</span>
+                  <span>• 모유 올리고당(HMO) 함유</span>
+                  <span>• 배앓이 완화 특허 영양설계</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">129,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="압타밀 분유">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 3위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top3">3</div>
+              <div class="ranking-icon">🌡️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">의료/위생 · 체온계 <span class="age-badge b0">0~9세 3위</span></div>
+                <h3 class="ranking-product-name">브라운 귀적외선 디지털 체온계 IRT-6520 (필터 21개입)</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (출산 필수 준비물 1위)</span>
+                  <span>• 연령별 발열 가이드 스마트 센서</span>
+                  <span>• 예열 팁 기술로 오차 최소화</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">78,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="브라운 체온계">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 4위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">4</div>
+              <div class="ranking-icon">🧻</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">위생용품 · 아기물티슈 <span class="age-badge b0">키즈 베스트</span></div>
+                <h3 class="ranking-product-name">베베숲 시그니처 프리미엄 엠보싱 물티슈 70매 x 10팩</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (육아맘 만족도 1위)</span>
+                  <span>• 고평량 75gsm 도톰한 엠보싱</span>
+                  <span>• 피부자극 0.00 무자극 인증</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">18,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="베베숲 물티슈">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 5위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">5</div>
+              <div class="ranking-icon">🎵</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">완구/교구 · 사운드북 <span class="age-badge b0">인기 완구</span></div>
+                <h3 class="ranking-product-name">핑크퐁 아기상어 멜로디 사운드북 패키지 세트</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (영유아 언어 발달 1위)</span>
+                  <span>• 아기상어 외 인기 동요 10곡 수록</span>
+                  <span>• 둥근 모서리 안심 설계</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">16,500원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="핑크퐁 사운드북">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 6위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">6</div>
+              <div class="ranking-icon">🧱</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">완구/블록 · 두뇌발달 <span class="age-badge b0">두뇌 완구</span></div>
+                <h3 class="ranking-product-name">레고 듀플로 10914 디럭스 브릭 박스 (유아용 블록)</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (첫 블록놀이 국민 완구)</span>
+                  <span>• 유아 맞춤형 삼킴 방지 빅사이즈</span>
+                  <span>• 소근육 발달과 창의력 증진</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">64,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="레고 듀플로">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 7위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">7</div>
+              <div class="ranking-icon">🚗</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">유아용품 · 안전카시트 <span class="age-badge b0">안전 필수</span></div>
+                <h3 class="ranking-product-name">다이치 원픽스 360 회전형 ISOFIX 유아 카시트</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (한국 소비자만족지수 1위)</span>
+                  <span>• 한 손 360도 부드러운 회전</span>
+                  <span>• 4중 측면 충격 흡수 시스템</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">480,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="다이치 카시트">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 8위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">8</div>
+              <div class="ranking-icon">🛒</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">외출용품 · 휴대용유모차 <span class="age-badge b0">외출 1위</span></div>
+                <h3 class="ranking-product-name">킨즈 포켓 접이식 기내반입 초경량 유모차</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (여행/나들이 필수템)</span>
+                  <span>• 4.9kg 초경량 1초 폴딩</span>
+                  <span>• 풀차양 캐노피 & 서스펜션</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">219,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="킨즈 유모차">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 9위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">9</div>
+              <div class="ranking-icon">🥛</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">분유/이유식 · 프리미엄 <span class="age-badge b0">프리미엄</span></div>
+                <h3 class="ranking-product-name">일루마 골든드롭 프리미엄 유아식 분유 3단계 800g</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (아일랜드 청정 낙농 분유)</span>
+                  <span>• sn-2 팔미테이트 칼슘 흡수율 극대화</span>
+                  <span>• 부드러운 소화 흡수</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">168,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="일루마 분유">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 10위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">10</div>
+              <div class="ranking-icon">🧴</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">스킨케어 · 베이비로션 <span class="age-badge b0">보습 1위</span></div>
+                <h3 class="ranking-product-name">그린핑거 판테딘 베이비 고보습 딥 크림 180ml</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (영유아 침독/건조 케어)</span>
+                  <span>• 판테놀 5% 함유 피부장벽 강화</span>
+                  <span>• 24시간 촉촉한 보습막 유지</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">22,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="그린핑거 판테딘">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 11위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">11</div>
+              <div class="ranking-icon">🍼</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">수유용품 · 젖병 <span class="age-badge b0">수유 필수</span></div>
+                <h3 class="ranking-product-name">닥터브라운 와이드넥 옵션스 플러스 PESU 젖병 270ml 2개</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (배앓이 방지 젖병 원조)</span>
+                  <span>• 독점 공기 순환 통기 시스템</span>
+                  <span>• 열탕/스팀 소독 안심 PESU</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">29,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="닥터브라운 젖병">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 12위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">12</div>
+              <div class="ranking-icon">💻</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">교육완구 · 코딩토이 <span class="age-badge b0">교육 완구</span></div>
+                <h3 class="ranking-product-name">뽀로로 스마트 코딩 컴퓨터 패키지 (마우스 포함)</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (유아 한글/영어/코딩 입문)</span>
+                  <span>• 40가지 두뇌 발달 미션 게임</span>
+                  <span>• 실제 노트북 조작 시뮬레이션</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">79,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="뽀로로 코딩컴퓨터">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 13위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">13</div>
+              <div class="ranking-icon">🥤</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">식기용품 · 어린이텀블러 <span class="age-badge b0">등원 필수</span></div>
+                <h3 class="ranking-product-name">락앤락 키즈 스텐 빨대 보온보냉 텀블러 350ml</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (어린이집/유치원 필수품)</span>
+                  <span>• 원터치 오픈 & 안심 잠금장치</span>
+                  <span>• 스테인리스 316 최고급 내식성</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">19,800원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="어린이 텀블러">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 14위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">14</div>
+              <div class="ranking-icon">💧</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">스킨케어 · 베이비크림 <span class="age-badge b0">민감피부</span></div>
+                <h3 class="ranking-product-name">아토팜 MLE 고보습 베이비 페이스 크림 160ml</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (아토피/민감피부 1위)</span>
+                  <span>• 독자 개발 피부장벽 기술 MLE</span>
+                  <span>• 화해 뷰티어워드 유아 크림 1위</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">26,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="아토팜 크림">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 15위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">15</div>
+              <div class="ranking-icon">🧺</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">역할놀이 · 장난감 <span class="age-badge b0">인기 장난감</span></div>
+                <h3 class="ranking-product-name">아기상어 멜로디 미니 세탁기 물놀이 완구 세트</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (유아 역할놀이 베스트셀러)</span>
+                  <span>• 실제로 회전하는 세탁통 & 멜로디</span>
+                  <span>• 미니 옷걸이와 바구니 동봉</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">24,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="장난감 세탁기">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 16위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">16</div>
+              <div class="ranking-icon">💊</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강식품 · 키즈비타민 <span class="age-badge b0">성장기 1위</span></div>
+                <h3 class="ranking-product-name">뉴트리코어 키즈 칼슘 마그네슘 아연 츄어블 60정</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (성장기 어린이 뼈 건강)</span>
+                  <span>• 합성 첨가물 0% 자연유래 원료</span>
+                  <span>• 맛있는 코코아맛 씹어먹는 정제</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">38,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="키즈 영양제">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 17위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">17</div>
+              <div class="ranking-icon">🛏️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">유아침구 · 캐릭터베개 <span class="age-badge b0">애착 침구</span></div>
+                <h3 class="ranking-product-name">밀로앤개비 항균 텐셀 입체 동물 유아베개 톰(호랑이)</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (애착 베개 부동의 1위)</span>
+                  <span>• 마이크로 실버 항균 솜 충전재</span>
+                  <span>• 100% 텐셀 모달 부드러운 촉감</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">39,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="밀로앤개비 베개">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 18위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">18</div>
+              <div class="ranking-icon">📚</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">유아전집 · 그림책 <span class="age-badge b0">전집 베스트</span></div>
+                <h3 class="ranking-product-name">블루래빗 우리아이 첫 토이북 전집 88종 풀세트</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (출산 축하 선물 1위 전집)</span>
+                  <span>• 감각 자극 입체 사운드북 총망라</span>
+                  <span>• 누리과정 연계 성장 발달 가이드</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">319,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="블루래빗 토이북">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 19위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">19</div>
+              <div class="ranking-icon">🦷</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">구강위생 · 치발기 <span class="age-badge b0">구강 발달</span></div>
+                <h3 class="ranking-product-name">모윰 포니 손목 실리콘 치발기 스탠딩 케이스 세트</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (국민 치발기 스테디셀러)</span>
+                  <span>• 손목 탈락 방지 인체공학 스트랩</span>
+                  <span>• 100% 플래티넘 백금 실리콘</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">14,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="모윰 치발기">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 20위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">20</div>
+              <div class="ranking-icon">🛁</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">목욕용품 · 물놀이완구 <span class="age-badge b0">목욕 필수</span></div>
+                <h3 class="ranking-product-name">뽀로로 퐁당 스티커 목욕놀이 완구 세트 (정리망 포함)</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (목욕 거부 극복 치트키)</span>
+                  <span>• 물만 묻히면 타일에 찰떡 부착</span>
+                  <span>• EVA 무독성 안심 방수 소재</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">12,500원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="뽀로로 목욕놀이">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- [age10-panel] -->
+        <section id="age10-panel" class="tab-content-panel">
+          <div class="age-summary-box" style="border-left: 5px solid #ec4899;">
+            <div class="age-summary-icon">🎒</div>
+            <div class="age-summary-text">
+              <h4>10대 실시간 소비 키워드: #스터디플래너 #수험생타이머 #틴트 #독서실마우스 #신학기백팩</h4>
+              <p>학습 효율을 높여주는 공부/스터디 플래너, 저소음 독서실 마우스, 10대 데일리 틴트와 신학기 인기 백팩이 상위권을 차지하고 있습니다.</p>
+            </div>
+          </div>
+
+          <div class="ranking-list">
+            <!-- 1위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top1">1</div>
+              <div class="ranking-icon">📝</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">문구/학습 · 플래너 <span class="age-badge b10">10대 1위</span></div>
+                <h3 class="ranking-product-name">모트모트 텐미닛 스터디 플래너 100Days 매트블랙</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (중고교 수험생 1위 플래너)</span>
+                  <span>• 10분 단위 하루 집중 시간 관리</span>
+                  <span>• 만년필 번짐 없는 120g 도톰 용지</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">12,500원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="모트모트 플래너">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 2위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top2">2</div>
+              <div class="ranking-icon">📖</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">학습가구 · 독서대 <span class="age-badge b10">10대 2위</span></div>
+                <h3 class="ranking-product-name">니스툴그로우 높이 각도조절 2단 스마트 알루미늄 독서대</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (거북목 방지 공부 필수템)</span>
+                  <span>• 두꺼운 수험서도 흔들림 없는 고정력</span>
+                  <span>• 태블릿/인강 스탠드 겸용</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">29,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="스마트 독서대">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 3위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top3">3</div>
+              <div class="ranking-icon">🖱️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">디지털 · 저소음마우스 <span class="age-badge b10">10대 3위</span></div>
+                <h3 class="ranking-product-name">로지텍 페블 M350 무소음 슬림 무선 마우스</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (독서실/스터디카페 원픽)</span>
+                  <span>• 90% 소음 차단 무소음 클릭</span>
+                  <span>• 초슬림 휴대성과 18개월 배터리</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">22,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="로지텍 페블">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 4위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">4</div>
+              <div class="ranking-icon">💄</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">뷰티/틴트 · 립메이크업 <span class="age-badge b10">뷰티 1위</span></div>
+                <h3 class="ranking-product-name">롬앤 쥬시 래스팅 틴트 25호 베어그레이프</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (10대 뷰티 랭킹 부동의 1위)</span>
+                  <span>• 탕후루 광택 맑은 쿨톤 모브</span>
+                  <span>• 착색력 좋은 데일리 틴트</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">9,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="롬앤 틴트">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 5위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">5</div>
+              <div class="ranking-icon">🥤</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">생활/보온 · 텀블러 <span class="age-badge b10">학생 대세</span></div>
+                <h3 class="ranking-product-name">스탠리 퀜처 H2.0 플로우헤븐 진공 텀블러 887ml</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (중고교 대세 보냉 텀블러)</span>
+                  <span>• 얼음 48시간 유지 압도적 보냉</span>
+                  <span>• 스트로우 빨대 뚜껑 편리함</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">49,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="스탠리 텀블러">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 6위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">6</div>
+              <div class="ranking-icon">🎒</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">패션/가방 · 학생백팩 <span class="age-badge b10">가방 1위</span></div>
+                <h3 class="ranking-product-name">나이키 유틸리티 엘리트 트레이닝 백팩 32L 블랙</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (신학기 학생 책가방 1위)</span>
+                  <span>• 노트북 수납 전용 쿠션 포켓</span>
+                  <span>• 에어 맥스 쿠셔닝 어깨 스트랩</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">99,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="나이키 백팩">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 7위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">7</div>
+              <div class="ranking-icon">✏️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">디지털 · 스타일러스펜 <span class="age-badge b10">필기 필수</span></div>
+                <h3 class="ranking-product-name">Apple 정품 애플펜슬 2세대 (MU8F2KH/A)</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (아이패드 인강/노트 필기 필수)</span>
+                  <span>• 자석 부착 무선충전 & 더블탭 전환</span>
+                  <span>• 픽셀 단위의 정밀한 필압 감지</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">165,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="애플펜슬 2세대">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 8위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">8</div>
+              <div class="ranking-icon">🍜</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">식품/간식 · 컵라면 <span class="age-badge b10">간식 1위</span></div>
+                <h3 class="ranking-product-name">오뚜기 컵누들 매콤한맛 37.8g x 30개입 한박스</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (야자/독서실 시험기간 1위 간식)</span>
+                  <span>• 120kcal 가벼운 야식 힐링</span>
+                  <span>• 매콤 칼칼한 쌀국수 면발</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">24,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="컵누들 매콤한맛">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 9위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">9</div>
+              <div class="ranking-icon">🌿</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">스킨케어 · 여드름진정 <span class="age-badge b10">진정 케어</span></div>
+                <h3 class="ranking-product-name">닥터지 레드 블레미쉬 클리어 수딩 크림 70ml</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (청소년 여드름 진정 1위 크림)</span>
+                  <span>• 10-시카 콤플렉스 수분 진정</span>
+                  <span>• 논코메도제닉 모공 막힘 방지</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">19,800원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="닥터지 수딩크림">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 10위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top4_10">10</div>
+              <div class="ranking-icon">⏱️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">학습용품 · 스톱워치 <span class="age-badge b10">집중 타이머</span></div>
+                <h3 class="ranking-product-name">무아스 3in1 스마트 큐브 타이머 LED 스톱워치</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (뽀모도로 수험생 집중 타이머)</span>
+                  <span>• 뒤집기만 하면 자동 타이머 시작</span>
+                  <span>• 무소음 무음 점멸 알림 지원</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">15,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="무아스 타이머">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 11위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">11</div>
+              <div class="ranking-icon">🧦</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">패션잡화 · 양말 <span class="age-badge b10">스쿨룩</span></div>
+                <h3 class="ranking-product-name">나이키 에브리데이 에브리웨어 크루 삭스 3팩</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (교복/스쿨룩 국민 양말)</span>
+                  <span>• 발바닥 도톰한 쿠션 흡수</span>
+                  <span>• 발목 늘어남 없는 쫀쫀 립밴드</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">15,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="나이키 크루삭스">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 12위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">12</div>
+              <div class="ranking-icon">🐰</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">액세서리 · 백팩키링 <span class="age-badge b10">인기 키링</span></div>
+                <h3 class="ranking-product-name">젤리캣 바슬러 버니 봉제인형 키링 참 백팩 가방고리</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (여중고생 가방 장식 대세템)</span>
+                  <span>• 극세사 모달 부드러운 촉감</span>
+                  <span>• 영국 프리미엄 럭셔리 키링</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">28,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="젤리캣 키링">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 13위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">13</div>
+              <div class="ranking-icon">🖊️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">필기구 · 젤잉크펜 <span class="age-badge b10">필기구 1위</span></div>
+                <h3 class="ranking-product-name">제브라 사라사 클립 0.5mm 젤펜 베스트 10색 세트</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (노트 필기감 1위 젤펜)</span>
+                  <span>• 뭉침 없고 부드러운 수성 안료 잉크</span>
+                  <span>• 바인더 가동식 클립 장착</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">14,500원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="사라사 클립">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 14위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">14</div>
+              <div class="ranking-icon">✨</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">뷰티/메이크업 · 파우더 <span class="age-badge b10">국민 파우더</span></div>
+                <h3 class="ranking-product-name">이니스프리 노세범 미네랄 파우더 5g</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (학생 유분/앞머리 보송 치트키)</span>
+                  <span>• 제주 천연 미네랄 피지 조절</span>
+                  <span>• 깃털처럼 가벼운 매트 피니시</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">6,500원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="이니스프리 노세범">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 15위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">15</div>
+              <div class="ranking-icon">🥪</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">간식/디저트 · 스낵 <span class="age-badge b10">공부 간식</span></div>
+                <h3 class="ranking-product-name">HBAF 바프 허니버터 아몬드 대용량 210g x 4봉</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (공부할 때 두뇌 에너지 보충)</span>
+                  <span>• 달콤한 꿀과 버터의 완벽 조화</span>
+                  <span>• 씹는 맛이 살아있는 캘리포니아 아몬드</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">19,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="허니버터 아몬드">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 16위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">16</div>
+              <div class="ranking-icon">📱</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">태블릿악세서리 · 종이필름 <span class="age-badge b10">필기감 1위</span></div>
+                <h3 class="ranking-product-name">신지모루 종이질감 지문방지 아이패드 필름 2매입</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (사각사각 연필 필기감 극대화)</span>
+                  <span>• 펜슬 촉 마모 최소화 미세 입자</span>
+                  <span>• 눈부심 방지 안티글레어 코팅</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">11,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="종이질감 필름">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 17위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">17</div>
+              <div class="ranking-icon">💡</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">학습조명 · LED스탠드 <span class="age-badge b10">시력 보호</span></div>
+                <h3 class="ranking-product-name">바른자세 무선 충전식 LED 집게형 독서 스탠드</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (눈이 편안한 시력보호 스탠드)</span>
+                  <span>• 플리커 프리 블루라이트 차단</span>
+                  <span>• 3단계 색온도 & 무단 밝기 조절</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">18,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="LED 스탠드">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 18위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">18</div>
+              <div class="ranking-icon">👝</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">문구잡화 · 필통 <span class="age-badge b10">심플 필통</span></div>
+                <h3 class="ranking-product-name">무인양품(MUJI) 나일론 메쉬 펜슬 파우치 케이스</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (10대 감성 미니멀 필통)</span>
+                  <span>• 내부가 훤히 보이는 메쉬 포켓</span>
+                  <span>• 가볍고 튼튼한 방오 나일론</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">6,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="무인양품 필통">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 19위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">19</div>
+              <div class="ranking-icon">🍓</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">DIY/디저트 · 탕후루 <span class="age-badge b10">인기 디저트</span></div>
+                <h3 class="ranking-product-name">왕가 탕후루 집에서 만들기 키트 (생과일 코팅시럽)</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (방과 후 인기 DIY 키트)</span>
+                  <span>• 바삭하게 깨지는 얇은 유리알 코팅</span>
+                  <span>• 전자레인지 5분 초간단 완성</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">16,800원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="탕후루 키트">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 20위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">20</div>
+              <div class="ranking-icon">🎧</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">음향가전 · 헤드폰 <span class="age-badge b10">가성비 음향</span></div>
+                <h3 class="ranking-product-name">소니 WH-CH520 초경량 무선 블루투스 온이어 헤드폰</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (10대 인강/음악 가성비 헤드폰)</span>
+                  <span>• 147g 초경량 & 50시간 재생 배터리</span>
+                  <span>• 360 Reality Audio 입체 음향</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">59,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="소니 CH520">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- [age20-panel] -->
+        <section id="age20-panel" class="tab-content-panel">
+\n          <div class="age-summary-box" style="border-left: 5px solid #8b5cf6;">\n            <div class="age-summary-icon">🎧</div>\n            <div class="age-summary-text">\n              <h4>20대 실시간 소비 키워드: #MZ트렌드 #음향테크 #K뷰티 #가성비자취템</h4>\n              <p>자신을 위한 투자와 트렌디한 감성 테크, 가성비 스킨케어와 패션 아이템이 압도적 1위를 기록하고 있습니다.</p>\n            </div>\n          </div>\n\n          <div class="ranking-list">\n            <!-- 1위 -->\n            <div class="ranking-item-card" style="border-left: 4px solid #8b5cf6;">\n              <div class="ranking-pos top1">1</div>\n              <div class="ranking-icon">🎧</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">디지털 · 음향가전 <span class="age-badge b20">20대 1위</span></div>\n                <h3 class="ranking-product-name">소니 WH-1000XM5 무선 노이즈 캔슬링 프리미엄 헤드폰</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (20대 통학/카페 필수템)</span>\n                  <span>• 압도적 노이즈 캔슬링</span>\n                  <span>• 30시간 연속 재생</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">398,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="소니 헤드폰">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 2위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos top2">2</div>\n              <div class="ranking-icon">✨</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">뷰티 · 스킨케어 <span class="age-badge b20">20대 2위</span></div>\n                <h3 class="ranking-product-name">마녀공장 퓨어 클렌징 오일 200ml + 55ml 대용량 기획세트</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (올리브영/네이버 1위)</span>\n                  <span>• 블랙헤드 99.7% 세정</span>\n                  <span>• 콩오일 저자극</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">19,800원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="마녀공장 클렌징오일">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 3위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos top3">3</div>\n              <div class="ranking-icon">💻</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">디지털 · 노트북 <span class="age-badge b20">20대 3위</span></div>\n                <h3 class="ranking-product-name">Apple 2024 맥북 에어 13 M3 칩 탑재 256GB 스타라이트</h3>\n                <div class="ranking-features">\n                  <span>★ 5.0 (대학생 과제/카페 원픽)</span>\n                  <span>• 1.24kg 초경량 휴대성</span>\n                  <span>• 18시간 배터리</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">1,480,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="맥북에어 M3">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 4위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">4</div>\n              <div class="ranking-icon">👟</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">패션 · 스니커즈</div>\n                <h3 class="ranking-product-name">나이키 에어포스 1 \'07 로우 올화이트 올백 정품 CW2288-111</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (국민 데일리 운동화)</span>\n                  <span>• 어떤 코디에도 찰떡 매칭</span>\n                  <span>• 푹신한 에어솔</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">129,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="나이키 에어포스">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 5위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">5</div>\n              <div class="ranking-icon">🎬</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">영상 · 스마트가전</div>\n                <h3 class="ranking-product-name">삼성 프리스타일 2세대 포터블 빔프로젝터 + 전용 배터리</h3>\n                <div class="ranking-features">\n                  <span>★ 4.7 (자취방 홈시네마 1픽)</span>\n                  <span>• 100인치 오토포커스</span>\n                  <span>• 넷플릭스/유튜브 즉시재생</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">689,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="삼성 프리스타일">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 6위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">6</div>\n              <div class="ranking-icon">🍲</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">주방 · 자취가전</div>\n                <h3 class="ranking-product-name">키친아트 라면포트 멀티쿠커 1.8L 스테인리스 304</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (1인가구 필수가전)</span>\n                  <span>• 3분 초고속 가열</span>\n                  <span>• 찜판 겸용 분리형</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">23,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="라면포트">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 7위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">7</div>\n              <div class="ranking-icon">🥤</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">리빙 · 라이프스타일</div>\n                <h3 class="ranking-product-name">스탠리 퀜처 H2.0 플로우스테이트 진공 텀블러 887ml</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (글로벌 품절대란)</span>\n                  <span>• 40시간 얼음 보냉</span>\n                  <span>• 차량 홀더 호환</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">49,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="스탠리 텀블러">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 8위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">8</div>\n              <div class="ranking-icon">🌿</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">뷰티 · 트러블케어</div>\n                <h3 class="ranking-product-name">아누아 어성초 77 수딩 토너 패드 70매 x 2통 기획</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (여드름성 피부 적합)</span>\n                  <span>• 붉은기 진정 효과</span>\n                  <span>• 논코메도제닉 인증</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">28,500원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="아누아 토너패드">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 9위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">9</div>\n              <div class="ranking-icon">⚡</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">모바일 · 충전케어</div>\n                <h3 class="ranking-product-name">앤커 맥고 3in1 맥세이프 고속 무선충전 스테이션 Qi2</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (아이폰/워치/에어팟 동시충전)</span>\n                  <span>• 15W 진정한 초고속</span>\n                  <span>• 접이식 미니 디자인</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">99,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="맥세이프 3in1">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 10위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">10</div>\n              <div class="ranking-icon">💡</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">인테리어 · 데스크</div>\n                <h3 class="ranking-product-name">감성 오로라 아크릴 LED 무드등 스마트 리모컨 조명</h3>\n                <div class="ranking-features">\n                  <span>★ 4.7 (인스타 감성 인테리어)</span>\n                  <span>• 16가지 무지개 컬러</span>\n                  <span>• 타이머 수면등 기능</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">18,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="무드등">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n                      <!-- 11위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">11</div>
+              <div class="ranking-icon">⌚</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">디지털 · 스마트워치 <span class="age-badge b20">20대 추천</span></div>
+                <h3 class="ranking-product-name">Apple Watch SE 2세대 40mm GPS 스타라이트</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (대학생/취준생 원픽 스마트워치)</span>
+                  <span>• 심박수 알림 & 수면 수면단계 측정</span>
+                  <span>• 가벼운 알루미늄 케이스</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">329,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="애플워치 SE">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 12위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">12</div>
+              <div class="ranking-icon">🧴</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">뷰티/향수 · 니치향수 <span class="age-badge b20">감성 뷰티</span></div>
+                <h3 class="ranking-product-name">논픽션 상탈크림 퍼퓸 핸드크림 50ml</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (20대 선물 선호 1위)</span>
+                  <span>• 베티버와 샌달우드의 은은한 잔향</span>
+                  <span>• 끈적임 없는 쉐어버터 보습</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">23,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="논픽션 핸드크림">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 13위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">13</div>
+              <div class="ranking-icon">🍚</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">주방가전 · 1인가전 <span class="age-badge b20">자취 필수</span></div>
+                <h3 class="ranking-product-name">쿠쿠 에그 미니 1인용 소형 전기밥솥 3인용</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (자취방 미니멀 가전 1위)</span>
+                  <span>• 감성적인 화이트 에그 디자인</span>
+                  <span>• 쾌속 취사 & 에너지 1등급</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">69,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="쿠쿠 미니밥솥">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 14위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">14</div>
+              <div class="ranking-icon">👟</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">패션 · 스니커즈 <span class="age-badge b20">신발 1위</span></div>
+                <h3 class="ranking-product-name">뉴발란스 MR530SG 스틸그레이 헤리티지 러닝화</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (20대 데일리 운동화 1위)</span>
+                  <span>• ABZORB 미드솔 충격 흡수 쿠셔닝</span>
+                  <span>• 통기성 메쉬 클래식 실루엣</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">129,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="뉴발란스 530">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 15위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">15</div>
+              <div class="ranking-icon">💧</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">스킨케어 · 기능성에센스 <span class="age-badge b20">스킨케어</span></div>
+                <h3 class="ranking-product-name">이니스프리 레티놀 시카 흔적 앰플 30ml</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (트러블 모공 자국 올리브영 1위)</span>
+                  <span>• 레티놀과 시카의 순한 각질 턴오버</span>
+                  <span>• 민감성 피부 안심 테스트 완료</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">28,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="이니스프리 레티놀">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 16위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">16</div>
+              <div class="ranking-icon">👛</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">패션잡화 · 카드지갑 <span class="age-badge b20">자취템</span></div>
+                <h3 class="ranking-product-name">신지모루 M-플랩 맥세이프 카드지갑 마그네틱</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (간편 외출 필수 치트키)</span>
+                  <span>• 카드 3장 수납 & 완벽 차폐 차단</span>
+                  <span>• 3,000G 강력 네오디뮴 자력</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">12,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="맥세이프 카드지갑">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 17위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">17</div>
+              <div class="ranking-icon">🧶</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">생활가전 · 의류관리 <span class="age-badge b20">의류 케어</span></div>
+                <h3 class="ranking-product-name">샤오미 미지아 충전식 휴대용 보풀제거기 2세대</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (니트/가디건 관리 1위)</span>
+                  <span>• 5엽 정밀 부유 회전날</span>
+                  <span>• 옷감 손상 없는 곡면 메쉬망</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">13,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="샤오미 보풀제거기">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 18위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">18</div>
+              <div class="ranking-icon">🥤</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">식품/음료 · 제로탄산 <span class="age-badge b20">음료 베스트</span></div>
+                <h3 class="ranking-product-name">코카콜라 제로 355ml x 24캔 슬림캔 박스</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (자취생 냉장고 쟁여템)</span>
+                  <span>• 0칼로리 짜릿한 탄산감</span>
+                  <span>• 부담 없는 데일리 음료</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">23,500원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="코카콜라 제로">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 19위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">19</div>
+              <div class="ranking-icon">🔋</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">디지털 · 무선충전기 <span class="age-badge b20">테크 감성</span></div>
+                <h3 class="ranking-product-name">벨킨 부스트차지 프로 3in1 맥세이프 무선충전기 15W</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (아이폰/워치/에어팟 동시 고속충전)</span>
+                  <span>• 애플 MFi 공식 인증 15W 고속</span>
+                  <span>• 데스크테리어 감성 오브제</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">179,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="벨킨 3in1">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 20위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">20</div>
+              <div class="ranking-icon">🍗</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">식품 · 헬스단백질 <span class="age-badge b20">헬스 식단</span></div>
+                <h3 class="ranking-product-name">하림 닭가슴살 훈제 소시지 100g x 20팩 번들</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (20대 헬스/다이어터 원픽)</span>
+                  <span>• 팩당 단백질 21g 맛있는 식단</span>
+                  <span>• 참나무 훈연 풍부한 육즙</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">24,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="하림 닭가슴살 소시지">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- [age30-panel] -->
+        <section id="age30-panel" class="tab-content-panel">
+\n          <div class="age-summary-box" style="border-left: 5px solid #059669;">\n            <div class="age-summary-icon">👶</div>\n            <div class="age-summary-text">\n              <h4>30대 실시간 소비 키워드: #스마트육아 #올인원가전 #홈인테리어 #쓱배송밀키트</h4>\n              <p>시간을 아껴주는 올인원 자동 가전, 안심 육아용품, 품질 검증된 대용량 밀키트와 신선식품이 강세를 보입니다.</p>\n            </div>\n          </div>\n\n          <div class="ranking-list">\n            <!-- 1위 -->\n            <div class="ranking-item-card" style="border-left: 4px solid #059669;">\n              <div class="ranking-pos top1">1</div>\n              <div class="ranking-icon">🤖</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">스마트가전 · 청소기 <span class="age-badge b30">30대 1위</span></div>\n                <h3 class="ranking-product-name">2026 로보락 S8 MaxV Ultra 올인원 로봇청소기 (60℃ 온수세척)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (맞벌이/육아 필수 1픽)</span>\n                  <span>• 10,000Pa 초강력 흡입</span>\n                  <span>• 모서리 엣지 청소 브러시</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">1,690,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="로보락 로봇청소기">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 2위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos top2">2</div>\n              <div class="ranking-icon">🍳</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">주방가전 · 쿡웨어 <span class="age-badge b30">30대 2위</span></div>\n                <h3 class="ranking-product-name">아이닉 올스텐 304 대용량 16L 오븐형 에어프라이어 iAO10</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (코팅 유해물질 걱정 제로)</span>\n                  <span>• 내부 6면 풀스테인리스</span>\n                  <span>• 로티세리 회전 구이</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">148,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="올스텐 에어프라이어">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 3위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos top3">3</div>\n              <div class="ranking-icon">🚼</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">육아 · 유아용품 <span class="age-badge b30">30대 3위</span></div>\n                <h3 class="ranking-product-name">와이업 지니제로 3 휴대용 오토폴딩 유모차 (기내반입용)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (30대 부모 압도적 선호)</span>\n                  <span>• 1초 오토폴딩 시스템</span>\n                  <span>• 95~175도 4단 등받이</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">289,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="오토폴딩 유모차">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 4위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">4</div>\n              <div class="ranking-icon">☕</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">주방가전 · 홈카페</div>\n                <h3 class="ranking-product-name">네스프레소 버츄오 팝 캡슐 커피머신 + 웰컴팩 12캡슐</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (풍성한 크레마 추출)</span>\n                  <span>• 바코드 인식 맞춤 추출</span>\n                  <span>• 컴팩트 공간 절약형</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">119,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="네스프레소 버츄오">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 5위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">5</div>\n              <div class="ranking-icon">🧻</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">출산 · 유아위생</div>\n                <h3 class="ranking-product-name">베베숲 시그니처 위드 블루 아기물티슈 캡형 70매 x 20팩</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (대한민국 물티슈 1위)</span>\n                  <span>• 75gsm 도톰한 프리미엄 원단</span>\n                  <span>• 피부자극 테스트 완료</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">32,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="베베숲 물티슈">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 6위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">6</div>\n              <div class="ranking-icon">🥩</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">식품 · 쓱배송신선</div>\n                <h3 class="ranking-product-name">이마트 피코크 밀푀유나베 밀키트 845g (2~3인분)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (SSG 쓱배송 베스트셀러)</span>\n                  <span>• 신선 야채와 소고기 세트</span>\n                  <span>• 15분 완성 홈파티 요리</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">16,800원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="피코크 밀키트">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 7위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">7</div>\n              <div class="ranking-icon">🪑</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">홈오피스 · 체어</div>\n                <h3 class="ranking-product-name">시디즈 T50 라이트 풀메쉬 사무용 컴퓨터 인체공학 의자</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (재택근무 척추보호)</span>\n                  <span>• 싱크로나이즈드 틸팅</span>\n                  <span>• 요추지지대 조절</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">229,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="시디즈 T50">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 8위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">8</div>\n              <div class="ranking-icon">🛋️</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">가구 · 거실인테리어</div>\n                <h3 class="ranking-product-name">오늘의집 패브릭 3인용 발수 방오 이지클린 모듈 소파</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (아이/반려동물 스크래치 방지)</span>\n                  <span>• 생활방수 물티슈 오염 제거</span>\n                  <span>• 탄탄한 고밀도 폼</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">349,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="패브릭 소파">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 9위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">9</div>\n              <div class="ranking-icon">🧼</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">살림 · 세척용품</div>\n                <h3 class="ranking-product-name">프로쉬 친환경 식기세척기 올인원 타블렛 세제 베이킹소다 30개입 x 3팩</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (물얼룩 없는 완벽 헹굼)</span>\n                  <span>• 린스 일체형 올인원</span>\n                  <span>• 유럽 에코라벨 인증</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">34,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="프로쉬 식기세척기 세제">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 10위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">10</div>\n              <div class="ranking-icon">👕</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">생활가전 · 건조기</div>\n                <h3 class="ranking-product-name">미닉스 PRO 미니 건조기 3kg 전자동 열풍 살균 (소형가구 1픽)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (수건/아기옷 데일리 건조)</span>\n                  <span>• 배수관 설치 불필요</span>\n                  <span>• 저소음/저진동 설계</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">359,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="미닉스 미니건조기">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n                      <!-- 11위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">11</div>
+              <div class="ranking-icon">🍞</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">주방가전 · 프리미엄토스터 <span class="age-badge b30">신혼 필수</span></div>
+                <h3 class="ranking-product-name">발뮤다 더 토스터 K05B 스팀 감성 미니오븐</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (신혼부부 브런치 필수템)</span>
+                  <span>• 5cc 스팀 마법 겉바속촉 빵맛</span>
+                  <span>• 세련된 주방 인테리어 오브제</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">299,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="발뮤다 토스터">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 12위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">12</div>
+              <div class="ranking-icon">☕</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">주방가전 · 에스프레소머신 <span class="age-badge b30">홈카페 1위</span></div>
+                <h3 class="ranking-product-name">브레빌 바리스타 익스프레스 커피머신 BES870</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (홈카페 끝판왕 머신)</span>
+                  <span>• 15바 이탈리아 펌프 & 내장 그라인더</span>
+                  <span>• 전문 바리스타 마이크로 밀크폼</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">1,080,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="브레빌 커피머신">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 13위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">13</div>
+              <div class="ranking-icon">🍽️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">생활 · 식기세척기세제 <span class="age-badge b30">살림 1위</span></div>
+                <h3 class="ranking-product-name">피니시 얼티밋 올인원 식기세척기 탭 세제 80개입</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (식세기 이모님 필수 짝꿍)</span>
+                  <span>• 찌든 때/기름기 완벽 분해</span>
+                  <span>• 린스 포함 올인원 물얼룩 방지</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">29,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="피니시 식세기세제">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 14위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">14</div>
+              <div class="ranking-icon">🍳</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">주방가전 · 멀티오븐 <span class="age-badge b30">맞벌이 필수</span></div>
+                <h3 class="ranking-product-name">삼성 비스포크 큐커 22L 글램화이트 멀티오븐</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (맞벌이 4 in 1 간편조리)</span>
+                  <span>• 그릴, 에어프라이어, 전자레인지, 토스터</span>
+                  <span>• 스마트싱스 밀키트 바코드 자동조리</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">289,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="삼성 큐커">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 15위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">15</div>
+              <div class="ranking-icon">☕</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">주방가전 · 캡슐머신 <span class="age-badge b30">감성 홈카페</span></div>
+                <h3 class="ranking-product-name">일리(illy) 프란시스 Y3.3 캡슐 커피머신 화이트</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (30대 감성 홈카페 원픽)</span>
+                  <span>• 컴팩트한 슬림 디자인 & 이탈리아 에스프레소</span>
+                  <span>• 19바 고압 추출 진한 크레마</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">129,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="일리 커피머신">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 16위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">16</div>
+              <div class="ranking-icon">🧴</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">헤어케어 · 프리미엄샴푸 <span class="age-badge b30">두피 케어</span></div>
+                <h3 class="ranking-product-name">아베다 로즈마리 민트 퓨리파잉 샴푸 대용량 1000ml</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (지친 두피 쿨링 정화 샴푸)</span>
+                  <span>• 유기농 로즈마리와 페퍼민트 오일</span>
+                  <span>• 실리콘 프리 자연유래 세정</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">68,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="아베다 샴푸">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 17위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">17</div>
+              <div class="ranking-icon">🧹</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">생활가전 · 무선청소기 <span class="age-badge b30">육아 청소</span></div>
+                <h3 class="ranking-product-name">삼성 비스포크 제트 슬림 무선청소기 청정스테이션</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (먼지날림 없는 자동 먼지비움)</span>
+                  <span>• 220W 강력한 초경량 흡입력</span>
+                  <span>• 99.999% 미세먼지 배출 차단</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">589,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="비스포크 제트">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 18위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">18</div>
+              <div class="ranking-icon">🪥</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">구강위생 · 모닝치약 <span class="age-badge b30">구강케어</span></div>
+                <h3 class="ranking-product-name">덴티스테 플러스화이트 나이트타임 튜브 치약 160g 3개</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (아침 입냄새 완벽 차단)</span>
+                  <span>• 18가지 자연유래 허브 추출물</span>
+                  <span>• 입마름 방지 수면 케어</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">23,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="덴티스테 치약">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 19위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">19</div>
+              <div class="ranking-icon">🕯️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">인테리어 · 초음파가습기 <span class="age-badge b30">수면 힐링</span></div>
+                <h3 class="ranking-product-name">무인양품 초음파 아로마 디퓨저 대용량 (LED 간접조명)</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (침실 힐링 수면 가습기)</span>
+                  <span>• 초음파 진동 미세 안개 분무</span>
+                  <span>• 2단계 은은한 웜톤 간접등</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">79,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="무인양품 디퓨저">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 20위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">20</div>
+              <div class="ranking-icon">🌭</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">식품/간식 · 아이들핫도그 <span class="age-badge b30">아이 간식</span></div>
+                <h3 class="ranking-product-name">풀무원 올바른 핫도그 400g x 3봉 묶음 (로켓프레시)</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (아이들 영양간식 1위)</span>
+                  <span>• 발색제 무첨가 건강한 소시지</span>
+                  <span>• 찹쌀가루 바삭 쫄깃 반죽</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">19,800원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="풀무원 핫도그">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- [age40-panel] -->
+        <section id="age40-panel" class="tab-content-panel">
+\n          <div class="age-summary-box" style="border-left: 5px solid #2563eb;">\n            <div class="age-summary-icon">🚗</div>\n            <div class="age-summary-text">\n              <h4>40대 실시간 소비 키워드: #가족건강식품 #차량용품 #피로개선 #주말레저골프</h4>\n              <p>직장과 가정의 든든한 버팀목! 홍삼과 오메가3 등 피로회복제, 드라이브 및 차량 필수템, 레저용품이 1위를 다툽니다.</p>\n            </div>\n          </div>\n\n          <div class="ranking-list">\n            <!-- 1위 -->\n            <div class="ranking-item-card" style="border-left: 4px solid #2563eb;">\n              <div class="ranking-pos top1">1</div>\n              <div class="ranking-icon">🍷</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">건강기능식품 · 홍삼 <span class="age-badge b40">40대 1위</span></div>\n                <h3 class="ranking-product-name">정관장 홍삼정 에브리타임 10ml x 30포 (직장인 피로개선)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (40대 면역력/피로 1픽)</span>\n                  <span>• 6년근 100% 홍삼농축액</span>\n                  <span>• 간편 스틱 파우치</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">84,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="정관장 에브리타임">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 2위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos top2">2</div>\n              <div class="ranking-icon">🚗</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">자동차 · 모빌리티 <span class="age-badge b40">40대 2위</span></div>\n                <h3 class="ranking-product-name">신지모루 M도파민 15W 맥세이프 차량용 고속 무선충전 거치대</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (방지턱 흔들림 방지)</span>\n                  <span>• 네오디뮴 강력 자력</span>\n                  <span>• 스마트 쿨링 IC칩</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">29,800원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="신지모루 차량용 거치대">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 3위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos top3">3</div>\n              <div class="ranking-icon">📺</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">스마트가전 · 스크린 <span class="age-badge b40">40대 3위</span></div>\n                <h3 class="ranking-product-name">LG 스탠바이미 27인치 FHD 무선 프라이빗 스마트 스크린 27ART10</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (온가족 침실/주방 만능)</span>\n                  <span>• 무선 배터리 내장 무빙휠</span>\n                  <span>• 터치스크린 & OTT 앱</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">899,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="LG 스탠바이미">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 4위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">4</div>\n              <div class="ranking-icon">🐟</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">건강식품 · 혈행개선</div>\n                <h3 class="ranking-product-name">종근당건강 프로메가 알티지 오메가3 듀얼 60캡슐 x 6박스 (6개월분)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (혈행/혈중 중성지질 개선)</span>\n                  <span>• 흡수율 높은 rTG형 오메가3</span>\n                  <span>• 비린내 없는 장용성 캡슐</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">46,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="프로메가 알티지 오메가3">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 5위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">5</div>\n              <div class="ranking-icon">🏌️</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">스포츠 · 골프레저</div>\n                <h3 class="ranking-product-name">테일러메이드 2024 Qi10 드라이버 10.5도 후지쿠라 샤프트</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (40대 주말골퍼 선호도 1위)</span>\n                  <span>• 10K 관성모멘트 압도적 관용성</span>\n                  <span>• 카본 트위스트 페이스</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">680,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="테일러메이드 Qi10">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 6위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">6</div>\n              <div class="ranking-icon">🔪</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">주방명품 · 조리도구</div>\n                <h3 class="ranking-product-name">독일 헹켈 트윈 프로페셔널 칼블럭 6종 세트 (신세계백화점 정품)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (독일 특수 스테인리스)</span>\n                  <span>• 절삭력과 인체공학 핸들</span>\n                  <span>• 너도밤나무 고급 블록</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">179,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="헹켈 칼세트">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 7위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">7</div>\n              <div class="ranking-icon">💨</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">자동차 · 세차관리</div>\n                <h3 class="ranking-product-name">초강력 무선 터보 에어건 & 청소기 2in1 130,000RPM 풀세트</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (세차 물기제거 / 실내먼지)</span>\n                  <span>• 강력 브러시리스 모터</span>\n                  <span>• 3단 풍속 조절</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">42,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="차량용 무선 에어건">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 8위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">8</div>\n              <div class="ranking-icon">🧴</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">생활 · 대용량세제</div>\n                <h3 class="ranking-product-name">다우니 엑스퍼트 실내건조 초고농축 세탁세제 2.8L x 4개</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (장마철 빨래 냄새 완벽 차단)</span>\n                  <span>• 딥클린 세정력</span>\n                  <span>• 프레시 클린 향</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">38,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="다우니 실내건조 세제">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 9위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">9</div>\n              <div class="ranking-icon">🏕️</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">레저 · 캠핑용품</div>\n                <h3 class="ranking-product-name">에코플로우 리버2 맥스 캠핑용 대용량 파워뱅크 512Wh LiFePO4</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (가족 캠핑/차박 필수)</span>\n                  <span>• 60분 초고속 완충</span>\n                  <span>• 3,000회 이상 긴 수명</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">489,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="캠핑 파워뱅크">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 10위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">10</div>\n              <div class="ranking-icon">🛡️</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">가전소모품 · 케어</div>\n                <h3 class="ranking-product-name">H13 등급 정품 호환 공기청정기 항균 탈취 복합필터 세트</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (미세먼지/유해가스 차단)</span>\n                  <span>• 99.97% 초미세먼지 포집</span>\n                  <span>• 숯 활성탄 냄새제거</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">22,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="공기청정기 필터">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n                      <!-- 11위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">11</div>
+              <div class="ranking-icon">🧳</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">패션잡화 · 여행캐리어 <span class="age-badge b40">가족여행</span></div>
+                <h3 class="ranking-product-name">쌤소나이트 에보아(EVOA) 스피너 하드 캐리어 28인치</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (가족 해외여행 명품 캐리어)</span>
+                  <span>• Aero-Trac 충격흡수 더블 휠</span>
+                  <span>• 스크래치 방지 브러쉬드 PC 소재</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">340,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="쌤소나이트 캐리어">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 12위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">12</div>
+              <div class="ranking-icon">🥩</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">주방가전 · 스마트그릴 <span class="age-badge b40">패밀리 주방</span></div>
+                <h3 class="ranking-product-name">테팔 옵티그릴 플러스 스마트 양면 전기그릴</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (가족 고기파티 필수템)</span>
+                  <span>• 고기 두께 자동 감지 굽기 조절</span>
+                  <span>• 연기와 기름 튐 없는 안심 구조</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">159,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="테팔 옵티그릴">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 13위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">13</div>
+              <div class="ranking-icon">⛺</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">아웃도어 · 캠핑왜건 <span class="age-badge b40">아웃도어</span></div>
+                <h3 class="ranking-product-name">콜맨 아웃도어 접이식 대용량 캠핑 왜건 카트</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (캠핑/피크닉 짐운반 1위)</span>
+                  <span>• 내하중 100kg 대용량 수납</span>
+                  <span>• 원액션 간편 폴딩 & 타이어 브레이크</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">139,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="콜맨 캠핑왜건">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 14위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">14</div>
+              <div class="ranking-icon">💨</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">생활가전 · 프리미엄청소기 <span class="age-badge b40">프리미엄</span></div>
+                <h3 class="ranking-product-name">다이슨 V12 디텍트 슬림 플러피 무선청소기</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (바닥 먼지 레이저 시각화)</span>
+                  <span>• 2.2kg 초경량 원터치 전원버튼</span>
+                  <span>• 피에조 센서 흡입력 자동 조절</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">780,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="다이슨 V12">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 15위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">15</div>
+              <div class="ranking-icon">💊</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강식품 · 프롤린유산균 <span class="age-badge b40">온가족 유산균</span></div>
+                <h3 class="ranking-product-name">종근당건강 락토핏 코어 생유산균 60포 x 3통 세트</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (온가족 장건강 강화 버전)</span>
+                  <span>• 코어 프롤린 공법 균주 생존력 강화</span>
+                  <span>• 아연 함유 정상적 면역기능</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">54,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="락토핏 코어">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 16위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">16</div>
+              <div class="ranking-icon">🚗</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">자동차 · 하이브리드와이퍼 <span class="age-badge b40">안전운전</span></div>
+                <h3 class="ranking-product-name">불스원 레인OK 메탈 하이브리드 와이퍼 세트</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (장마철/폭우 시야확보 1위)</span>
+                  <span>• 4개 관절 메탈 프레임 밀착</span>
+                  <span>• 나노 블렌드 고무 소음 방지</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">26,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="불스원 와이퍼">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 17위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">17</div>
+              <div class="ranking-icon">🪒</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">생활가전 · 전기면도기 <span class="age-badge b40">남성 케어</span></div>
+                <h3 class="ranking-product-name">필립스 9000시리즈 스킨IQ 프리미엄 전기면도기</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (40대 남성 만족도 1위)</span>
+                  <span>• 72개 듀얼 스틸정밀 블레이드</span>
+                  <span>• 압력 컨트롤 센서로 피부 보호</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">269,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="필립스 9000 면도기">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 18위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">18</div>
+              <div class="ranking-icon">🔋</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강식품 · 피로회복 <span class="age-badge b40">활력 충전</span></div>
+                <h3 class="ranking-product-name">정관장 활기력 20ml x 30병 대용량 선물세트</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (야근/과로 직장인 활력 앰플)</span>
+                  <span>• 6년근 홍삼농축액과 생강, 대추</span>
+                  <span>• 휴대 간편 1일 1병 원샷</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">79,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="정관장 활기력">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 19위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">19</div>
+              <div class="ranking-icon">🧻</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">생필품 · 키친타월 <span class="age-badge b40">주방 생필품</span></div>
+                <h3 class="ranking-product-name">유한킴벌리 크리넥스 안심 3겹 키친타월 120매 x 8롤</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (주방 기름기/수분 흡수 1위)</span>
+                  <span>• 100% 천연펄프 무형광 무색무향</span>
+                  <span>• 물에 젖어도 찢어지지 않는 도톰함</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">13,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="크리넥스 키친타월">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 20위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">20</div>
+              <div class="ranking-icon">🥩</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">식품/밀키트 · 반찬 <span class="age-badge b40">가족 밥상</span></div>
+                <h3 class="ranking-product-name">CJ 비비고 남도 떡갈비 450g x 3봉 번들</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (가족 저녁 밥도둑 반찬 1위)</span>
+                  <span>• 굵게 썬 국내산 돼지고기 직화구이</span>
+                  <span>• 달콤 짭조름한 특제 양념 소스</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">19,800원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="비비고 떡갈비">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- [age50-panel] -->
+        <section id="age50-panel" class="tab-content-panel">
+\n          <div class="age-summary-box" style="border-left: 5px solid #d97706;">\n            <div class="age-summary-icon">🌿</div>\n            <div class="age-summary-text">\n              <h4>50대 실시간 소비 키워드: #관절건강 #온열안마기 #프리미엄아웃도어 #명품주방</h4>\n              <p>활력 넘치는 액티브 중년! 관절과 혈관 건강 보조제, 뭉친 목 어깨를 풀어주는 온열 마사지기, 고품질 아웃도어가 인기입니다.</p>\n            </div>\n          </div>\n\n          <div class="ranking-list">\n            <!-- 1위 -->\n            <div class="ranking-item-card" style="border-left: 4px solid #d97706;">\n              <div class="ranking-pos top1">1</div>\n              <div class="ranking-icon">💊</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">건강식품 · 유산균 <span class="age-badge b50">50대 1위</span></div>\n                <h3 class="ranking-product-name">락토핏 생유산균 골드 50포 x 3통 (온가족 장건강 1위)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (50대 재구매율 압도적 1위)</span>\n                  <span>• 10억 CFU 생유산균 보장</span>\n                  <span>• 신바이오틱스 포뮬러</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">36,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="락토핏 유산균">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 2위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos top2">2</div>\n              <div class="ranking-icon">💆</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">건강가전 · 마사지 <span class="age-badge b50">50대 2위</span></div>\n                <h3 class="ranking-product-name">풀리오 무선 목 어깨 온열 롤링 마사지기 (홈쇼핑 대히트)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (승모근/목 뻐근함 해소)</span>\n                  <span>• 4D 사람 손길 롤링 주무름</span>\n                  <span>• 2단 온열 찜질 기능</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">79,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="풀리오 목어깨 마사지기">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 3위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos top3">3</div>\n              <div class="ranking-icon">🦴</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">건강식품 · 관절연골 <span class="age-badge b50">50대 3위</span></div>\n                <h3 class="ranking-product-name">종근당건강 천관보 우슬 관절 MSM 식이유황 60포</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (계단 오르내리기 편안함)</span>\n                  <span>• 식약처 기능성 인정 원료</span>\n                  <span>• 마시는 액상형 빠른 흡수</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">159,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="관절 영양제 MSM">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 4위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">4</div>\n              <div class="ranking-icon">🧥</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">아웃도어 · 의류</div>\n                <h3 class="ranking-product-name">노스페이스 고어텍스 방풍 투습 경량 마운틴 자켓</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (주말 등산/산책 최적)</span>\n                  <span>• 완벽 방수 및 땀배출</span>\n                  <span>• 고급스러운 핏</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">189,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="노스페이스 바람막이">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 5위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">5</div>\n              <div class="ranking-icon">🍲</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">주방명품 · 냄비</div>\n                <h3 class="ranking-product-name">독일 휘슬러 비타빗 프리미엄 압력솥 4.5L (신세계 정품)</h3>\n                <div class="ranking-features">\n                  <span>★ 5.0 (찰진 밥맛의 종결자)</span>\n                  <span>• 무압/1단/2단/3단 압력조절</span>\n                  <span>• 3중 쿡스타 바닥 설계</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">340,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="휘슬러 압력솥">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 6위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">6</div>\n              <div class="ranking-icon">👁️</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">건강식품 · 눈건강</div>\n                <h3 class="ranking-product-name">안국건강 아이원 루테인 지아잔틴 미니 60캡슐 x 3박스</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (스마트폰 침침함 개선)</span>\n                  <span>• 황반 중심과 주변부 케어</span>\n                  <span>• 목넘김 편한 초소형 캡슐</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">35,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="루테인 지아잔틴">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 7위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">7</div>\n              <div class="ranking-icon">👟</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">패션잡화 · 워킹화</div>\n                <h3 class="ranking-product-name">스케쳐스 고워크 7 발편한 아치핏 쿠션 슬립온 워킹화</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (오래 걸어도 발바닥 통증 제로)</span>\n                  <span>• 족부 전문의 설계 아치 지지</span>\n                  <span>• 끈 없는 편리한 착화</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">89,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="스케쳐스 고워크">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 8위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">8</div>\n              <div class="ranking-icon">📻</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">디지털 · 효도음향</div>\n                <h3 class="ranking-product-name">어르신 휴대용 효도 라디오 트로트 명곡 2,000곡 SD카드 포함</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (큰 글씨 한글 액정)</span>\n                  <span>• 숫자 키패드 원터치 선곡</span>\n                  <span>• 선명하고 큰 외장 스피커</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">34,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="효도라디오">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 9위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">9</div>\n              <div class="ranking-icon">🛏️</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">리빙 · 온열매트</div>\n                <h3 class="ranking-product-name">경동나비엔 프리미엄 카본 매트 온열침구 퀸 (저전자파 안심)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (물빼기 필요없는 카본 신소재)</span>\n                  <span>• 좌우 분리 스마트 난방</span>\n                  <span>• 원단 세탁기 물세탁 가능</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">279,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="경동나비엔 카본매트">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 10위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">10</div>\n              <div class="ranking-icon">🍵</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">식품 · 전통차</div>\n                <h3 class="ranking-product-name">지리산 유기농 구기자 둥굴레 국산 전통 침출차 선물세트</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (구수하고 깊은 풍미)</span>\n                  <span>• 100% 국내산 무농약 인증</span>\n                  <span>• 삼각 티백 위생 포장</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">28,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="국산 구기자차">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n                      <!-- 11위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">11</div>
+              <div class="ranking-icon">⚡</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강가전 · 저주파마사지 <span class="age-badge b50">통증 완화</span></div>
+                <h3 class="ranking-product-name">클럭(Klug) 미니 저주파 마사지기S 본체+대왕패드 세트</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (결린 목/어깨/허리 직빵 지압)</span>
+                  <span>• 두드림, 주무름, 지압 5가지 모드</span>
+                  <span>• 무선 리모컨 원터치 조작</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">69,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="클럭 마사지기">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 12위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">12</div>
+              <div class="ranking-icon">🍚</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">주방가전 · IH압력밥솥 <span class="age-badge b50">주방 1위</span></div>
+                <h3 class="ranking-product-name">쿠쿠 6인용 트윈프레셔 IH 전기압력밥솥 메탈릭</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (건강 잡곡밥 고화력 밥맛 1위)</span>
+                  <span>• 2기압 초고압으로 찰진 현미잡곡밥</span>
+                  <span>• 풀스텐 분리형 커버 간편 세척</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">219,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="쿠쿠 6인용 밥솥">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 13위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">13</div>
+              <div class="ranking-icon">🦴</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강식품 · 관절MSM <span class="age-badge b50">관절 건강</span></div>
+                <h3 class="ranking-product-name">종근당 관절엔 MSM 프리미엄 식이유황 120정 (2개월분)</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (무릎 관절/연골 불편함 개선)</span>
+                  <span>• 순도 99.8% 식약처 인증 MSM 1,500mg</span>
+                  <span>• 비타민D 복합 함유 골다공증 예방</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">28,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="관절엔 MSM">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 14위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">14</div>
+              <div class="ranking-icon">🛋️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">가구 · 리클라이너소파 <span class="age-badge b50">거실 힐링</span></div>
+                <h3 class="ranking-product-name">한샘 무빙 프리미엄 1인용 천연가죽 전동 리클라이너</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (거실 휴식 힐링 1위 소파)</span>
+                  <span>• 독일 OKIN 모터 초저소음 각도조절</span>
+                  <span>• 최고급 이태리 천연 황소 면피 가죽</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">480,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="한샘 리클라이너">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 15위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">15</div>
+              <div class="ranking-icon">🩺</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">의료기기 · 전자혈압계 <span class="age-badge b50">혈압 케어</span></div>
+                <h3 class="ranking-product-name">오므론 자동 전자 혈압계 HEM-7121 (가정용)</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (부모님 고혈압 관리 필수템)</span>
+                  <span>• 원터치 자동 가압 측정 기술</span>
+                  <span>• 부정맥/불규칙 맥파 감지 기능</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">68,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="오므론 혈압계">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 16위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">16</div>
+              <div class="ranking-icon">🍊</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강식품 · 메가도스C <span class="age-badge b50">항산화 1위</span></div>
+                <h3 class="ranking-product-name">고려은단 메가도스C 3000 비타민C 분말 100포</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (50대 항산화 메가도스 요법)</span>
+                  <span>• 영국산 프리미엄 100% 비타민C 3,000mg</span>
+                  <span>• 피로 회복과 세포 노화 방지</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">36,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="고려은단 메가도스">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 17위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">17</div>
+              <div class="ranking-icon">💆</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강가전 · 온열베개 <span class="age-badge b50">숙면 지압</span></div>
+                <h3 class="ranking-product-name">제스파 온열 목어깨 지압 마사지베개 쿠션</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (누워서 받는 목 경추 지압)</span>
+                  <span>• 3D 입체 지압볼 회전 안마</span>
+                  <span>• 따뜻한 온열 찜질로 긴장 완화</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">59,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="온열 마사지베개">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 18위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">18</div>
+              <div class="ranking-icon">🍵</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">식품/음료 · 전통차 <span class="age-badge b50">건강차</span></div>
+                <h3 class="ranking-product-name">동원 보성녹차 500ml x 24페트 (무설탕 0kcal)</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (콜레스테롤/혈당 관리 건강음료)</span>
+                  <span>• 보성 찻잎 저온 추출 떫지 않은 구수함</span>
+                  <span>• 항산화 카테킨 성분 풍부</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">16,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="보성녹차">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 19위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">19</div>
+              <div class="ranking-icon">🦶</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강가전 · 각탕기 <span class="age-badge b50">혈액순환</span></div>
+                <h3 class="ranking-product-name">편백나무 피톤치드 원적외선 건식 족욕기 각탕기</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (혈액순환/수족냉증 특효)</span>
+                  <span>• 물 없이 옷 입은 채로 즐기는 반신욕</span>
+                  <span>• 천연 편백 피톤치드 은은한 향기</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">159,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="건식 족욕기">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 20위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">20</div>
+              <div class="ranking-icon">🥦</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강식품 · 녹즙생채 <span class="age-badge b50">혈관 건강</span></div>
+                <h3 class="ranking-product-name">풀무원 유기농 케일 셀러리 신선 착즙 녹즙 30병</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (매일 아침 혈관 정화 루틴)</span>
+                  <span>• 물 타지 않은 100% 생채소 착즙</span>
+                  <span>• 아침 현관 보랭가방 매일 신선배송</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">68,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="풀무원 녹즙">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- [age60-panel] -->
+        <section id="age60-panel" class="tab-content-panel">
+\n          <div class="age-summary-box" style="border-left: 5px solid #e11d48;">\n            <div class="age-summary-icon">🚶</div>\n            <div class="age-summary-text">\n              <h4>60대 실시간 소비 키워드: #관절연골케어 #혈당혈압관리 #발편한효도화 #무릎마사지</h4>\n              <p>건강하고 활기찬 은퇴 라이프! 관절 부담을 줄여주는 편안한 보행 용품과 혈당 관리 기기, 효도 가전이 대세입니다.</p>\n            </div>\n          </div>\n\n          <div class="ranking-list">\n            <!-- 1위 -->\n            <div class="ranking-item-card" style="border-left: 4px solid #e11d48;">\n              <div class="ranking-pos top1">1</div>\n              <div class="ranking-icon">🦴</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">건강식품 · 관절케어 <span class="age-badge b60">60대 1위</span></div>\n                <h3 class="ranking-product-name">동진제약 호관원 프리미엄 골드 MSM 30포 x 2박스 (2개월분)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (60대 관절 불편 완화 1위)</span>\n                  <span>• 식약처 기능성 인정 MSM 1,500mg</span>\n                  <span>• 35가지 한방 보약 부원료</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">298,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="호관원 프리미엄">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 2위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos top2">2</div>\n              <div class="ranking-icon">🩸</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">의료기기 · 혈당측정 <span class="age-badge b60">60대 2위</span></div>\n                <h3 class="ranking-product-name">아큐첵 가이드 혈당측정기 풀세트 (시험지 100매 + 채혈침)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (저통증 안심 채혈)</span>\n                  <span>• 4초 초고속 정확도 측정</span>\n                  <span>• 시험지 분출 버튼 위생적</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">42,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="아큐첵 혈당측정기">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 3위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos top3">3</div>\n              <div class="ranking-icon">🦯</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">보행안전 · 아웃도어 <span class="age-badge b60">60대 3위</span></div>\n                <h3 class="ranking-product-name">초경량 4단 안티쇼크 알루미늄 안전 등산스틱 지팡이 (2개 세트)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (무릎 하중 30% 경감)</span>\n                  <span>• 충격 흡수 스프링 내장</span>\n                  <span>• 미끄럼 방지 고무 패킹</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">29,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="등산스틱 지팡이">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 4위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">4</div>\n              <div class="ranking-icon">🦵</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">건강가전 · 온열찜질</div>\n                <h3 class="ranking-product-name">무릎 관절 온열 에어 공기압 마사지기 무선 충전식</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (시린 무릎 따뜻하게 이완)</span>\n                  <span>• 원적외선 온열 & 에어 지압</span>\n                  <span>• 착용 후 자유로운 이동</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">68,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="무릎 마사지기">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 5위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">5</div>\n              <div class="ranking-icon">👂</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">의료보조 · 보청기기</div>\n                <h3 class="ranking-product-name">어르신용 초소형 귓속형 디지털 충전식 음성증폭기 (양이 세트)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.7 (TV 소리 뚜렷하게 청취)</span>\n                  <span>• 피드백 삐-소리 방지 회로</span>\n                  <span>• 보관 케이스 자동 충전</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">128,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="디지털 음성증폭기">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 6위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">6</div>\n              <div class="ranking-icon">🛁</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">욕실안전 · 낙상방지</div>\n                <h3 class="ranking-product-name">초강력 흡착식 욕실 안전 손잡이 + 미끄럼 방지 논슬립 매트</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (낙상 사고 사전 예방)</span>\n                  <span>• 타공 없이 벽면 완벽 밀착</span>\n                  <span>• 하중 100kg 안심 지지</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">24,500원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="욕실 안전손잡이">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 7위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">7</div>\n              <div class="ranking-icon">🍷</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">건강식품 · 보양식</div>\n                <h3 class="ranking-product-name">농협홍삼 한삼인 6년근 발효홍삼 순액 70ml x 30포</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (사포닌 체내 흡수율 극대화)</span>\n                  <span>• 100% 국산 6년근 홍삼</span>\n                  <span>• 부드럽고 진한 맛</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">59,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="한삼인 홍삼순액">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 8위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">8</div>\n              <div class="ranking-icon">👟</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">시니어패션 · 효도화</div>\n                <h3 class="ranking-product-name">프로스펙스 발볼 넓은 논슬립 다이얼 보행 효도 신발</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (허리 굽히지 않는 다이얼 조절)</span>\n                  <span>• 빗길/빙판 미끄럼 방지 바닥</span>\n                  <span>• 무지외반증 안심 광폭 설계</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">79,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="부모님 효도화">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 9위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">9</div>\n              <div class="ranking-icon">💺</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">건강가전 · 안마의자</div>\n                <h3 class="ranking-product-name">바디프랜드 레그넘 안마의자 온열 롤링 전신 마사지</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (어버이날/환갑 효도선물 1픽)</span>\n                  <span>• 무중력 각도 요람 힐링</span>\n                  <span>• 척추 라인 맞춤 SL프레임</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">1,890,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="바디프랜드 안마의자">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 10위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">10</div>\n              <div class="ranking-icon">🌾</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">식품 · 건강양곡</div>\n                <h3 class="ranking-product-name">100% 국산 순수 찰 발아현미 10kg (당뇨/혈당 관리 밥상)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (소화가 잘되는 부드러운 현미)</span>\n                  <span>• 가바(GABA) 식이섬유 풍부</span>\n                  <span>• 최근 도정 신선 포장</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">33,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="국산 발아현미">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n                      <!-- 11위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">11</div>
+              <div class="ranking-icon">🦯</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">등산/아웃도어 · 등산스틱 <span class="age-badge b60">관절 보호</span></div>
+                <h3 class="ranking-product-name">레키(LEKI) 카본 FX 마키아토 노르딕 워킹폴 2단 세트</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (독일 명품 등산 관절 보호 1위)</span>
+                  <span>• 초경량 100% 카본 & 코르크 그립</span>
+                  <span>• 하산 시 무릎 하중 30% 완화</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">239,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="레키 등산스틱">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 12위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">12</div>
+              <div class="ranking-icon">⚡</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">의료기기 · 저주파온열 <span class="age-badge b60">신경통 완화</span></div>
+                <h3 class="ranking-product-name">오므론 저주파 온열 자극기 통증 완화 치료기 HV-F311</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (어르신 무릎/허리 신경통 치료)</span>
+                  <span>• 심부 온열 찜질 + 전기 저주파 복합</span>
+                  <span>• 물리치료실 지압 마사지 효과</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">139,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="오므론 통증치료기">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 13위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">13</div>
+              <div class="ranking-icon">🥛</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강식품 · 균형영양식 <span class="age-badge b60">식사대용 1위</span></div>
+                <h3 class="ranking-product-name">대상웰라이프 뉴케어 구수한맛 200ml x 30캔</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (시니어 균형 단백질 식사대용 1위)</span>
+                  <span>• 3대 영양소와 22가지 비타민 미네랄</span>
+                  <span>• 소화 잘 되는 부드러운 유동식</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">48,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="뉴케어 구수한맛">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 14위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">14</div>
+              <div class="ranking-icon">👁️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강가전 · 눈마사지기 <span class="age-badge b60">안구 피로</span></div>
+                <h3 class="ranking-product-name">제스파 아이힐 수면 공기압 온열 안구 마사지기</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (침침한 눈 피로 시원한 공기압 지압)</span>
+                  <span>• 42도 따뜻한 온열 찜질 & 블루투스 음악</span>
+                  <span>• 관자놀이 림프선 롤링 마사지</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">49,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="눈 마사지기">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 15위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">15</div>
+              <div class="ranking-icon">🛏️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">생활가전 · 온수매트 <span class="age-badge b60">효도 난방</span></div>
+                <h3 class="ranking-product-name">경동나비엔 프리미엄 온수매트 싱글/퀸 (초슬림 1mm)</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (전자파 걱정 없는 온돌 숙면)</span>
+                  <span>• 0.5도 정밀 좌우 분리난방</span>
+                  <span>• 스스로 살균하는 셀프 이온살균</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">289,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="경동나비엔 온수매트">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 16위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">16</div>
+              <div class="ranking-icon">🐐</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강식품 · 산양유단백질 <span class="age-badge b60">근력 강화</span></div>
+                <h3 class="ranking-product-name">일동후디스 하이뮨 프로틴 밸런스 분말 304g x 3캔</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (근감소증 예방 산양유 1위)</span>
+                  <span>• 프리미엄 산양유 복합 단백질</span>
+                  <span>• 장내 흡수 쉬운 저분자 콜라겐 함유</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">59,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="하이뮨 프로틴">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 17위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">17</div>
+              <div class="ranking-icon">👟</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">신발/패션 · 컴포트화 <span class="age-badge b60">발편한 신발</span></div>
+                <h3 class="ranking-product-name">프로스펙스 에너지 컴포트 발편한 어르신 보행화</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (발바닥 통증/족저근막염 완화)</span>
+                  <span>• 고탄력 쿠셔닝 아치 지지 인솔</span>
+                  <span>• 끈 대신 간편한 다이얼락 조임</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">69,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="프로스펙스 보행화">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 18위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">18</div>
+              <div class="ranking-icon">🐟</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">주방가전 · 멀티그릴 <span class="age-badge b60">주방 효도</span></div>
+                <h3 class="ranking-product-name">쿠첸 세라믹 프리미엄 양면 생선구이기 오븐</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (연기 냄새 잡는 생선구이)</span>
+                  <span>• 세라믹 필터 탈취 시스템</span>
+                  <span>• 뒤집지 않아도 노릇한 양면 열선</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">98,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="생선구이기">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 19위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">19</div>
+              <div class="ranking-icon">🍄</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강식품 · 차가버섯 <span class="age-badge b60">면역 강화</span></div>
+                <h3 class="ranking-product-name">상아제약 러시아산 차가버섯 100% 농축 분말 100g</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (시베리아 야생 차가버섯 추출)</span>
+                  <span>• 베타글루칸과 크로모겐 콤플렉스</span>
+                  <span>• 따뜻한 물에 타먹는 면역 티</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">39,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="차가버섯 분말">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 20위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">20</div>
+              <div class="ranking-icon">🦶</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강가전 · 발마사지기 <span class="age-badge b60">혈액순환 1위</span></div>
+                <h3 class="ranking-product-name">메디니스 닥터풋 공기압 롤링 온열 발마사지기</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (발바닥 용천혈 지압 1위)</span>
+                  <span>• 발등 공기압 꽈악 조임 & 3D 롤러</span>
+                  <span>• 부모님 다리 부기 혈액순환 케어</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">119,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="발마사지기">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- [age70-panel] -->
+        <section id="age70-panel" class="tab-content-panel">
+\n          <div class="age-summary-box" style="border-left: 5px solid #4f46e5;">\n            <div class="age-summary-icon">❤️</div>\n            <div class="age-summary-text">\n              <h4>70대 실시간 소비 키워드: #실버안심케어 #균형영양식 #실버카보행차 #낙상방지온열</h4>\n              <p>부모님의 건강과 안전을 지켜드리는 효도 실버케어! 균형 잡힌 영양음료와 보행 보조기, 안심 안전용품이 1위입니다.</p>\n            </div>\n          </div>\n\n          <div class="ranking-list">\n            <!-- 1위 -->\n            <div class="ranking-item-card" style="border-left: 4px solid #4f46e5;">\n              <div class="ranking-pos top1">1</div>\n              <div class="ranking-icon">🛒</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">실버용품 · 보행보조 <span class="age-badge b70">70대 1위</span></div>\n                <h3 class="ranking-product-name">알루미늄 접이식 어르신 실버카 보행 보조차 (의자겸용 장바구니)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (시장/병원 나들이 필수품)</span>\n                  <span>• 핸드 브레이크 & 주차 잠금</span>\n                  <span>• 편안한 휴식 쿠션 시트</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">119,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="어르신 실버카">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 2위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos top2">2</div>\n              <div class="ranking-icon">🥛</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">특수의료용 · 영양식 <span class="age-badge b70">70대 2위</span></div>\n                <h3 class="ranking-product-name">대상웰라이프 뉴케어 구수한맛 200ml x 30팩 (완전균형영양식)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (입맛 없으신 부모님 식사대용)</span>\n                  <span>• 3대 영양소와 22가지 비타민</span>\n                  <span>• 소화 흡수 쉬운 맛있는 두유맛</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">46,500원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="뉴케어 구수한맛">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 3위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos top3">3</div>\n              <div class="ranking-icon">💓</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">의료기기 · 혈압측정 <span class="age-badge b70">70대 3위</span></div>\n                <h3 class="ranking-product-name">오므론 자동 전자 혈압계 HEM-7121 (큰 글씨 원터치)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (병원 납품 1위 브랜드)</span>\n                  <span>• 버튼 하나로 자동 가압 측정</span>\n                  <span>• 불규칙 맥파 감지 경고</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">62,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="오므론 혈압계">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 4위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">4</div>\n              <div class="ranking-icon">🛏️</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">침실안전 · 낙상방지</div>\n                <h3 class="ranking-product-name">가정용 침대 안전 사이드 가드 난간 (일어나기 손잡이 겸용)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (자다가 떨어지는 사고 방지)</span>\n                  <span>• 매트리스 하부 안심 고정</span>\n                  <span>• 수납 파우치 내장</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">38,000원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="침대 안전가드">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 5위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">5</div>\n              <div class="ranking-icon">🔥</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">건강가전 · 온열찜질</div>\n                <h3 class="ranking-product-name">참숯 황토 원적외선 어깨/허리 온열 찜질기 대형</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (뼛속까지 시원한 온열감)</span>\n                  <span>• 4단 온도 조절 & 자동 오프</span>\n                  <span>• 천연 황토 세라믹 볼 내장</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">36,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="전기 찜질기">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 6위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">6</div>\n              <div class="ranking-icon">🩲</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">위생용품 · 시니어케어</div>\n                <h3 class="ranking-product-name">유한킴벌리 디펜드 스타일 안심 팬티 10매 x 4팩 (남/여)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (속옷처럼 편안하고 티나지 않음)</span>\n                  <span>• 3중 파워 흡수층 냄새 소취</span>\n                  <span>• 신축성 우수한 밴딩</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">35,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="디펜드 안심팬티">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 7위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">7</div>\n              <div class="ranking-icon">🥣</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">식품 · 프리미엄케어</div>\n                <h3 class="ranking-product-name">본죽 보양 전복죽 & 쇠고기버섯죽 파우치 450g x 6봉</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (소화 잘되고 든든한 한끼)</span>\n                  <span>• 참기름과 전복 듬뿍 영양</span>\n                  <span>• 전자레인지 2분 조리</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">29,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="본죽 전복죽 파우치">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 8위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">8</div>\n              <div class="ranking-icon">💡</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">안전용품 · 센서조명</div>\n                <h3 class="ranking-product-name">어르신 야간 동작감지 무선 LED 센서등 충전식 3개 세트</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (화장실 가실 때 낙상 방지)</span>\n                  <span>• 사람 접근 시 자동 점등</span>\n                  <span>• 눈부심 없는 은은한 주백색</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">19,800원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="무선 센서등">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 9위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">9</div>\n              <div class="ranking-icon">🌲</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">침구 · 수면케어</div>\n                <h3 class="ranking-product-name">100% 국산 편백나무 피톤치드 경추 베개 (목/어깨 안심)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.8 (상쾌한 숲속 수면 힐링)</span>\n                  <span>• 순수 국내산 편백 큐브칩</span>\n                  <span>• 통풍 우수한 메쉬 커버</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">25,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="편백나무 베개">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n\n            <!-- 10위 -->\n            <div class="ranking-item-card">\n              <div class="ranking-pos normal">10</div>\n              <div class="ranking-icon">🚨</div>\n              <div class="ranking-details">\n                <div class="ranking-category-tag">안전 · 비상호출</div>\n                <h3 class="ranking-product-name">무선 비상 호출벨 어르신 호출기 세트 (송신기 2개 + 수신기 1개)</h3>\n                <div class="ranking-features">\n                  <span>★ 4.9 (목걸이형 방수 비상벨)</span>\n                  <span>• 방/화장실 100m 무선 전송</span>\n                  <span>• 선명한 벨소리와 LED 알림</span>\n                </div>\n              </div>\n              <div class="ranking-price-box">\n                <div class="ranking-price-label">실시간 최저가</div>\n                <div class="ranking-price-val">28,900원</div>\n              </div>\n              <button type="button" class="ranking-action-btn card-compare-btn" data-query="어르신 비상호출벨">\n                7대몰 가격비교 &rarr;\n              </button>\n            </div>\n                      <!-- 11위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">11</div>
+              <div class="ranking-icon">👁️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강식품 · 황반눈영양제 <span class="age-badge b70">노안 케어</span></div>
+                <h3 class="ranking-product-name">유유제약 올인원 루테인 지아잔틴 아스타잔틴 60캡슐</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (노안/황반색소 밀도 유지 1위)</span>
+                  <span>• 루테인지아잔틴 20% 황금비율</span>
+                  <span>• 아스타잔틴 눈 피로도 개선</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">32,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="루테인 지아잔틴">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 12위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">12</div>
+              <div class="ranking-icon">⏰</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">시니어케어 · 약달력알람 <span class="age-badge b70">복약 관리</span></div>
+                <h3 class="ranking-product-name">휴비딕 디지털 큰글씨 약복용 알람시계 온습도계</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (부모님 약복용 시간 잊지 않게)</span>
+                  <span>• 하루 4회 음성 및 화면 깜빡임 알림</span>
+                  <span>• 시원시원한 초대형 8인치 디스플레이</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">42,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="약복용 알람시계">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 13위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">13</div>
+              <div class="ranking-icon">🚽</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">안전용품 · 화장실손잡이 <span class="age-badge b70">낙상 방지</span></div>
+                <h3 class="ranking-product-name">케어웰 원터치 알루미늄 양변기 안전 손잡이 가드</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (어르신 욕실 낙상 사고 예방 1위)</span>
+                  <span>• 미끄럼 방지 그립 & 내하중 150kg</span>
+                  <span>• 변기 시공 없이 간편 클램프 고정</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">48,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="화장실 손잡이">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 14위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">14</div>
+              <div class="ranking-icon">🥤</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">건강식품 · 당뇨식단 <span class="age-badge b70">혈당 관리</span></div>
+                <h3 class="ranking-product-name">대상웰라이프 뉴케어 당플랜 호두맛 200ml x 30팩</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (당뇨 환자 공복 혈당 관리 1위)</span>
+                  <span>• D-말티톨 저당 설계 & 식이섬유 7g</span>
+                  <span>• 당뇨 환자를 위한 균형 영양 설계</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">54,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="뉴케어 당플랜">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 15위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">15</div>
+              <div class="ranking-icon">🧦</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">시니어의류 · 낙상방지양말 <span class="age-badge b70">실내 안전</span></div>
+                <h3 class="ranking-product-name">국산 어르신 실리콘 미끄럼 방지 덧신 양말 5켤레</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (실내 장판 미끄러짐 방지)</span>
+                  <span>• 발바닥 전면 허니콤 실리콘 도트</span>
+                  <span>• 조임 없는 편안한 순면 골지 밴드</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">14,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="미끄럼방지 양말">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 16위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">16</div>
+              <div class="ranking-icon">🥣</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">식품 · 연하도움식 <span class="age-badge b70">시니어 영양</span></div>
+                <h3 class="ranking-product-name">현대그린푸드 그리팅 부드러운 죽 10종 골라담기</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (삼킴 곤란 어르신 영양식)</span>
+                  <span>• 전복죽, 소고기죽, 삼계죽 등 부드러운 질감</span>
+                  <span>• 저염 조미 소화 편한 레시피</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">39,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="그리팅 영양죽">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 17위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">17</div>
+              <div class="ranking-icon">🦻</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">음향보조 · 무선보청기 <span class="age-badge b70">청력 보조</span></div>
+                <h3 class="ranking-product-name">스마트 충전식 디지털 소리증폭기 인이어 보청기</h3>
+                <div class="ranking-features">
+<span>★ 4.8 (TV소리/가족 대화 또렷하게)</span>
+                  <span>• 디지털 DSP 노이즈 캔슬링 칩셋</span>
+                  <span>• 티 나지 않는 스킨톤 초소형 디자인</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">89,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="소리증폭기">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 18위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">18</div>
+              <div class="ranking-icon">🛏️</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">효도가구 · 온열흙침대 <span class="age-badge b70">효도 침대</span></div>
+                <h3 class="ranking-product-name">장수돌침대 정품 프리미엄 황토 흙침대 싱글</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (대한민국 효도 침대 대명사)</span>
+                  <span>• 천연 생황토볼 원적외선 방출</span>
+                  <span>• 안심 차폐 전자파 완벽 차단</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">790,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="장수돌침대">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 19위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">19</div>
+              <div class="ranking-icon">🦯</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">보행보조 · 접이식지팡이 <span class="age-badge b70">보행 보조</span></div>
+                <h3 class="ranking-product-name">미르 4발 지지 자립형 LED 초경량 효도 지팡이</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (혼자서도 서있는 4발 바닥팁)</span>
+                  <span>• 어두운 밤길 밝혀주는 고휘도 LED 라이트</span>
+                  <span>• 4단 높낮이 조절 & 미끄럼 방지 손잡이</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">23,000원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="4발 지팡이">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+            <!-- 20위 -->
+            <div class="ranking-item-card">
+              <div class="ranking-pos top11_20">20</div>
+              <div class="ranking-icon">🥛</div>
+              <div class="ranking-details">
+                <div class="ranking-category-tag">유산균 · 시니어프로바이오틱스 <span class="age-badge b70">장건강 1위</span></div>
+                <h3 class="ranking-product-name">종근당 락토핏 생유산균 실버 골드 60포 x 2통</h3>
+                <div class="ranking-features">
+<span>★ 4.9 (어르신 연동운동 장건강 케어)</span>
+                  <span>• 장운동이 둔화된 70대 맞춤 균주 복합</span>
+                  <span>• 쾌변을 돕는 유익균 증식 보장</span>
+                </div>
+              </div>
+              <div class="ranking-price-box">
+                <div class="ranking-price-label">실시간 최저가</div>
+                <div class="ranking-price-val">32,900원</div>
+              </div>
+              <button type="button" class="ranking-action-btn card-compare-btn" data-query="락토핏 실버">
+                7대몰 가격비교 &rarr;
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- 우측 사이드바 -->
+      <aside class="sidebar">
+
+        <!-- 에디터 프로필 (E-E-A-T 신뢰도 강화) -->
+        <div class="widget">
+          <div class="author-profile">
+            <div class="author-avatar" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9);">👥</div>
+            <div class="author-name">연령별 소비 데이터 분석팀</div>
+            <div class="author-role">전 세대 라이프스타일 큐레이터</div>
+            <p class="author-bio">
+              0~9세 육아·키즈부터 70대 실버케어까지, 각 생애주기별 실제 결제 패턴과 리뷰를 분석하여 세대별 최적의 쇼핑 선택지를 제안합니다.
+            </p>
+            <div style="margin-top: 10px; font-size: 0.8rem; color: var(--text-muted);">
+              📧 공식 문의: <a href="mailto:rkstmtk@gmail.com" style="color: var(--primary-color); font-weight: 600;">rkstmtk@gmail.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 사이드바 광고 슬롯 -->
+        <div class="widget" style="padding: 10px;">
+          <div class="ad-slot sidebar-ad">
+            <span class="ad-label">스폰서 광고 (Sidebar Ad Slot)</span>
+            <p>구글 애드센스 사이드바 300x250 / 300x600 반응형 배너 광고 슬롯</p>
+          </div>
+        </div>
+
+        <!-- 세대별 소비 트렌드 퀵 요약 위젯 -->
+        <div class="widget">
+          <h3 class="widget-title">💡 세대별 핵심 소비 패턴</h3>
+          <ul class="popular-list" style="gap: 10px;">
+            <li class="popular-item" style="padding: 6px;">
+              <div>
+                <div style="font-weight: 800; font-size: 0.9rem; color: #f59e0b;">👶 0~9세: 안심 육아 &amp; 성장발달</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">유기농 기저귀, 수입 분유, 체온계, 감각 교구</div>
+              </div>
+            </li>
+            <li class="popular-item" style="padding: 6px;">
+              <div>
+                <div style="font-weight: 800; font-size: 0.9rem; color: #ec4899;">🎒 10대: 학습 효율 &amp; 스쿨라이프</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">스터디 플래너, 저소음 마우스, 틴트, 신학기 가방</div>
+              </div>
+            </li>
+            <li class="popular-item" style="padding: 6px;">
+              <div>
+                <div style="font-weight: 800; font-size: 0.9rem; color: #8b5cf6;">🎧 20대: 나를 위한 트렌드</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">음향기기, MZ 패션/뷰티, 1인 자취 가성비</div>
+              </div>
+            </li>
+            <li class="popular-item" style="padding: 6px;">
+              <div>
+                <div style="font-weight: 800; font-size: 0.9rem; color: #059669;">🍼 30대: 시간 절약 &amp; 스마트 육아</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">로봇청소기, 올스텐 조리, 쓱배송 밀키트</div>
+              </div>
+            </li>
+            <li class="popular-item" style="padding: 6px;">
+              <div>
+                <div style="font-weight: 800; font-size: 0.9rem; color: #2563eb;">🚗 40대: 가족 건강 &amp; 레저</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">정관장 홍삼, 맥세이프 차량용품, 주말 캠핑</div>
+              </div>
+            </li>
+            <li class="popular-item" style="padding: 6px;">
+              <div>
+                <div style="font-weight: 800; font-size: 0.9rem; color: #d97706;">🌿 50대: 활력 웰빙 &amp; 힐링</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">온열 마사지기, 관절 영양제, 아웃도어</div>
+              </div>
+            </li>
+            <li class="popular-item" style="padding: 6px;">
+              <div>
+                <div style="font-weight: 800; font-size: 0.9rem; color: #e11d48;">🚶 60대: 관절 안심 &amp; 효도</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">콘드로이친, 카본 등산스틱, 안심 혈압계</div>
+              </div>
+            </li>
+            <li class="popular-item" style="padding: 6px;">
+              <div>
+                <div style="font-weight: 800; font-size: 0.9rem; color: #4f46e5;">❤️ 70대: 실버케어 &amp; 건강측정</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted);">무채혈 혈당기, 보행 보조차, 온돌 찜질기</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 7대 쇼핑몰 랭킹 바로가기 배너 위젯 -->
+        <div class="widget" style="background: linear-gradient(135deg, #1e293b, #0f172a); color: white;">
+          <h3 style="font-size: 1.05rem; font-weight: 800; color: white; margin-bottom: 8px;">🏬 7대 쇼핑몰 실시간 랭킹</h3>
+          <p style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.45; margin-bottom: 14px;">
+            네이버쇼핑(👑), 쿠팡, SSG 신세계몰, 아마존, 알리, 오늘의집, G마켓 플랫폼별 실시간 TOP 20 순위를 확인하세요.
+          </p>
+          <a href="ranking.html" target="_blank" class="btn-primary" style="display: block; text-align: center; text-decoration: none; font-size: 0.85rem; padding: 10px;">
+            쇼핑몰별 실시간 TOP 20 &rarr;
+          </a>
+        </div>
+
+      </aside>
+    </div>
+
+    <!-- 하단 디스플레이 배너 광고 영역 -->
+    <div class="ad-slot-container" style="margin-top: 40px;">
+      <div class="ad-slot banner">
+        <span class="ad-label">광고 영역 (AdSense Bottom Banner)</span>
+        <p>구글 애드센스 하단 반응형 디스플레이 광고 영역</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 푸터 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>랭커의 쇼핑 (Ranker's Shopping)</h3>
+          <p>대한민국 7대 쇼핑몰 실시간 1위 랭킹과 0~9세부터 70대까지 전 세대 실시간 쇼핑 큐레이션을 제공합니다.</p>
+        </div>
+        <div class="footer-links">
+          <h4>카테고리</h4>
+          <ul>
+            <li><a href="ranking.html" target="_blank">🔥 7대 쇼핑몰 실시간 TOP 20</a></li>
+            <li><a href="age-ranking.html">👥 연령대별(0~9세~70대) TOP 20</a></li>
+            <li><a href="index.html">스마트 쇼핑 가이드</a></li>
+            <li><a href="index.html">가성비 핫딜 분석</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>법적 고지 &amp; 정책</h4>
+          <ul>
+            <li><a href="privacy.html">개인정보처리방침</a></li>
+            <li><a href="terms.html">이용약관 및 면책조항</a></li>
+            <li><a href="about.html">사이트 소개</a></li>
+            <li><a href="contact.html">문의하기</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 랭커의 쇼핑 (Ranker's Shopping). All rights reserved. 본 사이트는 공정거래위원회 지침을 준수합니다.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

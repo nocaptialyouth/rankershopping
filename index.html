@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>랭커의 쇼핑 (Ranker's Shopping) | 7대 쇼핑몰 실시간 랭킹 &amp; 종합 쇼핑 가이드</title>
+  <meta name="description" content="네이버쇼핑, 쿠팡, SSG 신세계몰, 아마존, 알리익스프레스, 오늘의집, G마켓 7대 쇼핑몰의 실시간 1~10위 전 카테고리 종합 인기 순위와 연령대별 랭킹 큐레이션을 제공합니다.">
+  <meta name="keywords" content="랭커의 쇼핑, 실시간 쇼핑 순위, 네이버쇼핑 베스트, 쿠팡 로켓배송 순위, SSG 신세계몰, 아마존 직구 랭킹, 알리익스프레스 특가, 오늘의집 리빙, 지마켓 슈퍼딜, 연령별 랭킹">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Open Graph (SNS 공유 및 검색엔진 최적화) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="랭커의 쇼핑 | 7대 쇼핑몰 실시간 랭킹 &amp; 스마트 쇼핑 가이드">
+  <meta property="og:description" content="실시간 1위 상품만 모아보는 대한민국 7대 쇼핑몰 종합 랭킹과 20~70대 연령별 쇼핑 가이드.">
+  <meta property="og:url" content="https://rankershopping.kr/">
+  
+  <!-- 구조화 데이터 마크업 (Google Rich Results SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "랭커의 쇼핑",
+    "alternateName": "Ranker's Shopping",
+    "url": "https://rankershopping.kr/",
+    "description": "네이버·쿠팡·SSG·아마존 등 7대 쇼핑몰 실시간 종합 순위 및 연령별 구매 가이드"
+  }
+  </script>
+
+  <!-- ========================================================
+       [구글 애드센스 코드 삽입 위치]
+       애드센스 웹사이트 신청 시 부여받은 자동 광고 코드를 바로 아래에 붙여넣으세요.
+       예시:
+       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+       ======================================================== -->
+</head>
+<body>
+
+  <!-- 상단 네비게이션 헤더 -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🏆</span>
+        <span>랭커의 쇼핑</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">홈</a></li>
+          <li><a href="ranking.html" target="_blank" class="nav-link" style="color: #ef4444; font-weight: 800;">🔥 실시간 랭킹</a></li>
+          <li><a href="age-ranking.html" target="_blank" class="nav-link" style="color: #2563eb; font-weight: 700;">👥 연령별 랭킹</a></li>
+          <li><a href="about.html" class="nav-link">소개</a></li>
+          <li><a href="contact.html" class="nav-link">문의하기</a></li>
+          <li><a href="privacy.html" class="nav-link">개인정보처리방침</a></li>
+          <li><a href="terms.html" class="nav-link">이용약관</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="age-ranking.html" target="_blank" class="search-btn" style="background: #eff6ff; color: #2563eb; border-color: #bfdbfe; font-weight: 700;">
+          👥 연령별 랭킹
+        </a>
+        <button class="menu-toggle" aria-label="메뉴 열기">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       [운영자 공지사항 바 - 손쉽게 변경 가능]
+       ======================================================== -->
+  <div class="notice-bar">
+    <div class="container notice-bar-inner">
+      <div class="notice-text">
+        <span class="notice-tag">📢 필독 공지</span>
+        <span>2026년 실시간 쇼핑 랭킹 센터 오픈! 네이버·쿠팡·SSG 신세계몰·아마존 등 7대 쇼핑몰 실시간 TOP 20 및 0~9세부터 70대까지 연령별 랭킹을 확인하세요.</span>
+        <a href="ranking.html" target="_blank" class="notice-link">7대 몰 랭킹 보러가기 &rarr;</a>
+      </div>
+      <div class="notice-date">업데이트: 2026.09.22</div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       [🔥 실시간 쇼핑 인기 검색어 & 핫딜 티커]
+       ======================================================== -->
+  <div class="trending-bar">
+    <div class="container trending-inner">
+      <span class="trending-badge">🔥 실시간 전분야 급상승 랭킹</span>
+      <div class="trending-keywords">
+        <span class="keyword-item" data-query="유산균"><span class="keyword-rank">1위</span> [식품] 락토핏 생유산균 <span class="rank-shift-tag up">▲2</span></span>
+        <span class="keyword-item" data-query="로봇청소기"><span class="keyword-rank">2위</span> [IT] 올인원 로봇청소기 <span class="rank-shift-tag hot">HOT</span></span>
+        <span class="keyword-item" data-query="차량용 거치대"><span class="keyword-rank">3위</span> [자동차] 맥세이프 차량거치대 <span class="rank-shift-tag up">▲1</span></span>
+        <span class="keyword-item" data-query="화장지"><span class="keyword-rank">4위</span> [생활] 크리넥스 3겹 화장지 <span class="rank-shift-tag same">-</span></span>
+        <span class="keyword-item" data-query="클렌징오일"><span class="keyword-rank">5위</span> [뷰티] 마녀공장 클렌징오일 <span class="rank-shift-tag new">NEW</span></span>
+      </div>
+      <div style="margin-left: auto; display: flex; gap: 12px; align-items: center; flex-shrink: 0;">
+        <a href="ranking.html" target="_blank" style="color: #ef4444; font-weight: 800; font-size: 0.8rem; text-decoration: underline;">
+          [7대몰 실시간 TOP 20 &rarr;]
+        </a>
+        <a href="age-ranking.html" target="_blank" style="color: #2563eb; font-weight: 800; font-size: 0.8rem; text-decoration: underline;">
+          [전 세대(0~9세~70대) TOP 20 &rarr;]
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 히어로 섹션 -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <span class="hero-tag">대한민국 7대 쇼핑몰 실시간 TOP 20 &amp; 0~9세부터 70대까지 랭킹 큐레이션</span>
+      <h1 class="hero-title">실시간 1위 상품만 모아보는<br>가장 똑똑한 쇼핑의 기준</h1>
+      <p class="hero-desc">네이버·쿠팡·SSG 신세계몰·아마존·알리·오늘의집·G마켓의 전 카테고리 실시간 TOP 20 순위와 팩트체크된 고품질 구매 가이드를 한곳에서 확인하세요.</p>
+      <div class="hero-search-wrapper">
+        <div class="hero-search-box">
+          <input type="text" id="siteSearchInput" class="hero-search-input" placeholder="🔍 찾으시는 상품명을 입력하세요 (예: 워치, 로봇청소기, 텀블러)">
+          <button type="button" id="siteSearchBtn" class="hero-search-btn">
+            <span>🚀 7대 몰 실시간 검색</span>
+          </button>
+        </div>
+        <div class="hero-quick-tags">
+          <span class="quick-tags-label">🔥 추천 검색:</span>
+          <button type="button" class="quick-tag-chip" data-query="워치">#스마트워치</button>
+          <button type="button" class="quick-tag-chip" data-query="로봇청소기">#로봇청소기</button>
+          <button type="button" class="quick-tag-chip" data-query="에어프라이어">#에어프라이어</button>
+          <button type="button" class="quick-tag-chip" data-query="텀블러">#스탠리텀블러</button>
+          <button type="button" class="quick-tag-chip" data-query="에어팟">#에어팟</button>
+          <button type="button" class="quick-tag-chip" data-query="영양제">#영양제</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 메인 레이아웃 (고객 구매 니즈 기반 최적화 순서) -->
+  <div class="container">
+    
+    <!-- ========================================================
+         [1순위 고객 니즈] 🔥 7대 쇼핑몰 & 연령별 랭킹 센터 바로가기 하이라이트 배너
+         ======================================================== -->
+    <div class="ranking-hero-banner" style="background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);">
+      <div class="ranking-banner-content">
+        <h2>🔥 7대 쇼핑몰 실시간 TOP 20 &amp; 👥 전 세대(0~9세~70대) 랭킹 센터</h2>
+        <p>지금 가장 많이 팔리는 상품은? 네이버·쿠팡·SSG 신세계몰·아마존 등 7대 몰 TOP 20 순위와 0~9세부터 70대까지 실시간 랭킹을 새 창에서 한눈에 비교</p>
+      </div>
+      <div class="ranking-banner-actions">
+        <a href="ranking.html" target="_blank" class="ranking-banner-btn primary">
+          <span>🏬 7대 몰 실시간 TOP 20 보러가기 ↗</span>
+        </a>
+        <a href="age-ranking.html" target="_blank" class="ranking-banner-btn secondary">
+          <span>👥 연령대별(0~9세부터 70대) 랭킹 보러가기 ↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         [2순위 고객 니즈] ⚡ 공식 특가 퀵 허브 배너 (7대 쇼핑몰)
+         소비자가 가장 신뢰하는 대한민국 7대 플랫폼 다이렉트 연결
+         ======================================================== -->
+    <section class="shopping-banner-section">
+      <div class="section-header" style="margin-bottom: 16px;">
+        <h3 class="section-title">⚡ 대한민국 7대 쇼핑몰 공식 특가 퀵 허브</h3>
+        <p class="section-desc">원하는 쇼핑 플랫폼을 클릭하시면 실시간 랭킹 및 특가 혜택으로 바로 이동합니다.</p>
+      </div>
+      <div class="shopping-banner-grid">
+        <!-- 1. 네이버쇼핑 (👑 대한민국 1위 강조) -->
+        <a href="https://shopping.naver.com" target="_blank" rel="noopener noreferrer" class="shopping-banner-card naver naver-highlight">
+          <span class="shopping-banner-badge">👑 국민 1위</span>
+          <div class="shopping-banner-icon">👑</div>
+          <div class="shopping-banner-info">
+            <h4>네이버쇼핑</h4>
+            <p>전 카테고리 랭킹 1위 &amp; N페이 적립</p>
+          </div>
+        </a>
+
+        <!-- 2. 쿠팡 로켓배송 -->
+        <a href="https://www.coupang.com" target="_blank" rel="noopener noreferrer" class="shopping-banner-card coupang">
+          <span class="shopping-banner-badge">🚀 로켓 1위</span>
+          <div class="shopping-banner-icon">🚀</div>
+          <div class="shopping-banner-info">
+            <h4>쿠팡 로켓배송</h4>
+            <p>오늘 주문 내일 도착 종합 특가</p>
+          </div>
+        </a>
+
+        <!-- 3. SSG.COM 신세계몰 (신세계백화점 / 신세계쇼핑 쓱배송) -->
+        <a href="https://www.ssg.com" target="_blank" rel="noopener noreferrer" class="shopping-banner-card ssg">
+          <span class="shopping-banner-badge">🏬 백화점/쓱배송</span>
+          <div class="shopping-banner-icon">🏬</div>
+          <div class="shopping-banner-info">
+            <h4>SSG.COM 신세계몰</h4>
+            <p>신세계백화점 정품 &amp; 쓱배송 특가</p>
+          </div>
+        </a>
+
+        <!-- 4. 아마존 글로벌 직구 (신규 추가) -->
+        <a href="https://www.amazon.com/gp/bestsellers" target="_blank" rel="noopener noreferrer" class="shopping-banner-card amazon">
+          <span class="shopping-banner-badge">GLOBAL 1위</span>
+          <div class="shopping-banner-icon">📦</div>
+          <div class="shopping-banner-info">
+            <h4>아마존 (Amazon)</h4>
+            <p>전세계 베스트셀러 해외직구</p>
+          </div>
+        </a>
+
+        <!-- 4. 알리익스프레스 -->
+        <a href="https://ko.aliexpress.com" target="_blank" rel="noopener noreferrer" class="shopping-banner-card aliexpress">
+          <span class="shopping-banner-badge">초가성비 직구</span>
+          <div class="shopping-banner-icon">✈️</div>
+          <div class="shopping-banner-info">
+            <h4>알리익스프레스</h4>
+            <p>초저가 글로벌 가성비 특가</p>
+          </div>
+        </a>
+
+        <!-- 5. 오늘의집 리빙 -->
+        <a href="https://ohou.se" target="_blank" rel="noopener noreferrer" class="shopping-banner-card todayhouse">
+          <span class="shopping-banner-badge">리빙 1위</span>
+          <div class="shopping-banner-icon">🏠</div>
+          <div class="shopping-banner-info">
+            <h4>오늘의집 리빙</h4>
+            <p>인테리어·가구·생활용품 혜택</p>
+          </div>
+        </a>
+
+        <!-- 6. 지마켓 (G마켓) -->
+        <a href="https://www.gmarket.co.kr" target="_blank" rel="noopener noreferrer" class="shopping-banner-card gmarket">
+          <span class="shopping-banner-badge">슈퍼딜 1위</span>
+          <div class="shopping-banner-icon">🛒</div>
+          <div class="shopping-banner-info">
+            <h4>G마켓 슈퍼딜</h4>
+            <p>빅스마일데이 &amp; 매일 파격 특가</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         [3순위 고객 니즈] 🎯 3초 스마트 가전 셀프 진단기 (체류 시간 극대화 인터랙티브 위젯)
+         방문자가 내 방 평수와 예산을 선택하면 맞춤 가전과 추천 가이드를 즉시 계산
+         ======================================================== -->
+    <section class="quiz-section">
+      <div class="quiz-header">
+        <h3>🎯 3초 스마트 가전 셀프 진단기</h3>
+        <p>나의 공간 형태와 예산에 꼭 맞는 최적의 가전제품 스펙을 즉시 진단해 드립니다.</p>
+      </div>
+
+      <div class="quiz-container">
+        <!-- 1단계: 공간 형태 -->
+        <div class="quiz-step-title">1단계: 거주하시는 공간 형태를 선택해 주세요</div>
+        <div class="quiz-options">
+          <button type="button" class="option-btn selected" data-group="space" data-val="room">🏠 원룸 / 1인 가구</button>
+          <button type="button" class="option-btn" data-group="space" data-val="mid">🏢 20평대 아파트 / 투룸</button>
+          <button type="button" class="option-btn" data-group="space" data-val="large">🏰 30평대 이상 대형 가구</button>
+        </div>
+
+        <!-- 2단계: 관심 가전 품목 -->
+        <div class="quiz-step-title">2단계: 현재 구매를 고민 중인 가전 품목은?</div>
+        <div class="quiz-options">
+          <button type="button" class="option-btn selected" data-group="category" data-val="robot">🤖 로봇청소기</button>
+          <button type="button" class="option-btn" data-group="category" data-val="kitchen">🍳 올스텐 에어프라이어</button>
+          <button type="button" class="option-btn" data-group="category" data-val="monitor">🖥️ PC/작업용 모니터</button>
+          <button type="button" class="option-btn" data-group="category" data-val="chair">🪑 인체공학 의자</button>
+        </div>
+
+        <!-- 3단계: 예산 성향 -->
+        <div class="quiz-step-title">3단계: 고려 중인 예산 범위는?</div>
+        <div class="quiz-options">
+          <button type="button" class="option-btn selected" data-group="budget" data-val="budget">💰 실속형 &amp; 최강 가성비</button>
+          <button type="button" class="option-btn" data-group="budget" data-val="premium">👑 기능 완벽 올인원 종결</button>
+        </div>
+
+        <!-- 진단 결과 출력 박스 -->
+        <div id="quizResultBox" class="quiz-result-box show">
+          <div id="quizResultTitle" class="result-title">진단 결과 도출 중...</div>
+          <p id="quizResultDesc" class="result-desc">선택하신 조건에 맞춘 최적의 하드웨어 추천 내용입니다.</p>
+          <a id="quizResultLink" href="articles/robot-vacuum-guide.html" class="btn-primary" style="display: inline-block; padding: 10px 20px; font-size: 0.9rem;">
+            추천 가이드 읽기 &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 상단 배너 광고 슬롯 -->
+    <div class="ad-slot-container">
+      <div class="ad-slot banner">
+        <span class="ad-label">광고 영역 (AdSense Header Slot)</span>
+        <p>구글 애드센스 승인 완료 후 최상단 가로 반응형 광고(Leaderboard)가 자동으로 게재되는 영역입니다.</p>
+      </div>
+    </div>
+
+    <!-- ========================================================
+         [4순위 고객 니즈] 🏆 운영자 직접 선정: 주간 베스트 가이드
+         에디터가 엄선한 이번 주 필독 아티클 3편
+         ======================================================== -->
+    <section class="weekly-best-section">
+      <div class="weekly-best-header">
+        <h2 class="weekly-best-title">
+          <span>🏆 운영자 선정 주간 베스트 가이드</span>
+        </h2>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">에디터가 엄선한 이번 주 필독 아티클</span>
+      </div>
+
+      <div class="best-cards-row">
+        <!-- 베스트 1위 -->
+        <div class="best-guide-card">
+          <div class="rank-badge rank-1">1</div>
+          <div class="best-guide-category">스마트 가전</div>
+          <h3 class="best-guide-title">
+            <a href="articles/robot-vacuum-guide.html">2026 로봇청소기 완벽 구매 가이드: 흡입력부터 센서·열풍건조 비교</a>
+          </h3>
+          <p class="best-guide-desc">흡입력 Pa 수치의 진실과 온수세척, 라이다 센서의 차이를 명확히 비교 분석한 필독서.</p>
+          <div class="best-guide-meta">
+            <span>👑 에디터 1픽</span>
+            <span>조회수 12.4k</span>
+          </div>
+        </div>
+
+        <!-- 베스트 2위 -->
+        <div class="best-guide-card">
+          <div class="rank-badge rank-2">2</div>
+          <div class="best-guide-category">주방 &amp; 건강</div>
+          <h3 class="best-guide-title">
+            <a href="articles/air-fryer-tips.html">올스텐 에어프라이어 고르는 5가지 기준: 코팅 유해물질 논란과 용량별 선택</a>
+          </h3>
+          <p class="best-guide-desc">테플론 코팅 유해성 걱정 없는 진짜 SUS 304 올스텐 구별법과 초기 연마제 세척 꿀팁.</p>
+          <div class="best-guide-meta">
+            <span>🔥 인기 급상승</span>
+            <span>조회수 9.8k</span>
+          </div>
+        </div>
+
+        <!-- 베스트 3위 -->
+        <div class="best-guide-card">
+          <div class="rank-badge rank-3">3</div>
+          <div class="best-guide-category">IT 디스플레이</div>
+          <h3 class="best-guide-title">
+            <a href="articles/monitor-panel-guide.html">모니터 패널 완벽 비교: IPS, VA, OLED 중 나에게 맞는 선택은?</a>
+          </h3>
+          <p class="best-guide-desc">색감과 시야각의 IPS, 깊은 명암비 VA, 압도적 화질 OLED의 장단점과 용도별 추천.</p>
+          <div class="best-guide-meta">
+            <span>💡 추천 테크</span>
+            <span>조회수 8.1k</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="layout-grid">
+      
+      <!-- 메인 콘텐츠 영역 -->
+      <main class="main-content">
+
+        <!-- ========================================================
+             [5순위 고객 니즈] 🔴 매일 자동 갱신되는 구글 뉴스 & 테크 실시간 브리핑
+             접속 시마다 오늘 날짜 기준 최신 테크 이슈를 자동으로 갱신하여 렌더링합니다.
+             ======================================================== -->
+        <section class="live-news-section">
+          <div class="live-news-header">
+            <h2 class="live-news-title">
+              <span class="live-pulse"></span>
+              <span>구글 뉴스 &amp; 스마트 테크 실시간 브리핑</span>
+            </h2>
+            <span id="newsUpdatedTime" style="font-size: 0.8rem; color: var(--text-muted);">실시간 자동 갱신 중</span>
+          </div>
+
+          <div id="liveNewsGrid" class="news-grid">
+            <!-- 자바스크립트에 의해 실시간 뉴스가 자동 렌더링됩니다 -->
+            <div class="news-card">
+              <p style="font-size: 0.85rem; color: var(--text-muted);">최신 테크 뉴스를 실시간으로 불러오는 중입니다...</p>
+            </div>
+          </div>
+        </section>
+        
+        <!-- ========================================================
+             [6순위 고객 니즈] 📚 전 카테고리 실시간 랭킹 & 스마트 쇼핑 추천 가이드
+             IT, 자동차, 생활용품, 식품, 뷰티 전제품 요일별 자동 갱신 큐레이션
+             ======================================================== -->
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">스마트 쇼핑 추천 &amp; 실시간 심층 분석 가이드</h2>
+            <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">
+              IT·자동차·생활용품·식품·뷰티 전 카테고리 실시간 1위 상품과 요일별 맞춤 핫딜을 팩트체크합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- 요일별 특화 랭킹 테마 라이브 배너 -->
+        <div id="dailyThemeBanner" class="daily-theme-banner">
+          <div class="daily-theme-header">
+            <span class="daily-theme-badge">📅 요일별 실시간 특화 테마</span>
+            <span class="live-indicator-pill"><span class="live-dot"></span>매일 자정 실시간 자동 갱신</span>
+          </div>
+          <div class="daily-theme-content">
+            <h3 id="todayThemeTitle" class="daily-theme-title">
+              <span id="todayDayName" class="theme-day-tag">오늘</span> <span id="todayThemeName">실시간 전 카테고리 종합 랭킹 데이</span>
+            </h3>
+            <p id="todayThemeDesc" class="daily-theme-desc">
+              고객 소비 패턴과 실시간 결제 순위를 자동 분석하여 7대 쇼핑몰 1위 인기 상품을 큐레이션합니다.
+            </p>
+          </div>
+        </div>
+
+        <!-- 전 카테고리 필터 탭 (전체, IT, 자동차, 생활, 식품, 뷰티) -->
+        <div class="category-filter-nav" id="categoryFilterTabs">
+          <button type="button" class="category-filter-btn active" data-category="all">전체보기 (ALL)</button>
+          <button type="button" class="category-filter-btn" data-category="digital">📱 IT·디지털</button>
+          <button type="button" class="category-filter-btn" data-category="auto">🚗 자동차용품</button>
+          <button type="button" class="category-filter-btn" data-category="living">🧻 생활·생필품</button>
+          <button type="button" class="category-filter-btn" data-category="food">🥩 식품·건강</button>
+          <button type="button" class="category-filter-btn" data-category="beauty">💄 뷰티·패션</button>
+        </div>
+
+        <div class="article-grid" id="allCategoryArticleGrid">
+          
+          <!-- 카드 1: IT 로봇청소기 (피처드) -->
+          <article class="article-card featured-card" data-category="digital">
+            <div class="card-img-wrap" style="background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; font-size: 3.5rem;">
+              🤖
+              <span class="card-badge rank-up">▲ 2계단 상승</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">📱 IT · 스마트 가전</div>
+              <h3 class="card-title">
+                <a href="articles/robot-vacuum-guide.html">2026 로봇청소기 완벽 구매 가이드: 흡입력, dToF 라이다, 물걸레 열풍건조 비교</a>
+              </h3>
+              <p class="card-desc">
+                30만 원대 보급형부터 150만 원대 올인원 플래그십까지! 흡입력 Pa 숫자의 진실과 LDS vs dToF 센서 차이, 열풍 건조의 위생적 가치를 완벽 분석해 드립니다.
+              </p>
+              <div class="card-meta">
+                <span>테크팀</span>
+                <span>⏱️ 6분 읽기</span>
+                <button type="button" class="card-compare-btn" data-query="로봇청소기">🚀 7대 몰 "로봇청소기" 가격비교</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 카드 2: 자동차용품 (신규 추가) -->
+          <article class="article-card" data-category="auto">
+            <div class="card-img-wrap" style="background: linear-gradient(135deg, #0369a1, #0284c7); color: white; font-size: 3rem;">
+              🚗
+              <span class="card-badge rank-hot">🔥 실시간 HOT 1위</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">🚗 자동차 · 모빌리티</div>
+              <h3 class="card-title">
+                <a href="index.html" class="dynamic-search-link" data-query="차량용 거치대">차량용 맥세이프 고속충전 거치대 &amp; 필수 차량용품 5선 비교 분석</a>
+              </h3>
+              <p class="card-desc">
+                15W 급속충전 발열 제어부터 송풍구 탈락 방지 고정력, 네오디뮴 자력 테스트까지 운전자들이 가장 많이 찾는 차량용 1위 랭커 아이템 총정리.
+              </p>
+              <div class="card-meta">
+                <span>모빌리티팀</span>
+                <button type="button" class="card-compare-btn" data-query="차량용 거치대">🚀 7대 몰 "차량거치대" 가격비교</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 카드 3: 식품/건강 (신규 추가) -->
+          <article class="article-card" data-category="food">
+            <div class="card-img-wrap" style="background: linear-gradient(135deg, #15803d, #22c55e); color: white; font-size: 3rem;">
+              💊
+              <span class="card-badge rank-up">▲ 3계단 상승</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">🥩 식품 · 건강관리</div>
+              <h3 class="card-title">
+                <a href="index.html" class="dynamic-search-link" data-query="유산균">락토핏 생유산균 골드 vs 고려은단 비타민: 온가족 필수 영양제 비교</a>
+              </h3>
+              <p class="card-desc">
+                10억 CFU 생유산균 보장균수의 진실과 곰곰 닭가슴살 훈제 단백질 식단 구성법까지 7대 쇼핑몰 식품 카테고리 1위 베스트셀러 심층 팩트체크.
+              </p>
+              <div class="card-meta">
+                <span>헬스케어팀</span>
+                <button type="button" class="card-compare-btn" data-query="유산균">🚀 7대 몰 "유산균" 가격비교</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 카드 4: 생활/생필품 (신규 추가) -->
+          <article class="article-card" data-category="living">
+            <div class="card-img-wrap" style="background: linear-gradient(135deg, #0d9488, #14b8a6); color: white; font-size: 3rem;">
+              🧻
+              <span class="card-badge rank-same">- 변동 유지</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">🧻 생활 · 생필품</div>
+              <h3 class="card-title">
+                <a href="index.html" class="dynamic-search-link" data-query="화장지">크리넥스 3겹 화장지 vs 다우니 실내건조 세제: 대용량 살림 꿀팁</a>
+              </h3>
+              <p class="card-desc">
+                100% 천연펄프 롤화장지 두께감 비교와 장마철 꿉꿉한 냄새를 완벽 차단하는 실내건조 고농축 세탁세제 랭킹 1위 비교 가이드.
+              </p>
+              <div class="card-meta">
+                <span>생활연구팀</span>
+                <button type="button" class="card-compare-btn" data-query="화장지">🚀 7대 몰 "생필품" 가격비교</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 카드 5: 뷰티/패션 (신규 추가) -->
+          <article class="article-card" data-category="beauty">
+            <div class="card-img-wrap" style="background: linear-gradient(135deg, #db2777, #f472b6); color: white; font-size: 3rem;">
+              ✨
+              <span class="card-badge rank-new">✨ NEW 1위 진입</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">💄 뷰티 · 스킨케어</div>
+              <h3 class="card-title">
+                <a href="index.html" class="dynamic-search-link" data-query="클렌징오일">마녀공장 퓨어 클렌징 오일 &amp; 조선미녀 선크림 글로벌 1위 비결</a>
+              </h3>
+              <p class="card-desc">
+                블랙헤드 99.7% 세정 유화력과 백탁 없는 산뜻한 에센스 선크림까지 네이버와 아마존에서 가장 많이 팔리는 K-뷰티 1위 전격 분석.
+              </p>
+              <div class="card-meta">
+                <span>뷰티에디터</span>
+                <button type="button" class="card-compare-btn" data-query="클렌징오일">🚀 7대 몰 "클렌징오일" 가격비교</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 카드 6: 주방/홈카페 (에어프라이어) -->
+          <article class="article-card" data-category="living">
+            <div class="card-img-wrap" style="background: linear-gradient(135deg, #ea580c, #f97316); color: white; font-size: 3rem;">
+              🍳
+              <span class="card-badge rank-up">▲ 1계단</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">🍳 주방 · 쿡웨어</div>
+              <h3 class="card-title">
+                <a href="articles/air-fryer-tips.html">올스텐 에어프라이어 고르는 5가지 기준: 코팅 유해물질 논란과 용량별 선택법</a>
+              </h3>
+              <p class="card-desc">
+                테플론 코팅(PFAS) 벗겨짐 걱정 없는 진짜 SUS 304 올스텐 구별법과 바스켓형 vs 오븐형 장단점, 초기 필수 연마제 제거 세척 팁을 공개합니다.
+              </p>
+              <div class="card-meta">
+                <span>리빙팀</span>
+                <button type="button" class="card-compare-btn" data-query="에어프라이어">🚀 7대 몰 "에어프라이어" 가격비교</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 카드 7: IT 디스플레이 (모니터) -->
+          <article class="article-card" data-category="digital">
+            <div class="card-img-wrap" style="background: linear-gradient(135deg, #4f46e5, #818cf8); color: white; font-size: 3rem;">
+              🖥️
+              <span class="card-badge rank-same">- 변동 유지</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">📱 IT · 디스플레이</div>
+              <h3 class="card-title">
+                <a href="articles/monitor-panel-guide.html">모니터 패널 완벽 비교: IPS, VA, OLED 중 나에게 맞는 선택은?</a>
+              </h3>
+              <p class="card-desc">
+                시야각과 색감의 표준 IPS, 깊은 명암비의 VA, 무한대 명암비와 응답속도의 종결자 OLED까지 용도별 맞춤 가이드를 제공합니다.
+              </p>
+              <div class="card-meta">
+                <span>IT하드웨어팀</span>
+                <button type="button" class="card-compare-btn" data-query="모니터">🚀 7대 몰 "모니터" 가격비교</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 카드 8: 모바일 배터리 -->
+          <article class="article-card" data-category="digital">
+            <div class="card-img-wrap" style="background: linear-gradient(135deg, #059669, #10b981); color: white; font-size: 3rem;">
+              🔋
+              <span class="card-badge rank-up">▲ 2계단</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">📱 모바일 · 충전케어</div>
+              <h3 class="card-title">
+                <a href="articles/smartphone-battery.html">스마트폰 배터리 수명 2배 늘리는 실전 충전 습관과 최적화 설정 팁</a>
+              </h3>
+              <p class="card-desc">
+                밤샘 완충과 0% 방전의 위험성, 배터리 스트레스를 줄이는 20-80 충전 루틴과 갤럭시·아이폰 배터리 보호 모드 활용법을 소개합니다.
+              </p>
+              <div class="card-meta">
+                <span>모바일랩</span>
+                <button type="button" class="card-compare-btn" data-query="배터리">🚀 7대 몰 "고속충전기" 가격비교</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 카드 9: 인체공학 의자 -->
+          <article class="article-card" data-category="living">
+            <div class="card-img-wrap" style="background: linear-gradient(135deg, #7c3aed, #a855f7); color: white; font-size: 3rem;">
+              🪑
+              <span class="card-badge rank-same">- 변동 유지</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">🧻 홈오피스 · 리빙</div>
+              <h3 class="card-title">
+                <a href="articles/ergonomics-chair.html">장시간 재택근무자를 위한 인체공학 의자 선택법: 요추지지대부터 틸팅 메커니즘까지</a>
+              </h3>
+              <p class="card-desc">
+                허리 디스크와 거북목 예방을 위한 럼버서포트 깊이 조절, 싱크로나이즈드 틸트, 좌판 슬라이딩의 중요성과 풀메쉬 소재 장단점 비교.
+              </p>
+              <div class="card-meta">
+                <span>리빙연구팀</span>
+                <button type="button" class="card-compare-btn" data-query="의자">🚀 7대 몰 "인체공학의자" 가격비교</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- 피드 중간 반응형 광고 슬롯 -->
+        <div class="ad-slot-container">
+          <div class="ad-slot in-article">
+            <span class="ad-label">피드 광고 영역 (In-Feed Ad Slot)</span>
+            <p>구글 애드센스 인피드 네이티브 광고(콘텐츠 카드 흐름에 맞춘 반응형 광고) 게재 영역</p>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- 우측 사이드바 -->
+      <aside class="sidebar">
+        
+        <!-- 에디터 프로필 (E-E-A-T 입증) -->
+        <div class="widget">
+          <div class="author-profile">
+            <div class="author-avatar">✓</div>
+            <div class="author-name">랭커의 쇼핑 에디터팀</div>
+            <div class="author-role">7대 쇼핑몰 랭킹 &amp; 쇼핑 큐레이터</div>
+            <p class="author-bio">
+              랭커의 쇼핑은 상업적 과장 광고를 배제하고, 철저한 팩트체크와 실사용 기준의 데이터로 독자의 현명한 소비 결정을 돕습니다.
+            </p>
+            <div style="margin-top: 10px; font-size: 0.8rem; color: var(--text-muted);">
+              📧 공식 문의: <a href="mailto:rkstmtk@gmail.com" style="color: var(--primary-color); font-weight: 600;">rkstmtk@gmail.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 사이드바 광고 슬롯 -->
+        <div class="widget" style="padding: 10px;">
+          <div class="ad-slot sidebar-ad">
+            <span class="ad-label">스폰서 광고 (Sidebar Ad Slot)</span>
+            <p>구글 애드센스 사이드바 300x250 / 300x600 반응형 배너 광고 슬롯</p>
+          </div>
+        </div>
+
+        <!-- 주간 베스트 가이드 (요일별 실시간 순위 변동 자동 갱신 위젯) -->
+        <div class="widget">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; border-bottom: 2px solid var(--border-color); padding-bottom: 8px;">
+            <h3 class="widget-title" style="margin-bottom: 0; border-bottom: none; padding-bottom: 0;">주간 베스트 순위</h3>
+            <span style="font-size: 0.75rem; background: #fee2e2; color: #e11d48; font-weight: 800; padding: 2px 6px; border-radius: 4px;">LIVE</span>
+          </div>
+          <p id="weeklyBestSubLabel" style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;">
+            오늘 요일 실시간 집계 순위 (클릭 시 7대몰 비교)
+          </p>
+          <ul id="weeklyBestList" class="popular-list">
+            <!-- 자바스크립트에 의해 요일별 실시간 순위 변동 항목이 자동 렌더링됩니다 -->
+            <li class="popular-item" data-query="유산균">
+              <span class="popular-num">1</span>
+              <div>
+                <a href="#shoppingSearchModal" class="popular-title">[식품] 락토핏 생유산균 골드 50포 <span class="rank-shift-tag up">▲2</span></a>
+                <div class="popular-date">7대몰 건강식품 실시간 1위 ↗</div>
+              </div>
+            </li>
+            <li class="popular-item" data-query="로봇청소기">
+              <span class="popular-num">2</span>
+              <div>
+                <a href="articles/robot-vacuum-guide.html" class="popular-title">[IT] 올인원 흡입 물걸레 로봇청소기 <span class="rank-shift-tag hot">HOT</span></a>
+                <div class="popular-date">스마트가전 실시간 급상승 ↗</div>
+              </div>
+            </li>
+            <li class="popular-item" data-query="차량용 거치대">
+              <span class="popular-num">3</span>
+              <div>
+                <a href="#shoppingSearchModal" class="popular-title">[자동차] 맥세이프 고속 차량 거치대 <span class="rank-shift-tag up">▲1</span></a>
+                <div class="popular-date">자동차용품 주간 베스트 ↗</div>
+              </div>
+            </li>
+            <li class="popular-item" data-query="화장지">
+              <span class="popular-num">4</span>
+              <div>
+                <a href="#shoppingSearchModal" class="popular-title">[생활] 크리넥스 3겹 데코 화장지 <span class="rank-shift-tag same">-</span></a>
+                <div class="popular-date">생필품 대용량 실시간 1위 ↗</div>
+              </div>
+            </li>
+            <li class="popular-item" data-query="클렌징오일">
+              <span class="popular-num">5</span>
+              <div>
+                <a href="#shoppingSearchModal" class="popular-title">[뷰티] 마녀공장 퓨어 클렌징 오일 <span class="rank-shift-tag new">NEW</span></a>
+                <div class="popular-date">스킨케어 신규 랭커 진입 ↗</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 연령별 랭킹 센터 바로가기 위젯 -->
+        <div class="widget" style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border-color: #bfdbfe;">
+          <h3 class="widget-title" style="color: #1e40af; border-bottom-color: #bfdbfe;">👥 연령대별 실시간 랭킹</h3>
+          <p style="font-size: 0.85rem; color: var(--text-main); margin-bottom: 14px;">
+            20대 MZ 트렌드부터 70대 실버케어까지! 세대별 실 결제 1위 상품을 확인하세요.
+          </p>
+          <a href="age-ranking.html" target="_blank" class="btn-primary" style="display: block; text-align: center; padding: 11px; font-size: 0.9rem; text-decoration: none; border-radius: 8px;">
+            연령별 랭킹 보러가기 &rarr;
+          </a>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- 푸터 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>랭커의 쇼핑 (Ranker's Shopping)</h3>
+          <p>대한민국 7대 쇼핑몰(네이버·쿠팡·SSG 신세계몰·아마존·알리·오늘의집·G마켓) 실시간 1위 랭킹과 팩트 기반의 전 카테고리 종합 쇼핑 큐레이션을 제공합니다.</p>
+        </div>
+        <div class="footer-links">
+          <h4>카테고리 &amp; 랭킹</h4>
+          <ul>
+            <li><a href="ranking.html" target="_blank">🔥 7대 몰 실시간 랭킹</a></li>
+            <li><a href="age-ranking.html" target="_blank">👥 연령별(20~70대) 랭킹</a></li>
+            <li><a href="index.html#allCategoryArticleGrid">스마트 쇼핑 가이드</a></li>
+            <li><a href="index.html">가성비 핫딜 분석</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>법적 고지 &amp; 정책</h4>
+          <ul>
+            <li><a href="privacy.html">개인정보처리방침</a></li>
+            <li><a href="terms.html">이용약관 및 면책조항</a></li>
+            <li><a href="about.html">사이트 소개</a></li>
+            <li><a href="contact.html">문의하기 (rkstmtk@gmail.com)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 랭커의 쇼핑 (Ranker's Shopping). All rights reserved. 본 사이트는 공정거래위원회 지침을 준수합니다.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       [7대 쇼핑몰 실시간 가격비교 & 바로가기 모달 창]
+       검색어 입력 또는 칩 클릭 시 화면 중앙에 세련된 팝업 창 생성
+       ======================================================== -->
+  <div id="shoppingSearchModal" class="search-modal-backdrop" aria-hidden="true">
+    <div class="search-modal-dialog" role="dialog" aria-modal="true">
+      <div class="search-modal-header">
+        <div class="search-modal-title-group">
+          <span class="search-modal-badge">⚡ 실시간 7대 공식 쇼핑몰 가격비교</span>
+          <h3 id="modalSearchHeading" class="search-modal-title">
+            '<span id="modalQueryText">워치</span>' 7대 쇼핑몰 실시간 가격 &amp; 상품 검색
+          </h3>
+          <p class="search-modal-sub">각 쇼핑몰을 클릭하시면 해당 상품의 실시간 검색 결과 및 최저가 페이지로 즉시 이동합니다.</p>
+        </div>
+        <button type="button" id="closeSearchModalBtn" class="search-modal-close" aria-label="창 닫기">&times;</button>
+      </div>
+
+      <div class="search-modal-body">
+        <div id="modalMallCardsGrid" class="modal-mall-grid">
+          <!-- JS에서 7대 쇼핑몰 카드 동적 생성 -->
+        </div>
+      </div>
+
+      <div class="search-modal-footer">
+        <div class="search-modal-note">
+          💡 <strong>랭커의 스마트 팁:</strong> 플랫폼마다 카드 할인, 적립금, 로켓/쓱배송 조건이 다르므로 상위 2~3곳을 직접 비교해 보시는 것을 적극 추천합니다.
+        </div>
+        <button type="button" id="modalDismissBtn" class="modal-dismiss-btn">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
