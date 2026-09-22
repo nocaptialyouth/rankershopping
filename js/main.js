@@ -65,6 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 9. 전 카테고리 요일별 자동 갱신 및 실시간 순위 변동 엔진
   initDailyDynamicRanking();
+
+  // 10. 매일 오전 9시 정각 자동 갱신 스케줄러 (브라우저 열림 상태 시 실시간 갱신)
+  scheduleNextMorning9Update();
 });
 
 /**
@@ -109,13 +112,11 @@ function initRankingTabs() {
     switchTab('naver'); // 기본값: 👑 1순위 국민 쇼핑몰 네이버쇼핑
   }
 
-  // 랭킹 갱신 시각 표시
+  // 랭킹 갱신 시각 표시 (매일 오전 9시 기준)
   const rankingUpdateTime = document.getElementById('rankingUpdateTime');
   if (rankingUpdateTime) {
-    const now = new Date();
-    const dateStr = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}`;
-    const hoursStr = String(now.getHours()).padStart(2, '0');
-    rankingUpdateTime.textContent = `${dateStr} ${hoursStr}:00 기준 실시간 집계`;
+    const info = getMorning9BaseDate();
+    rankingUpdateTime.textContent = info.rankingTimeStr;
   }
 }
 
@@ -161,13 +162,11 @@ function initAgeRankingTabs() {
     switchAgeTab('0'); // 기본값: 0~9세 키즈·베이비
   }
 
-  // 연령별 랭킹 갱신 시각 표시
+  // 연령별 랭킹 갱신 시각 표시 (매일 오전 9시 기준)
   const ageRankingUpdateTime = document.getElementById('ageRankingUpdateTime');
   if (ageRankingUpdateTime) {
-    const now = new Date();
-    const dateStr = `${now.getFullYear()}.${String(now.getMonth() + 1).padStart(2, '0')}.${String(now.getDate()).padStart(2, '0')}`;
-    const hoursStr = String(now.getHours()).padStart(2, '0');
-    ageRankingUpdateTime.textContent = `${dateStr} ${hoursStr}:00 기준 실시간 집계`;
+    const info = getMorning9BaseDate();
+    ageRankingUpdateTime.textContent = info.rankingTimeStr;
   }
 }
 
@@ -620,7 +619,8 @@ function initShoppingSearchModal() {
  * IT, 자동차, 생활용품, 식품, 뷰티 전제품 요일별 자동 갱신 및 7대 쇼핑몰 연동
  */
 function initDailyDynamicRanking() {
-  const todayIndex = new Date().getDay(); // 0(일) ~ 6(토)
+  const info = getMorning9BaseDate();
+  const todayIndex = info.dayIndex; // 0(일) ~ 6(토) (오전 9시 기준 요일)
 
   // 요일별 특화 테마 및 실시간 랭킹 데이터셋
   const dailyThemes = [
@@ -719,6 +719,10 @@ function initDailyDynamicRanking() {
 
   const currentTheme = dailyThemes[todayIndex] || dailyThemes[0];
 
+  // 0. 상단 공지 날짜 및 실시간 급상승 랭킹 바 자동 갱신 (매일 오전 9시 기준)
+  initNoticeDate();
+  updateTrendingKeywords(currentTheme.weeklyBest);
+
   // 1. 요일별 테마 라이브 배너 갱신
   const todayDayName = document.getElementById('todayDayName');
   const todayThemeName = document.getElementById('todayThemeName');
@@ -813,5 +817,93 @@ function initDailyDynamicRanking() {
       }
     });
   });
+}
+
+/**
+ * 매일 오전 9시 기준 날짜 및 갱신 정보 산출 엔진
+ * - 현재 시각이 오전 9시 이전(00:00:00 ~ 08:59:59)이면: 전날(어제) 오전 9시 기준
+ * - 현재 시각이 오전 9시 이후(09:00:00 ~ 23:59:59)이면: 당일(오늘) 오전 9시 기준
+ */
+function getMorning9BaseDate() {
+  const now = new Date();
+  const base = new Date(now.getTime());
+
+  // 현재 시각이 오전 9시 이전이면 기준일을 하루 전(어제)으로 계산
+  if (now.getHours() < 9) {
+    base.setDate(base.getDate() - 1);
+  }
+
+  const year = base.getFullYear();
+  const month = String(base.getMonth() + 1).padStart(2, '0');
+  const day = String(base.getDate()).padStart(2, '0');
+  const dayIndex = base.getDay(); // 0(일) ~ 6(토)
+
+  return {
+    year,
+    month,
+    day,
+    dateStr: `${year}.${month}.${day}`,
+    dayIndex,
+    displayNoticeDate: `업데이트: ${year}.${month}.${day} 09:00`,
+    rankingTimeStr: `${year}.${month}.${day} 09:00 기준 실시간 집계`
+  };
+}
+
+/**
+ * 상단 공지 바의 업데이트 날짜를 매일 오전 9시 기준으로 자동 갱신
+ */
+function initNoticeDate() {
+  const noticeDateEl = document.querySelector('.notice-date');
+  if (noticeDateEl) {
+    const info = getMorning9BaseDate();
+    noticeDateEl.textContent = info.displayNoticeDate;
+  }
+}
+
+/**
+ * 상단 🔥 실시간 전분야 급상승 랭킹 바 자동 갱신
+ * 요일/날짜 기준 weeklyBest 1위~5위 아이템을 헤더 티커에 자동 동기화
+ */
+function updateTrendingKeywords(weeklyBest) {
+  const trendingContainer = document.querySelector('.trending-keywords');
+  if (!trendingContainer || !weeklyBest || weeklyBest.length === 0) return;
+
+  trendingContainer.innerHTML = weeklyBest.slice(0, 5).map(item => `
+    <span class="keyword-item" data-query="${escapeHtml(item.query)}">
+      <span class="keyword-rank">${item.rank}위</span> [${escapeHtml(item.cat)}] ${escapeHtml(item.name)} <span class="rank-shift-tag ${item.tagClass}">${item.tag}</span>
+    </span>
+  `).join('');
+
+  // 클릭 시 7대 쇼핑몰 비교 모달 열기 이벤트 바인딩
+  trendingContainer.querySelectorAll('.keyword-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const q = item.getAttribute('data-query');
+      if (q && window.openShoppingModal) {
+        window.openShoppingModal(q);
+      }
+    });
+  });
+}
+
+/**
+ * 매일 오전 9시 정각 자동 갱신 스케줄러
+ * 사용자가 사이트를 켜둔 상태에서도 오전 9시 정각이 되면 화면의 데이터가 새로고침 없이 즉시 갱신됩니다.
+ */
+function scheduleNextMorning9Update() {
+  const now = new Date();
+  const next9 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 9, 0, 0, 0);
+  if (now.getTime() >= next9.getTime()) {
+    next9.setDate(next9.getDate() + 1);
+  }
+  const diffMs = next9.getTime() - now.getTime();
+
+  setTimeout(() => {
+    // 9시 정각 도달 시 데이터 갱신 실행
+    initDailyDynamicRanking();
+    initRankingTabs();
+    initAgeRankingTabs();
+    // 다음날 9시 스케줄 재설정
+    scheduleNextMorning9Update();
+  }, Math.max(diffMs, 1000));
 }
 
