@@ -8,6 +8,29 @@
   <meta content="타임딜, 오늘의 특가, 골드박스, 11번가 타임딜, 네이버 원쁠딜, 슈퍼딜, 한정특가, 할인쿠폰, 핫딜 모음, 랭커의 쇼핑" name="keywords"/>
   <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
   <link href="css/style.css" rel="stylesheet"/>
+  <link rel="canonical" href="https://rankershopping.vercel.app/deals.html"/>
+  <meta name="naver-site-verification" content="rankershopping-naver-verification"/>
+  <meta name="google-site-verification" content="rankershopping-google-verification"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="랭커의 쇼핑"/>
+  <meta property="og:title" content="실시간 타임딜·이벤트특가·한정세일 핫딜 센터 | 랭커의 쇼핑"/>
+  <meta property="og:description" content="네이버 원쁠딜, 쿠팡 골드박스, 11번가 타임딜 등 8대 쇼핑몰의 실시간 파격 할인 타임특가."/>
+  <meta property="og:url" content="https://rankershopping.vercel.app/deals.html"/>
+  <meta property="og:image" content="https://rankershopping.vercel.app/og-image.png"/>
+  <meta property="og:locale" content="ko_KR"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="실시간 타임딜·이벤트특가 핫딜 센터 | 랭커의 쇼핑"/>
+  <meta name="twitter:description" content="8대 쇼핑몰의 오늘 자정 마감 타임특가 및 한정수량 이벤트 세일 총정리."/>
+  <meta name="twitter:image" content="https://rankershopping.vercel.app/og-image.png"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "실시간 타임딜·이벤트특가 센터",
+    "url": "https://rankershopping.vercel.app/deals.html",
+    "description": "8대 쇼핑몰 실시간 파격 할인 타임특가 상품 및 기획전 모음"
+  }
+  </script>
   <!-- Google AdSense -->
   <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8777128879154634"></script>
 </head>
@@ -25,9 +48,13 @@
           <li><a class="nav-link" href="ranking.html" target="_blank" style="color: #ef4444; font-weight: 800;">🔥 실시간 랭킹</a></li>
           <li><a class="nav-link" href="age-ranking.html" target="_blank" style="color: #2563eb; font-weight: 700;">👥 연령별 랭킹</a></li>
           <li><a class="nav-link active" href="deals.html" style="color: #ea580c; font-weight: 800;">⚡ 타임딜·이벤트특가</a></li>
+          <li><a href="javascript:void(0)" class="nav-link open-wishlist-trigger" id="navWishlistBtn">❤️ 찜한 상품 (<span class="wishlist-count-badge" id="navWishlistBadge">0</span>)</a></li>
         </ul>
       </nav>
       <div class="header-actions">
+        <button type="button" class="header-wishlist-btn open-wishlist-trigger" id="headerWishlistBtn" aria-label="찜 보관함">
+          ❤️ 찜 <span class="wishlist-count-badge" id="headerWishlistBadge">0</span>
+        </button>
         <a class="search-btn" href="age-ranking.html" style="background: #eff6ff; color: #2563eb; border-color: #bfdbfe; font-weight: 700;" target="_blank">
           👥 연령별 랭킹
         </a>
@@ -712,6 +739,12 @@
   </div>
 
   <!-- 푸터 (하단으로 이동 집약된 법적 고지 & 사이트 소개/문의) -->
+    <!-- 공정거래위원회 안심 고지 바 (제휴마케팅 투명성 안내) -->
+  <aside class="affiliate-notice-bar" aria-label="제휴 마케팅 공지">
+    <div class="container">
+      📢 <strong>안내:</strong> 랭커의 쇼핑은 8대 공식 쇼핑몰의 실시간 가격 정보 및 인기 순위를 제공하며, 일부 제휴 링크를 통한 구매 발생 시 쇼핑몰로부터 소정의 수수료를 제공받을 수 있으나 <strong>소비자의 구매 가격에는 일절 변동이 없습니다.</strong>
+    </div>
+  </aside>
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">

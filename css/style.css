@@ -1410,45 +1410,56 @@ img {
    실시간 쇼핑 랭킹 센터 페이지 (ranking.html) 스타일
    ========================================================================== */
 .ranking-tabs-container {
-  margin: 28px 0 24px;
+  margin: 24px 0 20px;
 }
 
 .platform-tabs {
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
   background: white;
-  padding: 8px;
-  border-radius: 50px;
+  padding: 10px;
+  border-radius: 16px;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-sm);
-  overflow-x: auto;
-  scrollbar-width: none;
 }
-.platform-tabs::-webkit-scrollbar {
-  display: none;
+
+@media (min-width: 1280px) {
+  .platform-tabs {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .platform-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
 }
 
 .tab-btn {
-  flex: 1;
-  min-width: 140px;
-  padding: 12px 18px;
-  border: none;
-  background: transparent;
-  border-radius: 40px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-muted);
+  width: 100%;
+  padding: 11px 8px;
+  border: 1px solid #f1f5f9;
+  background: #f8fafc;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 750;
+  color: var(--text-color);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .tab-btn:hover {
   color: var(--secondary-color);
-  background: var(--bg-body);
+  background: #f1f5f9;
 }
 
 .tab-btn.active.naver {
@@ -2445,46 +2456,56 @@ img {
 }
 
 .age-tabs-container {
-  margin: 24px 0 28px;
+  margin: 24px 0 20px;
 }
 
 .age-tabs {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   background: white;
-  padding: 8px;
-  border-radius: 50px;
+  padding: 10px;
+  border-radius: 16px;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-sm);
-  overflow-x: auto;
-  scrollbar-width: none;
 }
-.age-tabs::-webkit-scrollbar {
-  display: none;
+
+@media (min-width: 1280px) {
+  .age-tabs {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 6px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .age-tabs {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
 }
 
 .age-tab-btn {
-  flex: 1;
-  min-width: 120px;
-  padding: 12px 16px;
-  border: none;
-  background: transparent;
-  border-radius: 40px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-muted);
+  width: 100%;
+  padding: 11px 6px;
+  border: 1px solid #f1f5f9;
+  background: #f8fafc;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 750;
+  color: var(--text-color);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 5px;
   transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .age-tab-btn:hover {
   color: var(--secondary-color);
-  background: var(--bg-body);
+  background: #f1f5f9;
 }
 
 .age-tab-btn.active.age0 {
@@ -2936,5 +2957,277 @@ img {
 
 .deal-direct-btn:hover {
   background: #c2410c;
+}
+
+/* ========================================================
+   [찜하기 (Wishlist) & 공유하기 & 토스트 알림 스타일]
+   ======================================================== */
+/* 헤더 찜하기 버튼 & 뱃지 */
+.header-wishlist-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #e11d48;
+  font-weight: 800;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.header-wishlist-btn:hover {
+  background: #ffe4e6;
+  transform: translateY(-1px);
+}
+.wishlist-count-badge {
+  background: #e11d48;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+/* 상품 카드 내 찜하기(하트) & 공유하기 버튼 */
+.card-tools-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.card-wishlist-btn, .card-share-btn {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  color: #94a3b8;
+}
+.card-wishlist-btn:hover {
+  background: #fff1f2;
+  border-color: #fecdd3;
+  color: #e11d48;
+  transform: scale(1.1);
+}
+.card-wishlist-btn.active {
+  background: #ffe4e6;
+  border-color: #e11d48;
+  color: #e11d48;
+}
+.card-share-btn:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #2563eb;
+  transform: scale(1.1);
+}
+
+/* 화면 하단 토스트(Toast) 팝업 알림 */
+.toast-notification {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #0f172a;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toast-notification.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 찜 보관함 슬라이드 드로어 모달 */
+.wishlist-drawer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.wishlist-drawer-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+.wishlist-drawer {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  max-width: 90vw;
+  height: 100%;
+  background: white;
+  box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  z-index: 10000;
+  transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wishlist-drawer-backdrop.open .wishlist-drawer {
+  right: 0;
+}
+.wishlist-drawer-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wishlist-drawer-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wishlist-drawer-close {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #64748b;
+  line-height: 1;
+}
+.wishlist-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.wishlist-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #94a3b8;
+}
+.wishlist-empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+}
+.wishlist-item-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+.wishlist-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.wishlist-item-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  line-height: 1.35;
+}
+.wishlist-item-remove {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 2px;
+  transition: color 0.2s;
+}
+.wishlist-item-remove:hover {
+  color: #ef4444;
+}
+.wishlist-item-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wishlist-item-price {
+  font-size: 1rem;
+  font-weight: 900;
+  color: #ef4444;
+}
+.wishlist-item-compare-btn {
+  padding: 6px 12px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+.wishlist-drawer-footer {
+  padding: 16px 24px;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  gap: 10px;
+  background: #f8fafc;
+}
+.wishlist-clear-btn {
+  flex: 1;
+  padding: 11px;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #64748b;
+  cursor: pointer;
+}
+.wishlist-close-btn {
+  flex: 1;
+  padding: 11px;
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+/* 공정위 제휴마케팅 안심 안내 바 */
+.affiliate-notice-bar {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 14px 0;
+  font-size: 0.82rem;
+  color: #64748b;
+  line-height: 1.5;
+  text-align: center;
+}
+.affiliate-notice-bar strong {
+  color: var(--secondary-color);
 }
 

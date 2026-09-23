@@ -1,7 +1,42 @@
 /**
  * 랭커의 쇼핑 (Ranker's Shopping) - 메인 스크립트
- * 7대 쇼핑몰 실시간 랭킹 센터, 구글 뉴스 피드 및 3초 진단기 제어
+ * 8대 쇼핑몰 실시간 랭킹 센터, 구글 뉴스 피드 및 3초 진단기 제어
  */
+
+/**
+ * 제휴 마케팅 (어필리에이트) 파트너 설정 (수익화 엔진)
+ * 추후 쿠팡 파트너스, 알리익스프레스 어필리에이트, 아마존 어소시에이트 등
+ * 제휴 마케팅 승인 시 고유 파트너스 코드/서브ID를 아래 설정에 입력하시면
+ * 모든 쇼핑몰 링크에 실시간으로 수익화 트래킹 파라미터가 자동 부여됩니다.
+ */
+const AFFILIATE_CONFIG = {
+  coupang: {
+    enabled: false, // 활성화 시 true로 변경
+    trackingCode: '', // 예: 'AF1234567'
+    paramKey: 'lptag'
+  },
+  aliexpress: {
+    enabled: false,
+    trackingCode: '', // 예: 'aff_fcid'
+    paramKey: 'aff_fcid'
+  },
+  amazon: {
+    enabled: false,
+    tag: '', // 예: 'rankershop-20'
+    paramKey: 'tag'
+  }
+};
+
+function applyAffiliateParam(mallId, url) {
+  if (!url || !AFFILIATE_CONFIG[mallId] || !AFFILIATE_CONFIG[mallId].enabled) {
+    return url;
+  }
+  const cfg = AFFILIATE_CONFIG[mallId];
+  const code = cfg.trackingCode || cfg.tag;
+  if (!code) return url;
+  const sep = url.includes('?') ? '&' : '?';
+  return `${url}${sep}${cfg.paramKey}=${encodeURIComponent(code)}`;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. 모바일 메뉴 토글
@@ -38,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. 7대 쇼핑몰 실시간 가격비교 & 바로가기 모달 창 제어 엔진
+  // 3. 8대 쇼핑몰 실시간 가격비교 & 바로가기 모달 창 제어 엔진
   initShoppingSearchModal();
 
   // 4. 구글 뉴스 IT/테크 실시간 자동 갱신 (Live Google News Engine)
@@ -75,6 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // 12. 실시간 타임딜·이벤트특가 센터 엔진 (deals.html)
   initDealsCountdown();
   initDealsFilter();
+
+  // 13. 찜하기 (Wishlist) 로컬스토리지 보관함 & 슬라이드 드로어 엔진 초기화
+  initWishlistDrawer();
+  updateWishlistBadges();
+  injectCardActionTools();
 });
 
 /**
@@ -389,7 +429,7 @@ function escapeHtml(str) {
 }
 
 /**
- * 7대 쇼핑몰 실시간 가격비교 & 바로가기 모달 창 제어 엔진
+ * 8대 쇼핑몰 실시간 가격비교 & 바로가기 모달 창 제어 엔진
  */
 function initShoppingSearchModal() {
   let modal = document.getElementById('shoppingSearchModal');
@@ -520,7 +560,7 @@ function initShoppingSearchModal() {
         badge: '👑 국민 1위 추천',
         preview: previews.naver,
         benefit: '🛍️ N페이 최대 5% 적립 · 스마트스토어 실시간 최저가',
-        url: `https://search.shopping.naver.com/search/all?query=${qEnc}`
+        url: applyAffiliateParam('naver', `https://search.shopping.naver.com/search/all?query=${qEnc}`)
       },
       {
         id: 'coupang',
@@ -528,7 +568,7 @@ function initShoppingSearchModal() {
         badge: '🚀 로켓 1위',
         preview: previews.coupang,
         benefit: '⚡ 와우회원 무료반품 · 오늘 주문 내일 새벽 도착',
-        url: `https://www.coupang.com/np/search?component=&q=${qEnc}`
+        url: applyAffiliateParam('coupang', `https://www.coupang.com/np/search?component=&q=${qEnc}`)
       },
       {
         id: 'elevenst',
@@ -536,7 +576,7 @@ function initShoppingSearchModal() {
         badge: '🔴 T멤버십 1위',
         preview: previews.elevenst,
         benefit: '🎟️ SKT T멤버십 추가할인 · 슈팅배송 당일/익일 도착',
-        url: `https://search.11st.co.kr/Search.tmall?kwd=${qEnc}`
+        url: applyAffiliateParam('elevenst', `https://search.11st.co.kr/Search.tmall?kwd=${qEnc}`)
       },
       {
         id: 'ssg',
@@ -544,7 +584,7 @@ function initShoppingSearchModal() {
         badge: '🏬 백화점 1위',
         preview: previews.ssg,
         benefit: '🛍️ 신세계백화점 정품 보장 · 쓱(SSG) 당일/새벽배송',
-        url: `https://www.ssg.com/search.ssg?target=all&query=${qEnc}`
+        url: applyAffiliateParam('ssg', `https://www.ssg.com/search.ssg?target=all&query=${qEnc}`)
       },
       {
         id: 'amazon',
@@ -552,7 +592,7 @@ function initShoppingSearchModal() {
         badge: '📦 글로벌 직구 1위',
         preview: previews.amazon,
         benefit: '✈️ 49달러 이상 한국 무료배송 · 글로벌 공식 정품 보장',
-        url: `https://www.amazon.com/s?k=${qEnc}`
+        url: applyAffiliateParam('amazon', `https://www.amazon.com/s?k=${qEnc}`)
       },
       {
         id: 'aliexpress',
@@ -560,7 +600,7 @@ function initShoppingSearchModal() {
         badge: '✈️ 초가성비 직구',
         preview: previews.aliexpress,
         benefit: '💰 5일 무료배송 · 공장 직거래 초특가 득템관',
-        url: `https://ko.aliexpress.com/wholesale?SearchText=${qEnc}`
+        url: applyAffiliateParam('aliexpress', `https://ko.aliexpress.com/wholesale?SearchText=${qEnc}`)
       },
       {
         id: 'todayhouse',
@@ -568,7 +608,7 @@ function initShoppingSearchModal() {
         badge: '🏠 감성 리빙 1위',
         preview: previews.todayhouse,
         benefit: '🛋️ 첫구매 할인쿠폰 · 실사용 포토리뷰 100만 건',
-        url: `https://ohou.se/productions/feed?query=${qEnc}`
+        url: applyAffiliateParam('todayhouse', `https://ohou.se/productions/feed?query=${qEnc}`)
       },
       {
         id: 'gmarket',
@@ -576,7 +616,7 @@ function initShoppingSearchModal() {
         badge: '🛒 슈퍼딜 특가',
         preview: previews.gmarket,
         benefit: '🎟️ 스마일클럽 전용 할인쿠폰 · 매일 갱신되는 특가',
-        url: `https://browse.gmarket.co.kr/search?keyword=${qEnc}`
+        url: applyAffiliateParam('gmarket', `https://browse.gmarket.co.kr/search?keyword=${qEnc}`)
       }
     ];
 
@@ -667,7 +707,7 @@ function initShoppingSearchModal() {
     }
   });
 
-  // 7. [핵심] 전 페이지 공통: .card-compare-btn 또는 [data-query] 클릭 시 7대몰 가격비교 모달 즉시 실행
+  // 7. [핵심] 전 페이지 공통: .card-compare-btn 또는 [data-query] 클릭 시 8대몰 가격비교 모달 즉시 실행
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.card-compare-btn') || e.target.closest('[data-query]');
     if (btn) {
@@ -754,7 +794,8 @@ function initRankingMallDirectSearch() {
         }
 
         if (searchUrl) {
-          actionBtn.href = searchUrl;
+          const mallKey = pid.replace('-panel', '');
+          actionBtn.href = applyAffiliateParam(mallKey, searchUrl);
           actionBtn.target = '_blank';
           actionBtn.rel = 'noopener noreferrer';
           actionBtn.setAttribute('data-query', cleaned);
@@ -766,7 +807,7 @@ function initRankingMallDirectSearch() {
 
 /**
  * 전 카테고리 요일별 자동 갱신 및 실시간 순위 변동 엔진
- * IT, 자동차, 생활용품, 식품, 뷰티 전제품 요일별 자동 갱신 및 7대 쇼핑몰 연동
+ * IT, 자동차, 생활용품, 식품, 뷰티 전제품 요일별 자동 갱신 및 8대 쇼핑몰 연동
  */
 function initDailyDynamicRanking() {
   const info = getMorning9BaseDate();
@@ -776,8 +817,8 @@ function initDailyDynamicRanking() {
   const dailyThemes = [
     {
       dayName: "일요일",
-      themeName: "주간 7대 쇼핑몰 종합 1위 결산 데이",
-      desc: "한 주간 7대 쇼핑몰(네이버, 쿠팡, SSG 신세계몰, 아마존, 알리, 오늘의집, G마켓)에서 가장 많은 실사용자 구매와 검색이 집중된 전 카테고리 종합 1위 아이템을 엄선 결산합니다.",
+      themeName: "주간 8대 쇼핑몰 종합 1위 결산 데이",
+      desc: "한 주간 8대 쇼핑몰(네이버, 쿠팡, 11번가, SSG 신세계몰, 아마존, 알리, 오늘의집, G마켓)에서 가장 많은 실사용자 구매와 검색이 집중된 전 카테고리 종합 1위 아이템을 엄선 결산합니다.",
       defaultCategory: "all",
       weeklyBest: [
         { rank: 1, cat: "IT", name: "올인원 흡입 물걸레 로봇청소기", tag: "HOT", tagClass: "hot", query: "로봇청소기", sub: "스마트가전 주간 종합 1위 ↗", url: "articles/robot-vacuum-guide.html" },
@@ -790,7 +831,7 @@ function initDailyDynamicRanking() {
     {
       dayName: "월요일",
       themeName: "활력 충전! 식품 & 건강식품 데이",
-      desc: "한 주를 건강하게 시작하는 필수 루틴! 락토핏 유산균, 고려은단 비타민, 닭가슴살 식단 등 7대 쇼핑몰 식품 카테고리 실시간 1위 상품을 자동 큐레이션합니다.",
+      desc: "한 주를 건강하게 시작하는 필수 루틴! 락토핏 유산균, 고려은단 비타민, 닭가슴살 식단 등 8대 쇼핑몰 식품 카테고리 실시간 1위 상품을 자동 큐레이션합니다.",
       defaultCategory: "food",
       weeklyBest: [
         { rank: 1, cat: "식품", name: "락토핏 생유산균 골드 50포", tag: "▲3", tagClass: "up", query: "유산균", sub: "월요 헬스케어 실시간 1위 ↗" },
@@ -832,7 +873,7 @@ function initDailyDynamicRanking() {
       desc: "쾌적하고 안전한 운전을 위한 15W 맥세이프 무선충전 거치대, 고출력 무선 에어건, 세차용품 실시간 1위 가이드.",
       defaultCategory: "auto",
       weeklyBest: [
-        { rank: 1, cat: "자동차", name: "맥세이프 고속 차량 거치대", tag: "HOT", tagClass: "hot", query: "차량용 거치대", sub: "차량용품 7대몰 실시간 1위 ↗" },
+        { rank: 1, cat: "자동차", name: "맥세이프 고속 차량 거치대", tag: "HOT", tagClass: "hot", query: "차량용 거치대", sub: "차량용품 8대몰 실시간 1위 ↗" },
         { rank: 2, cat: "자동차", name: "초강력 무선 터보 에어건 세트", tag: "▲2", tagClass: "up", query: "차량용 에어건", sub: "실내 세차/먼지제거 급상승 ↗" },
         { rank: 3, cat: "자동차", name: "더클래스 불렛 하이브리드 코팅제", tag: "▲1", tagClass: "up", query: "차량 코팅제", sub: "세차 매니아 인기 랭커 ↗" },
         { rank: 4, cat: "IT", name: "올인원 흡입 물걸레 로봇청소기", tag: "-", tagClass: "same", query: "로봇청소기", sub: "스마트가전 상위 유지 ↗", url: "articles/robot-vacuum-guide.html" },
@@ -858,7 +899,7 @@ function initDailyDynamicRanking() {
       desc: "나를 위한 주말 선물! 블랙헤드 99.7% 세정 클렌징오일, 인체공학 메쉬 체어, 감성 무드등 실시간 1위 라이프스타일 큐레이션.",
       defaultCategory: "beauty",
       weeklyBest: [
-        { rank: 1, cat: "뷰티", name: "마녀공장 퓨어 클렌징 오일 200ml", tag: "NEW", tagClass: "new", query: "클렌징오일", sub: "K-뷰티 7대몰 통합 1위 ↗" },
+        { rank: 1, cat: "뷰티", name: "마녀공장 퓨어 클렌징 오일 200ml", tag: "NEW", tagClass: "new", query: "클렌징오일", sub: "K-뷰티 8대몰 통합 1위 ↗" },
         { rank: 2, cat: "리빙", name: "인체공학 요추지지 풀메쉬 사무용 의자", tag: "HOT", tagClass: "hot", query: "의자", sub: "홈오피스 인체공학 급상승 ↗", url: "articles/ergonomics-chair.html" },
         { rank: 3, cat: "뷰티", name: "조선미녀 맑은쌀 선크림 50ml", tag: "▲2", tagClass: "up", query: "선크림", sub: "글로벌 아마존 직구 1위 ↗" },
         { rank: 4, cat: "IT", name: "올인원 흡입 물걸레 로봇청소기", tag: "-", tagClass: "same", query: "로봇청소기", sub: "스마트가전 상위 유지 ↗", url: "articles/robot-vacuum-guide.html" },
@@ -887,7 +928,7 @@ function initDailyDynamicRanking() {
   const weeklyBestList = document.getElementById('weeklyBestList');
 
   if (weeklyBestSubLabel) {
-    weeklyBestSubLabel.textContent = `오늘(${currentTheme.dayName}) 실시간 집계 순위 (클릭 시 7대몰 비교)`;
+    weeklyBestSubLabel.textContent = `오늘(${currentTheme.dayName}) 실시간 집계 순위 (클릭 시 8대몰 비교)`;
   }
 
   if (weeklyBestList) {
@@ -1024,7 +1065,7 @@ function updateTrendingKeywords(weeklyBest) {
     </span>
   `).join('');
 
-  // 클릭 시 7대 쇼핑몰 비교 모달 열기 이벤트 바인딩
+  // 클릭 시 8대 쇼핑몰 비교 모달 열기 이벤트 바인딩
   trendingContainer.querySelectorAll('.keyword-item').forEach(item => {
     item.addEventListener('click', () => {
       const q = item.getAttribute('data-query');
@@ -1117,3 +1158,358 @@ function initDealsFilter() {
   });
 }
 
+
+/**
+ * ============================================================================
+ * [위시리스트 & 바이럴 공유 엔진]
+ * 1. 로컬스토리지 기반 찜하기(♥) 보관함
+ * 2. 슬라이드 드로어 모달 인터페이스
+ * 3. 1초 바이럴 링크 공유 및 하단 토스트 팝업 알림
+ * ============================================================================
+ */
+const WISHLIST_STORAGE_KEY = 'ranker_shopping_wishlist';
+
+function getWishlist() {
+  try {
+    const raw = localStorage.getItem(WISHLIST_STORAGE_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveWishlist(list) {
+  try {
+    localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(list));
+  } catch (e) {}
+  updateWishlistBadges();
+}
+
+function isInWishlist(title) {
+  if (!title) return false;
+  const list = getWishlist();
+  return list.some(item => item.title === title);
+}
+
+function toggleWishlist(item) {
+  if (!item || !item.title) return false;
+  let list = getWishlist();
+  const existsIndex = list.findIndex(i => i.title === item.title);
+  let isAdded = false;
+
+  if (existsIndex > -1) {
+    list.splice(existsIndex, 1);
+    isAdded = false;
+    showToast(`🤍 '${item.title.slice(0, 16)}...' 상품을 찜 목록에서 해제했습니다.`);
+  } else {
+    list.unshift({
+      id: Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+      title: item.title,
+      price: item.price || '실시간 최저가 확인',
+      category: item.category || '인기 상품',
+      query: item.query || cleanGoldenQuery(item.title),
+      date: new Date().toLocaleDateString('ko-KR')
+    });
+    isAdded = true;
+    showToast(`❤️ '${item.title.slice(0, 16)}...' 찜 보관함에 저장되었습니다!`);
+  }
+
+  saveWishlist(list);
+  updateAllCardHeartStates();
+  renderWishlistDrawer();
+  return isAdded;
+}
+
+function updateWishlistBadges() {
+  const list = getWishlist();
+  const count = list.length;
+  const badges = document.querySelectorAll('.wishlist-count-badge, #headerWishlistBadge, #navWishlistBadge, #drawerWishlistCount');
+  badges.forEach(b => {
+    b.textContent = String(count);
+  });
+}
+
+function updateAllCardHeartStates() {
+  const heartBtns = document.querySelectorAll('.card-wishlist-btn');
+  heartBtns.forEach(btn => {
+    const title = btn.getAttribute('data-product-title');
+    if (title) {
+      const active = isInWishlist(title);
+      btn.classList.toggle('active', active);
+      btn.innerHTML = active ? '❤️' : '♡';
+      btn.setAttribute('aria-label', active ? '찜 해제' : '찜하기');
+    }
+  });
+}
+
+function renderWishlistDrawer() {
+  const bodyEl = document.getElementById('wishlistDrawerBody');
+  const countEl = document.getElementById('drawerWishlistCount');
+  if (!bodyEl) return;
+
+  const list = getWishlist();
+  if (countEl) countEl.textContent = String(list.length);
+
+  if (list.length === 0) {
+    bodyEl.innerHTML = `
+      <div class="wishlist-empty-state">
+        <div class="wishlist-empty-icon">📭</div>
+        <p style="font-weight: 700; font-size: 1.05rem; color: #475569; margin-bottom: 8px;">아직 찜한 상품이 없습니다.</p>
+        <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5;">마음에 드는 실시간 랭킹 상품이나 특가 상품의 하트(♡) 버튼을 눌러 나만의 쇼핑 위시리스트를 만들어보세요!</p>
+      </div>
+    `;
+    return;
+  }
+
+  bodyEl.innerHTML = list.map(item => `
+    <div class="wishlist-item-card" data-title="${escapeHtml(item.title)}">
+      <div class="wishlist-item-header">
+        <div style="flex: 1; min-width: 0;">
+          <span style="font-size: 0.72rem; font-weight: 700; color: #2563eb; background: #eff6ff; padding: 2px 6px; border-radius: 4px;">${escapeHtml(item.category)}</span>
+          <h4 class="wishlist-item-title" style="margin-top: 5px;">${escapeHtml(item.title)}</h4>
+        </div>
+        <button type="button" class="wishlist-item-remove" data-title="${escapeHtml(item.title)}" title="삭제" aria-label="삭제">&times;</button>
+      </div>
+      <div class="wishlist-item-footer">
+        <div class="wishlist-item-price">${escapeHtml(item.price)}</div>
+        <button type="button" class="wishlist-item-compare-btn" data-query="${escapeHtml(item.query || item.title)}">
+          ⚡ 8대몰 최저가 비교 &rarr;
+        </button>
+      </div>
+    </div>
+  `).join('');
+
+  bodyEl.querySelectorAll('.wishlist-item-remove').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const title = btn.getAttribute('data-title');
+      if (title) {
+        toggleWishlist({ title });
+      }
+    });
+  });
+
+  bodyEl.querySelectorAll('.wishlist-item-compare-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const q = btn.getAttribute('data-query');
+      if (q && window.openShoppingModal) {
+        window.openShoppingModal(q);
+      }
+    });
+  });
+}
+
+function initWishlistDrawer() {
+  let backdrop = document.getElementById('wishlistDrawerBackdrop');
+  if (!backdrop) {
+    const wrap = document.createElement('div');
+    wrap.innerHTML = `
+      <div id="wishlistDrawerBackdrop" class="wishlist-drawer-backdrop" aria-hidden="true">
+        <div class="wishlist-drawer" role="dialog" aria-modal="true" aria-label="나의 찜 보관함">
+          <div class="wishlist-drawer-header">
+            <div class="wishlist-drawer-title">
+              <span>❤️ 나의 찜 보관함</span>
+              <span class="wishlist-count-badge" id="drawerWishlistCount">0</span>
+            </div>
+            <button type="button" class="wishlist-drawer-close" id="closeWishlistDrawerBtn" aria-label="닫기">&times;</button>
+          </div>
+          <div class="wishlist-drawer-body" id="wishlistDrawerBody"></div>
+          <div class="wishlist-drawer-footer">
+            <button type="button" class="wishlist-clear-btn" id="clearWishlistBtn">전체 비우기</button>
+            <button type="button" class="wishlist-close-btn" id="dismissWishlistBtn">쇼핑 계속하기</button>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(wrap.firstElementChild);
+    backdrop = document.getElementById('wishlistDrawerBackdrop');
+  }
+
+  function openDrawer() {
+    renderWishlistDrawer();
+    backdrop.classList.add('open');
+    backdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    backdrop.classList.remove('open');
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  window.openWishlistDrawer = openDrawer;
+  window.closeWishlistDrawer = closeDrawer;
+
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('#headerWishlistBtn') || e.target.closest('#navWishlistBtn') || e.target.closest('.open-wishlist-trigger');
+    if (trigger) {
+      e.preventDefault();
+      openDrawer();
+    }
+  });
+
+  const closeBtn = document.getElementById('closeWishlistDrawerBtn');
+  const dismissBtn = document.getElementById('dismissWishlistBtn');
+  const clearBtn = document.getElementById('clearWishlistBtn');
+
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (dismissBtn) dismissBtn.addEventListener('click', closeDrawer);
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      const list = getWishlist();
+      if (list.length === 0) return;
+      if (confirm('찜한 상품을 모두 삭제하시겠습니까?')) {
+        saveWishlist([]);
+        updateAllCardHeartStates();
+        renderWishlistDrawer();
+        showToast('🗑️ 찜 보관함이 모두 비워졌습니다.');
+      }
+    });
+  }
+
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) {
+      closeDrawer();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && backdrop.classList.contains('open')) {
+      closeDrawer();
+    }
+  });
+}
+
+function injectCardActionTools() {
+  const cards = document.querySelectorAll('.ranking-item-card, .deals-item-card, .article-card');
+  cards.forEach(card => {
+    if (card.querySelector('.card-tools-bar')) return;
+
+    const nameEl = card.querySelector('.ranking-product-name, .deals-product-name, .card-title');
+    const priceEl = card.querySelector('.ranking-price-val, .deal-current-price, .card-price');
+    const catEl = card.querySelector('.ranking-category-tag, .deal-badge, .card-category');
+    
+    if (!nameEl) return;
+    const title = nameEl.textContent.trim();
+    const price = priceEl ? priceEl.textContent.trim() : '특가 확인';
+    const category = catEl ? catEl.textContent.trim() : '인기상품';
+    const query = cleanGoldenQuery(title);
+
+    const active = isInWishlist(title);
+
+    const bar = document.createElement('div');
+    bar.className = 'card-tools-bar';
+    bar.innerHTML = `
+      <button type="button" class="card-wishlist-btn ${active ? 'active' : ''}" data-product-title="${escapeHtml(title)}" data-product-price="${escapeHtml(price)}" data-product-cat="${escapeHtml(category)}" data-product-query="${escapeHtml(query)}" title="찜하기" aria-label="찜하기">
+        ${active ? '❤️' : '♡'}
+      </button>
+      <button type="button" class="card-share-btn" data-product-title="${escapeHtml(title)}" title="상품 공유하기" aria-label="공유하기">
+        🔗
+      </button>
+    `;
+
+    const actionBtn = card.querySelector('.ranking-action-btn, .deal-buy-btn');
+    if (actionBtn && actionBtn.parentElement === card) {
+      card.insertBefore(bar, actionBtn);
+    } else {
+      card.appendChild(bar);
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    const heartBtn = e.target.closest('.card-wishlist-btn');
+    if (heartBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const item = {
+        title: heartBtn.getAttribute('data-product-title') || '',
+        price: heartBtn.getAttribute('data-product-price') || '',
+        category: heartBtn.getAttribute('data-product-cat') || '',
+        query: heartBtn.getAttribute('data-product-query') || ''
+      };
+      if (item.title) {
+        toggleWishlist(item);
+      }
+      return;
+    }
+
+    const shareBtn = e.target.closest('.card-share-btn');
+    if (shareBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      const title = shareBtn.getAttribute('data-product-title') || '랭커의 쇼핑 인기상품';
+      shareProduct(title, window.location.href);
+      return;
+    }
+  });
+}
+
+function shareProduct(title, url) {
+  const shareText = `[랭커의 쇼핑 8대몰 최저가 추천]\n${title}\n지금 실시간 랭킹 & 가격비교 확인하기: ${url}`;
+
+  if (navigator.share) {
+    navigator.share({
+      title: `[랭커의 쇼핑] ${title}`,
+      text: shareText,
+      url: url
+    }).then(() => {
+      showToast('🎉 상품 정보가 성공적으로 공유되었습니다!');
+    }).catch(err => {
+      if (err.name !== 'AbortError') {
+        copyToClipboardFallback(shareText, title);
+      }
+    });
+  } else {
+    copyToClipboardFallback(shareText, title);
+  }
+}
+
+function copyToClipboardFallback(text, title) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast(`🔗 '${title.slice(0, 15)}...' 공유 링크가 복사되었습니다! 친구나 단톡방에 붙여넣어 보세요.`);
+    }).catch(() => {
+      legacyCopy(text, title);
+    });
+  } else {
+    legacyCopy(text, title);
+  }
+}
+
+function legacyCopy(text, title) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    showToast(`🔗 '${title.slice(0, 15)}...' 공유 링크가 복사되었습니다!`);
+  } catch (err) {
+    prompt('아래 링크를 복사하여 공유하세요:', text);
+  }
+  document.body.removeChild(ta);
+}
+
+let toastTimeoutId = null;
+function showToast(message) {
+  let toast = document.getElementById('toastNotification');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toastNotification';
+    toast.className = 'toast-notification';
+    document.body.appendChild(toast);
+  }
+
+  toast.innerHTML = `<span>${escapeHtml(message)}</span>`;
+  toast.classList.add('show');
+
+  if (toastTimeoutId) clearTimeout(toastTimeoutId);
+  toastTimeoutId = setTimeout(() => {
+    toast.classList.remove('show');
+  }, 2800);
+}
