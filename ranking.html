@@ -25,13 +25,13 @@
 <li><a class="nav-link" href="index.html">홈</a></li>
 <li><a class="nav-link active" href="ranking.html" style="color: #ef4444; font-weight: 800;">🔥 실시간 랭킹</a></li>
 <li><a class="nav-link" href="age-ranking.html" style="color: #2563eb; font-weight: 700;" target="_blank">👥 연령별 랭킹</a></li>
-<li><a class="nav-link" href="about.html">소개</a></li>
-<li><a class="nav-link" href="contact.html">문의하기</a></li>
-<li><a class="nav-link" href="privacy.html">개인정보처리방침</a></li>
-<li><a class="nav-link" href="terms.html">이용약관</a></li>
+<li><a class="nav-link" href="deals.html" style="color: #ea580c; font-weight: 800;">⚡ 타임딜·이벤트특가</a></li>
 </ul>
 </nav>
 <div class="header-actions">
+<a class="search-btn" href="deals.html" style="background: #fff7ed; color: #ea580c; border-color: #fed7aa; font-weight: 700;">
+          ⚡ 타임딜·특가
+        </a>
 <a class="search-btn" href="age-ranking.html" style="background: #eff6ff; color: #2563eb; border-color: #bfdbfe; font-weight: 700;" target="_blank">
           👥 연령별 랭킹
         </a>
@@ -43,11 +43,11 @@
 <section class="hero-section" style="padding: 44px 0; background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);">
 <div class="container hero-content">
 <span class="hero-tag" style="background: rgba(255, 255, 255, 0.22); border-color: rgba(255, 255, 255, 0.45); color: #ffffff;">
-        📊 7대 공식 쇼핑몰 실시간 결제 집계
+        📊 8대 공식 쇼핑몰 실시간 결제 집계
       </span>
-<h1 class="hero-title" style="font-size: 2.1rem; margin-bottom: 12px;">7대 쇼핑몰 실시간 랭킹 TOP 20</h1>
+<h1 class="hero-title" style="font-size: 2.1rem; margin-bottom: 12px;">8대 쇼핑몰 실시간 랭킹 TOP 20</h1>
 <p class="hero-desc" style="margin-bottom: 12px; color: #f0fdfa;">
-        네이버쇼핑·쿠팡·SSG 신세계몰·아마존·알리익스프레스·오늘의집·G마켓 7대 쇼핑몰에서 지금 가장 많이 팔리는 종합 인기 랭커를 실시간 제공합니다.
+        네이버쇼핑·쿠팡·11번가·SSG 신세계몰·아마존·알리익스프레스·오늘의집·G마켓 8대 쇼핑몰에서 지금 가장 많이 팔리는 종합 인기 랭커를 실시간 제공합니다.
       </p>
 <div style="font-size: 0.88rem; color: #f0fdfa; font-weight: 600;">
         ⏱️ 실시간 집계 기준: <span id="rankingUpdateTime" style="color: #fef08a; font-weight: 800;">실시간 집계 중</span>
@@ -59,10 +59,13 @@
 <!-- 상단 랭킹 센터 스위처 (쇼핑몰별 랭킹 vs 연령대별 랭킹) -->
 <div class="ranking-switcher-bar">
 <a class="switcher-pill active" href="ranking.html">
-<span>🏬 7대 쇼핑몰별 실시간 랭킹</span>
+<span>🏬 8대 쇼핑몰별 실시간 랭킹</span>
 </a>
 <a class="switcher-pill" href="age-ranking.html" target="_blank">
 <span>👥 연령대별(0~9세부터 70대까지) 실시간 랭킹 ➔</span>
+</a>
+<a class="switcher-pill" href="deals.html" style="background: #fff7ed; color: #ea580c; border-color: #fed7aa;">
+<span>⚡ 실시간 타임딜·이벤트특가 ➔</span>
 </a>
 </div>
 <!-- 상단 배너 광고 슬롯 -->
@@ -72,7 +75,7 @@
 <p>구글 애드센스 상단 반응형 디스플레이 광고 영역</p>
 </div>
 </div>
-<!-- 7대 플랫폼 탭 버튼 (네이버쇼핑(강조) -> 쿠팡 -> SSG 신세계몰 -> 아마존 -> 알리익스프레스 -> 오늘의집 리빙 -> 지마켓) -->
+<!-- 8대 플랫폼 탭 버튼 (네이버쇼핑(강조) -> 쿠팡 -> 11번가 -> SSG 신세계몰 -> 아마존 -> 알리익스프레스 -> 오늘의집 리빙 -> 지마켓) -->
 
 <!-- 실시간 쇼핑몰 가격 & 재고 안내 공식 배너 -->
 <div class="price-notice-banner" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: 14px 18px; margin: 16px 0 24px 0; display: flex; align-items: flex-start; gap: 12px; font-size: 0.88rem; color: #1e40af; line-height: 1.5; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
@@ -88,6 +91,9 @@
 </button>
 <button class="tab-btn" data-platform="coupang" type="button">
 <span>🚀 쿠팡 로켓 TOP 20</span>
+</button>
+<button class="tab-btn elevenst" data-platform="elevenst" type="button">
+<span>🔴 11번가 베스트 TOP 20</span>
 </button>
 <button class="tab-btn" data-platform="ssg" type="button">
 <span>🏬 SSG 신세계몰 TOP 20</span>
@@ -973,6 +979,440 @@
 </div>
 </div>
 </section>
+
+<!-- ========================================================
+             [3. 11번가 (11ST) 실시간 베스트 TOP 20]
+             SKT T멤버십 추가할인 & 슈팅배송 빠른도착 종합 베스트 1~20위
+             ======================================================== -->
+<section class="tab-content-panel" id="elevenst-panel">
+<div class="section-header" style="border-bottom: 2px solid #ea580c; padding-bottom: 10px;">
+<h2 class="section-title" style="color: #ea580c;">🔴 11번가 실시간 종합 베스트 TOP 20</h2>
+<span style="font-size: 0.85rem; color: var(--text-muted);">SKT T멤버십 최대 11% 할인 &amp; 슈팅배송 당일/익일 도착 보장</span>
+</div>
+<div class="ranking-list">
+<!-- 1위 -->
+<div class="ranking-item-card" style="border-left: 4px solid #ea580c;">
+<div class="ranking-pos top1">1</div>
+<div class="ranking-icon">💊</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">건강식품 · 유산균</div>
+<h3 class="ranking-product-name">종근당건강 락토핏 생유산균 골드 50포 x 3통 (온가족 프로바이오틱스 1위)</h3>
+<div class="ranking-features">
+<span>★ 4.9 (구매후기 12만+)</span>
+<span>• 10억 CFU 보장균수</span>
+<span>• 슈팅배송 당일/익일 도착</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">35,900원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="락토핏 생유산균 골드 50포 x 3통" href="https://search.11st.co.kr/Search.tmall?kwd=%EB%9D%BD%ED%86%A0%ED%95%8F%20%EC%83%9D%EC%9C%A0%EC%82%B0%EA%B7%A0%20%EA%B3%A8%EB%93%9C" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 2위 -->
+<div class="ranking-item-card" style="border-left: 4px solid #ea580c;">
+<div class="ranking-pos top2">2</div>
+<div class="ranking-icon">🥤</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">생활/주방 · 보온보냉</div>
+<h3 class="ranking-product-name">스탠리 퀜처 H2.0 플로우 스테이트 진공 텀블러 1.18L</h3>
+<div class="ranking-features">
+<span>★ 4.9 (아마존/11st 1위)</span>
+<span>• 48시간 보냉력 유지</span>
+<span>• T멤버십 최대 11% 할인</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">32,500원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="스탠리 퀜처 진공 텀블러" href="https://search.11st.co.kr/Search.tmall?kwd=%EC%8A%A4%ED%83%A0%EB%A6%AC%20%ED%85%80%EB%B8%94%EB%9F%AC" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 3위 -->
+<div class="ranking-item-card" style="border-left: 4px solid #ea580c;">
+<div class="ranking-pos top3">3</div>
+<div class="ranking-icon">🍳</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">주방가전 · 에어프라이어</div>
+<h3 class="ranking-product-name">풀 스테인리스 304 대용량 16L 오븐형 에어프라이어</h3>
+<div class="ranking-features">
+<span>★ 4.8 (실사용 3만건 검증)</span>
+<span>• 유해물질 불검출 풀 올스텐</span>
+<span>• 360도 회전 로티세리</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">114,000원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="올스텐 에어프라이어" href="https://search.11st.co.kr/Search.tmall?kwd=%EC%97%90%EC%96%B4%ED%94%84%EB%9D%BC%EC%9D%B4%EC%96%B4" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 4위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top4_10">4</div>
+<div class="ranking-icon">🎧</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">디지털 · 무선이어폰</div>
+<h3 class="ranking-product-name">Apple 에어팟 프로 2세대 USB-C MagSafe 노이즈캔슬링 정품</h3>
+<div class="ranking-features">
+<span>★ 4.9 (Apple 공식 브랜드관)</span>
+<span>• 강력한 2배 액티브 노캔</span>
+<span>• 슈팅배송 내일도착 보장</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">249,000원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="에어팟 프로 2세대" href="https://search.11st.co.kr/Search.tmall?kwd=%EC%97%90%EC%96%B4%ED%8C%9F%ED%94%84%EB%A1%9C" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 5위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top4_10">5</div>
+<div class="ranking-icon">🧻</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">생활용품 · 화장지</div>
+<h3 class="ranking-product-name">크리넥스 3겹 데코앤소프트 화장지 33m x 24롤 2팩 (총 48롤)</h3>
+<div class="ranking-features">
+<span>★ 4.9 (국민 롤화장지 1위)</span>
+<span>• 100% 순수 천연펄프</span>
+<span>• 부드러운 더블 소프트 엠보싱</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">31,900원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="크리넥스 3겹 데코앤소프트 화장지" href="https://search.11st.co.kr/Search.tmall?kwd=%ED%81%AC%EB%A6%AC%EB%84%A5%EC%8A%A4%20%ED%99%94%EC%9E%A5%EC%A7%80" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 6위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top4_10">6</div>
+<div class="ranking-icon">🚗</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">자동차용품 · 거치대</div>
+<h3 class="ranking-product-name">맥세이프 차량용 15W 고속 무선충전 송풍구 거치대</h3>
+<div class="ranking-features">
+<span>★ 4.8 (차량용품 1위 베스트)</span>
+<span>• 네오디뮴 강력 자석 흡착</span>
+<span>• 360도 회전 볼헤드</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">14,800원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="맥세이프 차량용 거치대" href="https://search.11st.co.kr/Search.tmall?kwd=%EB%A7%A5%EC%84%B8%EC%9D%B4%ED%94%84%20%EC%B0%A8%EB%9F%89%EA%B1%B0%EC%B9%98%EB%8C%80" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 7위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top4_10">7</div>
+<div class="ranking-icon">🤖</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">스마트가전 · 청소기</div>
+<h3 class="ranking-product-name">로보락 S8 Pro Ultra / Q Revo 올인원 물걸레 로봇청소기</h3>
+<div class="ranking-features">
+<span>★ 4.9 (프리미엄 로봇청소기 1위)</span>
+<span>• 10,000Pa 강력 흡입력</span>
+<span>• 온수 세척 &amp; 열풍 건조</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">789,000원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="로보락 로봇청소기" href="https://search.11st.co.kr/Search.tmall?kwd=%EB%A1%9C%EB%B3%B4%EB%9D%BD%20%EB%A1%9C%EB%B4%87%EC%B2%AD%EC%86%8C%EA%B8%B0" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 8위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top4_10">8</div>
+<div class="ranking-icon">✨</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">뷰티 · 스킨케어</div>
+<h3 class="ranking-product-name">마녀공장 퓨어 클렌징 오일 200ml + 55ml 대용량 기획세트</h3>
+<div class="ranking-features">
+<span>★ 4.9 (클렌징 부문 독보적 1위)</span>
+<span>• 블랙헤드 99.7% 세정</span>
+<span>• 순한 콩오일 영양 보습</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">19,800원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="마녀공장 퓨어 클렌징 오일" href="https://search.11st.co.kr/Search.tmall?kwd=%EB%A7%88%EB%85%80%EA%B3%B5%EC%9E%A5%20%ED%81%B4%EB%A0%8C%EC%A7%95%EC%98%A4%EC%9D%BC" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 9위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top4_10">9</div>
+<div class="ranking-icon">🍲</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">주방가전 · 멀티오븐</div>
+<h3 class="ranking-product-name">삼성전자 비스포크 큐커 멀티오븐 22L 글램화이트</h3>
+<div class="ranking-features">
+<span>★ 4.8 (신혼/1인가구 필수템)</span>
+<span>• 전자레인지+에어프라이어+그릴+토스터</span>
+<span>• SmartThings 밀키트 자동조리</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">298,000원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="삼성 비스포크 큐커" href="https://search.11st.co.kr/Search.tmall?kwd=%EB%B9%84%EC%8A%A4%ED%8F%AC%ED%81%AC%20%ED%81%90%EC%BB%A4" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 10위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top4_10">10</div>
+<div class="ranking-icon">📺</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">가전/디스플레이 · 스마트스크린</div>
+<h3 class="ranking-product-name">LG전자 스탠바이미 27인치 포터블 이동식 모바일 스크린</h3>
+<div class="ranking-features">
+<span>★ 4.9 (홈엔터테인먼트 완판 신화)</span>
+<span>• 무빙휠 내장 자유로운 이동</span>
+<span>• 내장 배터리 최대 3시간 재생</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">865,000원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="LG 스탠바이미 27인치" href="https://search.11st.co.kr/Search.tmall?kwd=%EC%8A%A4%ED%83%A0%EB%B0%94%EC%9D%B4%EB%AF%B8" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 11위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top11_20">11</div>
+<div class="ranking-icon">🍜</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">식품 · 라면/면류</div>
+<h3 class="ranking-product-name">농심 신라면 120g x 20봉 멀티팩 박스</h3>
+<div class="ranking-features">
+<span>★ 4.9 (전국민 스테디셀러 1위)</span>
+<span>• 얼큰한 소고기 장국맛</span>
+<span>• 11번가 슈팅배송 당일/익일 도착</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">16,500원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="농심 신라면 120g 20봉" href="https://search.11st.co.kr/Search.tmall?kwd=%EC%8B%A0%EB%9D%BC%EB%A9%B4%2020%EB%B4%89" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 12위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top11_20">12</div>
+<div class="ranking-icon">🍋</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">건강식품 · 비타민</div>
+<h3 class="ranking-product-name">고려은단 비타민C 1000 이지 + 비타민D 180정 (6개월분)</h3>
+<div class="ranking-features">
+<span>★ 4.9 (국민 비타민 브랜드)</span>
+<span>• 영국산 순수 비타민C 100%</span>
+<span>• 활력 비타민D 복합 처방</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">23,900원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="고려은단 비타민C 1000" href="https://search.11st.co.kr/Search.tmall?kwd=%EA%B3%A0%EB%A0%A4%EC%9D%80%EB%8B%A8%20%EB%B9%84%ED%83%80%EB%AF%BCc" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 13위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top11_20">13</div>
+<div class="ranking-icon">🪒</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">남성그루밍 · 면도기</div>
+<h3 class="ranking-product-name">필립스 SkinIQ 7000 시리즈 전기면도기 정품</h3>
+<div class="ranking-features">
+<span>★ 4.8 (피부 보호 밀착 면도 1위)</span>
+<span>• 오각 헤드 초밀착 절삭력</span>
+<span>• 스마트센서 피부 맞춤 가이드</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">159,000원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="필립스 전기면도기 7000" href="https://search.11st.co.kr/Search.tmall?kwd=%ED%95%84%EB%A6%BD%EC%8A%A4%20%EB%A9%B4%EB%8F%84%EA%B8%B0" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 14위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top11_20">14</div>
+<div class="ranking-icon">🪑</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">가구/인테리어 · 사무용체어</div>
+<h3 class="ranking-product-name">풀 메쉬 하이엔드 인체공학 사무용 듀얼럼버서포트 의자</h3>
+<div class="ranking-features">
+<span>★ 4.8 (장시간 근무자 추천 1위)</span>
+<span>• 3D 요추 집중 지지대</span>
+<span>• 135도 무중력 리클라이닝</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">148,000원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="사무용 의자" href="https://search.11st.co.kr/Search.tmall?kwd=%EC%82%AC%EB%AC%B4%EC%9A%A9%EC%9D%98%EC%9E%90" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 15위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top11_20">15</div>
+<div class="ranking-icon">🎮</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">게임/콘솔 · 휴대용게임기</div>
+<h3 class="ranking-product-name">닌텐도 스위치 OLED 본체 화이트 정품</h3>
+<div class="ranking-features">
+<span>★ 4.9 (콘솔 게임 판매 1위)</span>
+<span>• 7인치 선명한 OLED 디스플레이</span>
+<span>• 한국닌텐도 공식 정품 보증</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">398,000원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="닌텐도 스위치 OLED" href="https://search.11st.co.kr/Search.tmall?kwd=%EB%8B%8C%ED%85%90%EB%8F%84%20%EC%8A%A4%EC%9C%84%EC%88%98%20oled" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 16위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top11_20">16</div>
+<div class="ranking-icon">🥤</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">식품/음료 · 탄산음료</div>
+<h3 class="ranking-product-name">코카콜라 제로 355ml x 24캔 1박스</h3>
+<div class="ranking-features">
+<span>★ 4.9 (탄산음료 판매 1위)</span>
+<span>• 부담 없는 제로 칼로리</span>
+<span>• 11번가 슈팅배송 내일도착</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">19,900원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="코카콜라 제로 355ml" href="https://search.11st.co.kr/Search.tmall?kwd=%EC%BD%94%EC%B9%B4%EC%BD%9C%EB%9D%BC%20%EC%A0%9C%EB%A1%9C" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 17위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top11_20">17</div>
+<div class="ranking-icon">👶</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">유아/육아용품 · 물티슈</div>
+<h3 class="ranking-product-name">베베숲 시그니처 엠보싱 아기 물티슈 70매 x 10팩</h3>
+<div class="ranking-features">
+<span>★ 4.9 (대한민국 아기물티슈 1위)</span>
+<span>• 프리미엄 고평량 엠보싱 원단</span>
+<span>• 피부자극 테스트 무자극 통과</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">17,900원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="베베숲 시그니처 아기 물티슈" href="https://search.11st.co.kr/Search.tmall?kwd=%EB%B2%A0%EB%B2%A0%EC%8Report%20%EB%AC%BC%ED%8B%B0%EC%8A%88" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 18위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top11_20">18</div>
+<div class="ranking-icon">🧹</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">생활가전 · 핸디무선청소기</div>
+<h3 class="ranking-product-name">다이슨 V12 디텍트 슬림 오리진 무선청소기</h3>
+<div class="ranking-features">
+<span>★ 4.8 (프리미엄 무선청소기)</span>
+<span>• 레이저 미세먼지 시각화</span>
+<span>• 2.2kg 초경량 콤팩트 바디</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">649,000원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="다이슨 V12 무선청소기" href="https://search.11st.co.kr/Search.tmall?kwd=%EB%8B%A4%EC%9D%B4%EC%8A%A8%20v12" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 19위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top11_20">19</div>
+<div class="ranking-icon">🖱️</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">디지털 · 컴퓨터주변기기</div>
+<h3 class="ranking-product-name">로지텍 MX Master 3S 최고급 무선 마우스</h3>
+<div class="ranking-features">
+<span>★ 4.9 (개발자/크리에이터 원픽)</span>
+<span>• 8K 초정밀 센서 &amp; 90% 저소음 클릭</span>
+<span>• MagSpeed 초고속 전자기 휠</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">128,000원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="로지텍 MX Master 3S" href="https://search.11st.co.kr/Search.tmall?kwd=%EB%A1%9C%EC%A7%80%ED%85%8D%20mx%20master%203s" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+<!-- 20위 -->
+<div class="ranking-item-card">
+<div class="ranking-pos top11_20">20</div>
+<div class="ranking-icon">🍚</div>
+<div class="ranking-details">
+<div class="ranking-category-tag">식품 · 즉석밥</div>
+<h3 class="ranking-product-name">CJ제일제당 햇반 백미 210g x 36개 대용량 번들</h3>
+<div class="ranking-features">
+<span>★ 4.9 (국민 즉석밥 스테디셀러)</span>
+<span>• 당일 도정한 갓 지은 밥맛</span>
+<span>• 11번가 슈팅배송 단독 특가</span>
+</div>
+</div>
+<div class="ranking-price-box">
+<div class="ranking-price-label">11번가 예상특가</div>
+<div class="ranking-price-val">34,800원</div>
+<div class="price-notice-sub" style="font-size: 0.72rem; color: #64748b; margin-top: 2px;">* 실시간 혜택/재고 변동</div></div>
+<a class="ranking-action-btn" data-query="CJ 햇반 210g 36개" href="https://search.11st.co.kr/Search.tmall?kwd=%ED%96%87%EB%B0%98%2036%EA%B0%9C" rel="noopener noreferrer" target="_blank">
+  특가 보러가기 →
+</a>
+</div>
+</div>
+</section>
+
 <!-- ========================================================
              [3. SSG.COM (신세계몰 / 신세계쇼핑) 실시간 TOP 10]
              신세계백화점 명품·뷰티 & 이마트 쓱배송 당일도착 인기 1~10위
@@ -3201,14 +3641,15 @@
 <div class="footer-grid">
 <div class="footer-brand">
 <h3>랭커의 쇼핑 (Ranker's Shopping)</h3>
-<p>네이버·쿠팡·SSG 신세계몰·아마존·알리·오늘의집·G마켓 7대 쇼핑몰 실시간 1위 상품과 정직한 구매 분석을 제공합니다.</p>
+<p>대한민국 8대 쇼핑몰(네이버·쿠팡·11번가·SSG 신세계몰·아마존·알리·오늘의집·G마켓) 실시간 1위 랭킹과 팩트 기반의 전 카테고리 종합 쇼핑 큐레이션을 제공합니다.</p>
 </div>
 <div class="footer-links">
 <h4>카테고리 &amp; 랭킹</h4>
 <ul>
 <li><a href="index.html">홈 매거진</a></li>
-<li><a href="ranking.html">🔥 7대 몰 실시간 랭킹</a></li>
-<li><a href="age-ranking.html" target="_blank">👥 연령별(20~70대) 랭킹</a></li>
+<li><a href="ranking.html">🔥 8대 몰 실시간 랭킹</a></li>
+<li><a href="age-ranking.html" target="_blank">👥 연령별(0~9세부터 70대까지) 랭킹</a></li>
+<li><a href="deals.html">⚡ 실시간 타임딜·이벤트특가</a></li>
 <li><a href="index.html#allCategoryArticleGrid">스마트 쇼핑 가이드</a></li>
 </ul>
 </div>
@@ -3228,16 +3669,16 @@
 </div>
 </footer>
 <!-- ========================================================
-       [7대 쇼핑몰 실시간 가격비교 & 바로가기 모달 창]
+       [8대 쇼핑몰 실시간 가격비교 & 바로가기 모달 창]
        검색어 입력 또는 칩 클릭 시 화면 중앙에 세련된 팝업 창 생성
        ======================================================== -->
 <div aria-hidden="true" class="search-modal-backdrop" id="shoppingSearchModal">
 <div aria-modal="true" class="search-modal-dialog" role="dialog">
 <div class="search-modal-header">
 <div class="search-modal-title-group">
-<span class="search-modal-badge">⚡ 실시간 7대 공식 쇼핑몰 가격비교</span>
+<span class="search-modal-badge">⚡ 실시간 8대 공식 쇼핑몰 가격비교</span>
 <h3 class="search-modal-title" id="modalSearchHeading">
-            '<span id="modalQueryText">상품명</span>' 7대 쇼핑몰 실시간 가격 &amp; 상품 검색
+            '<span id="modalQueryText">상품명</span>' 8대 쇼핑몰 실시간 가격 &amp; 상품 검색
           </h3>
 <p class="search-modal-sub">각 쇼핑몰을 클릭하시면 해당 상품의 실시간 검색 결과 및 최저가 페이지로 즉시 이동합니다.</p>
 </div>
@@ -3245,12 +3686,12 @@
 </div>
 <div class="search-modal-body">
 <div class="modal-mall-grid" id="modalMallCardsGrid">
-<!-- JS에서 7대 쇼핑몰 카드 동적 생성 -->
+<!-- JS에서 8대 쇼핑몰 카드 동적 생성 -->
 </div>
 </div>
 <div class="search-modal-footer">
 <div class="search-modal-note">
-          💡 <strong>랭커의 스마트 팁:</strong> 플랫폼마다 카드 할인, 적립금, 로켓/쓱배송 조건이 다르므로 상위 2~3곳을 직접 비교해 보시는 것을 적극 추천합니다.
+          💡 <strong>랭커의 스마트 팁:</strong> 플랫폼마다 카드 할인, 적립금, 로켓/쓱/슈팅배송 조건이 다르므로 상위 2~3곳을 직접 비교해 보시는 것을 적극 추천합니다.
         </div>
 <button class="modal-dismiss-btn" id="modalDismissBtn" type="button">닫기</button>
 </div>

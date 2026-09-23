@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 7. 실시간 쇼핑 랭킹 센터 탭 전환 엔진 (ranking.html - 7대 쇼핑몰)
+  // 7. 실시간 쇼핑 랭킹 센터 탭 전환 엔진 (ranking.html - 8대 쇼핑몰)
   initRankingTabs();
 
   // 8. 연령대별 실시간 쇼핑 랭킹 센터 탭 전환 엔진 (age-ranking.html - 20대~70대)
@@ -69,23 +69,27 @@ document.addEventListener('DOMContentLoaded', () => {
   // 10. 매일 오전 9시 정각 자동 갱신 스케줄러 (브라우저 열림 상태 시 실시간 갱신)
   scheduleNextMorning9Update();
 
-  // 11. 7대 쇼핑몰 실시간 랭킹(ranking.html) 각 상품 다이렉트 검색 링크 동적 보장
+  // 11. 8대 쇼핑몰 실시간 랭킹(ranking.html) 각 상품 다이렉트 검색 링크 동적 보장
   initRankingMallDirectSearch();
+
+  // 12. 실시간 타임딜·이벤트특가 센터 엔진 (deals.html)
+  initDealsCountdown();
+  initDealsFilter();
 });
 
 /**
- * 실시간 쇼핑 랭킹 센터 탭 전환 (네이버, 쿠팡, SSG 신세계몰, 아마존, 알리, 오늘의집, G마켓)
+ * 실시간 쇼핑 랭킹 센터 탭 전환 (네이버, 쿠팡, 11번가, SSG 신세계몰, 아마존, 알리, 오늘의집, G마켓 - 8대 쇼핑몰)
  */
 function initRankingTabs() {
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabPanels = document.querySelectorAll('.tab-content-panel');
   if (tabButtons.length === 0) return;
 
-  const validPlatforms = ['naver', 'coupang', 'ssg', 'amazon', 'aliexpress', 'todayhouse', 'gmarket'];
+  const validPlatforms = ['naver', 'coupang', 'elevenst', 'ssg', 'amazon', 'aliexpress', 'todayhouse', 'gmarket'];
 
   function switchTab(platform) {
     tabButtons.forEach(btn => {
-      btn.classList.remove('active', 'naver', 'coupang', 'ssg', 'amazon', 'aliexpress', 'todayhouse', 'gmarket');
+      btn.classList.remove('active', 'naver', 'coupang', 'elevenst', 'ssg', 'amazon', 'aliexpress', 'todayhouse', 'gmarket');
       if (btn.getAttribute('data-platform') === platform) {
         btn.classList.add('active', platform);
       }
@@ -398,9 +402,9 @@ function initShoppingSearchModal() {
         <div class="search-modal-dialog" role="dialog" aria-modal="true">
           <div class="search-modal-header">
             <div class="search-modal-title-group">
-              <span class="search-modal-badge">⚡ 실시간 7대 공식 쇼핑몰 가격비교</span>
+              <span class="search-modal-badge">⚡ 실시간 8대 공식 쇼핑몰 가격비교</span>
               <h3 id="modalSearchHeading" class="search-modal-title">
-                '<span id="modalQueryText">상품명</span>' 7대 쇼핑몰 실시간 가격 &amp; 상품 검색
+                '<span id="modalQueryText">상품명</span>' 8대 쇼핑몰 실시간 가격 &amp; 상품 검색
               </h3>
               <p class="search-modal-sub">각 쇼핑몰을 클릭하시면 해당 상품의 실시간 검색 결과 및 최저가 페이지로 즉시 이동합니다.</p>
             </div>
@@ -411,7 +415,7 @@ function initShoppingSearchModal() {
           </div>
           <div class="search-modal-footer">
             <div class="search-modal-note">
-              💡 <strong>랭커의 스마트 팁:</strong> 플랫폼마다 카드 할인, 적립금, 로켓/쓱배송 조건이 다르므로 상위 2~3곳을 직접 비교해 보시는 것을 적극 추천합니다.
+              💡 <strong>랭커의 스마트 팁:</strong> 플랫폼마다 카드 할인, 적립금, 로켓/쓱/슈팅배송 조건이 다르므로 상위 2~3곳을 직접 비교해 보시는 것을 적극 추천합니다.
             </div>
             <button type="button" id="modalDismissBtn" class="modal-dismiss-btn">닫기</button>
           </div>
@@ -437,7 +441,7 @@ function initShoppingSearchModal() {
     if (modalQueryText) modalQueryText.textContent = query;
     if (searchInput) searchInput.value = query;
 
-    // 7대 쇼핑몰 맞춤 프리뷰 및 링크 데이터 생성
+    // 8대 쇼핑몰 맞춤 프리뷰 및 링크 데이터 생성
     const qEnc = encodeURIComponent(query);
     const qLower = query.toLowerCase();
 
@@ -445,6 +449,7 @@ function initShoppingSearchModal() {
     let previews = {
       naver: `네이버쇼핑 '${escapeHtml(query)}' 실시간 랭킹 1위 &amp; N포인트 최대 5% 적립`,
       coupang: `쿠팡 와우 '${escapeHtml(query)}' 로켓배송 실시간 와우회원 즉시할인`,
+      elevenst: `11번가 '${escapeHtml(query)}' T멤버십 최대 11% 할인 &amp; 슈팅배송 특가`,
       ssg: `SSG.COM 신세계몰 '${escapeHtml(query)}' 신세계백화점 명품 &amp; 쓱배송 특가`,
       amazon: `'${escapeHtml(query)}' Amazon Choice 베스트셀러 &amp; 한국 무료 직배송`,
       aliexpress: `알리익스프레스 '${escapeHtml(query)}' 5일 무료배송 초가성비 직구 특가`,
@@ -455,6 +460,7 @@ function initShoppingSearchModal() {
     if (qLower.includes('워치') || qLower.includes('시계')) {
       previews.naver = '갤럭시워치7 / 애플워치 울트라2 실시간 최저가 및 N페이 추가 적립';
       previews.coupang = '[로켓배송] 스마트워치 와우회원 카드사 즉시할인 &amp; 내일 새벽 도착';
+      previews.elevenst = '[T멤버십] 스마트워치 브랜드위크 &amp; SK pay 포인트 추가 적립';
       previews.ssg = '[신세계백화점] Apple Watch &amp; Galaxy Watch 백화점 정품 보증';
       previews.amazon = '[Global Direct] Apple Watch &amp; Garmin Smartwatch 인기 직구';
       previews.aliexpress = '[초가성비] 스마트워치 마그네틱 루프 스트랩 &amp; 가성비 스마트밴드';
@@ -463,6 +469,7 @@ function initShoppingSearchModal() {
     } else if (qLower.includes('로봇') || qLower.includes('청소기')) {
       previews.naver = '2026 차세대 올인원 로봇청소기 &amp; 흡입력 10,000Pa 실시간 랭킹';
       previews.coupang = '[로켓와우] 로보락 / 에코백스 / 삼성 로봇청소기 특가 보러가기';
+      previews.elevenst = '[슈팅배송] 대기업 로봇청소기 내일도착 보장 &amp; T멤버십 즉시할인';
       previews.ssg = '[SSG 단독] 로보락 / 삼성 비스포크 로봇청소기 백화점 상품권 증정';
       previews.amazon = '[Amazon Bestseller] iRobot Roomba &amp; Shark Cleaners 직배송';
       previews.aliexpress = '[천원마켓] 무선 미니 청소기 &amp; 로봇청소기 정품 소모품 세트';
@@ -471,6 +478,7 @@ function initShoppingSearchModal() {
     } else if (qLower.includes('에어프라이어')) {
       previews.naver = '올스텐 304 대용량 에어프라이어 네이버 국민 랭킹 1위 모음';
       previews.coupang = '[로켓와우] 스테인리스 에어프라이어 오늘 주문 내일 도착 특가';
+      previews.elevenst = '[타임딜] 올스텐 304 오븐형 에어프라이어 슈팅배송 T멤버십가';
       previews.ssg = '[명품 주방] 올스텐 304 에어프라이어 &amp; 프리미엄 쿡웨어 쓱배송';
       previews.amazon = '[Global Best] Ninja Air Fryer &amp; Instant Vortex 해외 인기 모델';
       previews.aliexpress = '[초특가] 에어프라이어 전용 실리콘 조리 용기 2종 세트';
@@ -479,6 +487,7 @@ function initShoppingSearchModal() {
     } else if (qLower.includes('텀블러')) {
       previews.naver = '스탠리 퀜처 / 써모스 보냉 보온 대용량 텀블러 네이버 인기 순위';
       previews.coupang = '[로켓배송] 스탠리 진공 텀블러 와우 로켓 정품 안심 배송';
+      previews.elevenst = '[슈팅배송] 스탠리 퀜처 / 써모스 대용량 보온보냉 텀블러';
       previews.ssg = '[신세계 정품] 스탠리 퀜처 / 써모스 보냉 텀블러 백화점 공식 패키지';
       previews.amazon = '[Amazon Official] Stanley Quencher H2.0 40oz 직구 베스트';
       previews.aliexpress = '[가성비 악세서리] 텀블러 전용 빨대 커버 &amp; 실리콘 부트 세트';
@@ -487,6 +496,7 @@ function initShoppingSearchModal() {
     } else if (qLower.includes('에어팟') || qLower.includes('이어폰') || qLower.includes('헤드폰')) {
       previews.naver = 'Apple 에어팟 프로 2세대 USB-C &amp; 무선 노이즈캔슬링 최저가';
       previews.coupang = '[로켓와우] 에어팟 3세대 / 프로 정품 카드사 즉시할인 혜택';
+      previews.elevenst = '[Apple 공식] 에어팟 프로 2세대 USB-C 정품 안심 슈팅배송';
       previews.ssg = '[신세계백화점] Apple 에어팟 프로 2세대 USB-C 정품 안심 배송';
       previews.amazon = '[Amazon Direct] AirPods Pro &amp; Bose QC45 Noise Cancelling';
       previews.aliexpress = '[초가성비 음향] QCY 노캔 무선이어폰 &amp; 보호 케이스 득템';
@@ -495,6 +505,7 @@ function initShoppingSearchModal() {
     } else if (qLower.includes('영양제') || qLower.includes('유산균') || qLower.includes('오메가')) {
       previews.naver = '락토핏 생유산균 / 고려은단 비타민C 네이버 건강식품 1위';
       previews.coupang = '[로켓배송] 종근당건강 온가족 필수 영양제 내일 새벽 도착';
+      previews.elevenst = '[T멤버십] 종근당건강 락토핏 생유산균 &amp; 비타민 데일리 특가';
       previews.ssg = '[이마트 쓱배송] 정관장 홍삼 &amp; 락토핏 생유산균 신세계 단독 기획';
       previews.amazon = '[iHerb / Amazon] California Gold 오메가3 &amp; 영양제 직구 1위';
       previews.aliexpress = '[생활용품] 휴대용 7일 분할 영양제 약통 케이스 콤보';
@@ -518,6 +529,14 @@ function initShoppingSearchModal() {
         preview: previews.coupang,
         benefit: '⚡ 와우회원 무료반품 · 오늘 주문 내일 새벽 도착',
         url: `https://www.coupang.com/np/search?component=&q=${qEnc}`
+      },
+      {
+        id: 'elevenst',
+        name: '11번가 (11ST)',
+        badge: '🔴 T멤버십 1위',
+        preview: previews.elevenst,
+        benefit: '🎟️ SKT T멤버십 추가할인 · 슈팅배송 당일/익일 도착',
+        url: `https://search.11st.co.kr/Search.tmall?kwd=${qEnc}`
       },
       {
         id: 'ssg',
@@ -696,7 +715,7 @@ function cleanGoldenQuery(title) {
 }
 
 /**
- * 7대 쇼핑몰 실시간 랭킹(ranking.html)의 각 상품 '특가 보러가기' 버튼을
+ * 8대 쇼핑몰 실시간 랭킹(ranking.html)의 각 상품 '특가 보러가기' 버튼을
  * 해당 쇼핑몰의 실시간 상품 검색 결과 URL로 자동 연동
  */
 function initRankingMallDirectSearch() {
@@ -720,6 +739,8 @@ function initRankingMallDirectSearch() {
           searchUrl = `https://search.shopping.naver.com/search/all?query=${qEnc}`;
         } else if (pid.includes('coupang')) {
           searchUrl = `https://www.coupang.com/np/search?component=&q=${qEnc}&channel=user`;
+        } else if (pid.includes('elevenst')) {
+          searchUrl = `https://search.11st.co.kr/Search.tmall?kwd=${qEnc}`;
         } else if (pid.includes('ssg')) {
           searchUrl = `https://www.ssg.com/search.ssg?target=all&query=${qEnc}`;
         } else if (pid.includes('amazon')) {
@@ -1034,5 +1055,65 @@ function scheduleNextMorning9Update() {
     // 다음날 9시 스케줄 재설정
     scheduleNextMorning9Update();
   }, Math.max(diffMs, 1000));
+}
+
+/**
+ * 실시간 타임딜 마감 카운트다운 타이머 (deals.html)
+ * 오늘 밤 24:00:00(자정) 마감까지 남은 시간을 초 단위로 실시간 표시
+ */
+function initDealsCountdown() {
+  const hoursEl = document.getElementById('dealHours');
+  const minsEl = document.getElementById('dealMins');
+  const secsEl = document.getElementById('dealSecs');
+  if (!hoursEl || !minsEl || !secsEl) return;
+
+  function updateTimer() {
+    const now = new Date();
+    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0);
+    const diff = midnight - now;
+
+    if (diff <= 0) {
+      hoursEl.textContent = '00';
+      minsEl.textContent = '00';
+      secsEl.textContent = '00';
+      return;
+    }
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    hoursEl.textContent = String(hours).padStart(2, '0');
+    minsEl.textContent = String(mins).padStart(2, '0');
+    secsEl.textContent = String(secs).padStart(2, '0');
+  }
+
+  updateTimer();
+  setInterval(updateTimer, 1000);
+}
+
+/**
+ * 실시간 타임딜 카테고리 필터링 엔진 (deals.html)
+ */
+function initDealsFilter() {
+  const filterBtns = document.querySelectorAll('.deal-filter-btn');
+  const dealCards = document.querySelectorAll('.deals-item-card');
+  if (filterBtns.length === 0 || dealCards.length === 0) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.getAttribute('data-cat');
+
+      dealCards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 }
 

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>실시간 타임딜·이벤트특가·한정세일 핫딜 센터 | 랭커의 쇼핑</title>
+  <meta content="네이버 원쁠딜, 쿠팡 골드박스, 11번가 타임딜, SSG 쓱세일, G마켓 슈퍼딜, 알리 꽁돈대첩 등 8대 쇼핑몰의 실시간 파격 할인 타임특가 상품과 기획전을 한눈에 확인하세요." name="description"/>
+  <meta content="타임딜, 오늘의 특가, 골드박스, 11번가 타임딜, 네이버 원쁠딜, 슈퍼딜, 한정특가, 할인쿠폰, 핫딜 모음, 랭커의 쇼핑" name="keywords"/>
+  <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <!-- Google AdSense -->
+  <script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8777128879154634"></script>
+</head>
+<body>
+  <!-- 상단 네비게이션 헤더 (핵심 쇼핑 메뉴로 정돈) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-icon">🏆</span>
+        <span>랭커의 쇼핑</span>
+      </a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a class="nav-link" href="index.html">홈</a></li>
+          <li><a class="nav-link" href="ranking.html" target="_blank" style="color: #ef4444; font-weight: 800;">🔥 실시간 랭킹</a></li>
+          <li><a class="nav-link" href="age-ranking.html" target="_blank" style="color: #2563eb; font-weight: 700;">👥 연령별 랭킹</a></li>
+          <li><a class="nav-link active" href="deals.html" style="color: #ea580c; font-weight: 800;">⚡ 타임딜·이벤트특가</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="search-btn" href="age-ranking.html" style="background: #eff6ff; color: #2563eb; border-color: #bfdbfe; font-weight: 700;" target="_blank">
+          👥 연령별 랭킹
+        </a>
+        <button aria-label="메뉴 열기" class="menu-toggle">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 타임딜 센터 전용 히어로 배너 (실시간 카운트다운 타이머 탑재) -->
+  <section class="deals-hero-section">
+    <div class="container">
+      <span class="hero-tag" style="background: rgba(255, 255, 255, 0.22); border-color: rgba(255, 255, 255, 0.45); color: #ffffff;">
+        ⚡ 8대 공식 쇼핑몰 실시간 파격 할인관
+      </span>
+      <h1 class="hero-title" style="font-size: 2.1rem; margin: 12px 0; color: white;">
+        실시간 타임딜 &amp; 이벤트 특별세일 센터
+      </h1>
+      <p class="hero-desc" style="max-width: 760px; margin: 0 auto; color: #ffedd5; font-size: 0.95rem; line-height: 1.6;">
+        쿠팡 골드박스·네이버 원쁠딜·11번가 타임딜·G마켓 슈퍼딜 등 대한민국 8대 쇼핑몰에서 지금 이 시각 가장 할인율이 높은 한정수량 타임특가와 단독 기획전을 엄선하여 제공합니다.
+      </p>
+
+      <!-- 실시간 자정(24:00) 마감 카운트다운 타이머 바 -->
+      <div class="deals-countdown-bar">
+        <div class="deals-countdown-label">
+          <span>⏰ 오늘 자정(24:00) 타임딜 마감까지</span>
+        </div>
+        <div class="deals-countdown-digits">
+          <span class="deals-countdown-box" id="dealHours">05</span>
+          <span class="deals-countdown-colon">:</span>
+          <span class="deals-countdown-box" id="dealMins">28</span>
+          <span class="deals-countdown-colon">:</span>
+          <span class="deals-countdown-box" id="dealSecs">44</span>
+        </div>
+        <span style="font-size: 0.8rem; color: #fed7aa; margin-left: 4px;">실시간 카운트다운 중</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 본문 컨테이너 -->
+  <div class="container" style="padding-top: 24px;">
+
+    <!-- 상단 안내 알림 배너 -->
+    <div class="price-notice-banner" style="background: #fff7ed; border: 1px solid #ffedd5; border-radius: 12px; padding: 14px 18px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 12px; font-size: 0.88rem; color: #9a3412; line-height: 1.5; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+      <span style="font-size: 1.35rem; line-height: 1; flex-shrink: 0; margin-top: 1px;">🔥</span>
+      <div>
+        <strong>타임특가 구매 안내:</strong> 타임딜 및 한정수량 이벤트 상품은 각 쇼핑몰의 재고 소진 시 예고 없이 조기 종료되거나 정가로 환원될 수 있습니다. 마음에 드는 상품은 <strong>[8대몰 가격비교]</strong>를 통해 타 플랫폼의 쿠폰 및 카드 혜택과 비교 후 즉시 구매하시는 것을 권장합니다.
+      </div>
+    </div>
+
+    <!-- 8대 쇼핑몰 공식 타임딜 & 기획전 직행 퀵 카드 그리드 -->
+    <div class="section-header" style="border-bottom: 2px solid #ea580c; padding-bottom: 8px; margin-bottom: 16px;">
+      <h2 class="section-title" style="color: #ea580c; font-size: 1.25rem;">
+        🚀 8대 쇼핑몰 공식 타임딜 &amp; 기획전 바로가기
+      </h2>
+      <span style="font-size: 0.85rem; color: var(--text-muted);">쇼핑몰별 공식 타임세일 전용관으로 즉시 이동합니다</span>
+    </div>
+
+    <div class="deals-mall-grid">
+      <!-- 1. 쿠팡 골드박스 -->
+      <a href="https://www.coupang.com/np/goldbox" target="_blank" rel="noopener noreferrer" class="deals-mall-card">
+        <div class="deals-mall-icon" style="background: #ffe4e6; color: #e11d48;">🚀</div>
+        <div class="deals-mall-info">
+          <h4>쿠팡 골드박스 <span class="deals-mall-tag">매일 07시</span></h4>
+          <p>와우회원 한정수량 일일 특가전</p>
+        </div>
+      </a>
+
+      <!-- 2. 네이버 원쁠딜 -->
+      <a href="https://shopping.naver.com/oneplusdeal/home" target="_blank" rel="noopener noreferrer" class="deals-mall-card">
+        <div class="deals-mall-icon" style="background: #d1fae5; color: #059669;">👑</div>
+        <div class="deals-mall-info">
+          <h4>네이버 원쁠딜 <span class="deals-mall-tag" style="background: #d1fae5; color: #065f46;">1+1 특가</span></h4>
+          <p>N포인트 최대 5% 추가 적립</p>
+        </div>
+      </a>
+
+      <!-- 3. 11번가 타임딜 -->
+      <a href="https://www.11st.co.kr/browsing/DealAction.tmall?method=getTimeDeal" target="_blank" rel="noopener noreferrer" class="deals-mall-card">
+        <div class="deals-mall-icon" style="background: #ffedd5; color: #ea580c;">🔴</div>
+        <div class="deals-mall-info">
+          <h4>11번가 타임딜 <span class="deals-mall-tag" style="background: #ffedd5; color: #c2410c;">T멤버십</span></h4>
+          <p>슈팅배송 당일/익일 도착 보장</p>
+        </div>
+      </a>
+
+      <!-- 4. SSG 신세계 쓱세일 -->
+      <a href="https://www.ssg.com/special/ssgSale.ssg" target="_blank" rel="noopener noreferrer" class="deals-mall-card">
+        <div class="deals-mall-icon" style="background: #fee2e2; color: #b91c1c;">🏬</div>
+        <div class="deals-mall-info">
+          <h4>SSG 신세계 쓱세일 <span class="deals-mall-tag" style="background: #fee2e2; color: #991b1b;">백화점관</span></h4>
+          <p>신세계백화점 명품 &amp; 쓱배송</p>
+        </div>
+      </a>
+
+      <!-- 5. G마켓 슈퍼딜 -->
+      <a href="https://corners.gmarket.co.kr/superdeal" target="_blank" rel="noopener noreferrer" class="deals-mall-card">
+        <div class="deals-mall-icon" style="background: #dcfce7; color: #16a34a;">🛒</div>
+        <div class="deals-mall-info">
+          <h4>G마켓 슈퍼딜 <span class="deals-mall-tag" style="background: #dcfce7; color: #166534;">빅스마일</span></h4>
+          <p>스마일클럽 중복 할인쿠폰팩</p>
+        </div>
+      </a>
+
+      <!-- 6. 알리익스프레스 꽁돈대첩 -->
+      <a href="https://ko.aliexpress.com/item/1005006000000000.html" target="_blank" rel="noopener noreferrer" class="deals-mall-card">
+        <div class="deals-mall-icon" style="background: #ffedd5; color: #ea580c;">✈️</div>
+        <div class="deals-mall-info">
+          <h4>알리 꽁돈대첩 <span class="deals-mall-tag" style="background: #ffedd5; color: #9a3412;">5일 무료</span></h4>
+          <p>초가성비 글로벌 직구 직거래관</p>
+        </div>
+      </a>
+
+      <!-- 7. 오늘의집 오늘의딜 -->
+      <a href="https://ohou.se/store/category/special_feed" target="_blank" rel="noopener noreferrer" class="deals-mall-card">
+        <div class="deals-mall-icon" style="background: #e0f2fe; color: #0284c7;">🏠</div>
+        <div class="deals-mall-info">
+          <h4>오늘의집 오늘의딜 <span class="deals-mall-tag" style="background: #e0f2fe; color: #075985;">리빙특가</span></h4>
+          <p>감성 가구·인테리어 단독 할인</p>
+        </div>
+      </a>
+
+      <!-- 8. 아마존 오늘의 핫딜 -->
+      <a href="https://www.amazon.com/gp/goldbox" target="_blank" rel="noopener noreferrer" class="deals-mall-card">
+        <div class="deals-mall-icon" style="background: #fef3c7; color: #92400e;">📦</div>
+        <div class="deals-mall-info">
+          <h4>아마존 핫딜 <span class="deals-mall-tag" style="background: #fef3c7; color: #92400e;">49$ 무료</span></h4>
+          <p>글로벌 정품 해외 직배송 특가</p>
+        </div>
+      </a>
+    </div>
+
+    <!-- 상단 배너 광고 슬롯 (구글 애드센스 정책 100% 준수 안전 배치) -->
+    <div class="ad-slot-container" style="margin: 24px 0;">
+      <div class="ad-slot banner">
+        <span class="ad-label">광고 영역 (AdSense Deals Banner Slot)</span>
+        <p>구글 애드센스 상단 반응형 디스플레이 광고 영역</p>
+      </div>
+    </div>
+
+    <!-- 카테고리 필터 탭 바 -->
+    <div class="deals-filter-bar">
+      <button type="button" class="deal-filter-btn active" data-cat="all">🔥 전체 타임특가 (12)</button>
+      <button type="button" class="deal-filter-btn" data-cat="digital">💻 디지털·가전 (3)</button>
+      <button type="button" class="deal-filter-btn" data-cat="food">🥩 식품·생필품 (3)</button>
+      <button type="button" class="deal-filter-btn" data-cat="living">🛋️ 리빙·주방 (3)</button>
+      <button type="button" class="deal-filter-btn" data-cat="beauty">💄 뷰티·패션 (3)</button>
+    </div>
+
+    <!-- 실시간 타임딜 엄선 상품 그리드 -->
+    <div class="deals-items-grid" id="dealsGrid">
+
+      <!-- 1. 로봇청소기 (디지털) -->
+      <div class="deals-item-card" data-cat="digital">
+        <div>
+          <div class="deals-item-top">
+            <span class="deal-mall-source">🚀 쿠팡 로켓 골드박스 타임특가</span>
+            <span class="discount-badge">52% OFF</span>
+          </div>
+          <div class="deals-item-visual">🤖</div>
+          <h3 class="deal-product-title">로보락 S8 Pro Ultra / Q Revo 올인원 물걸레 로봇청소기</h3>
+          <div class="deal-highlight-bullets">
+            <span>• 10,000Pa 강력 흡입 및 온수 물걸레 세척·열풍 건조</span>
+            <span>• 와우회원 카드사 7% 즉시할인 + 내일 새벽 도착</span>
+          </div>
+        </div>
+        <div>
+          <div class="deal-stock-bar-wrap">
+            <div class="deal-stock-text">
+              <span>🔥 마감임박 한정수량</span>
+              <span>88% 소진 (잔여 12개)</span>
+            </div>
+            <div class="deal-stock-progress">
+              <div class="deal-stock-fill" style="width: 88%;"></div>
+            </div>
+          </div>
+          <div class="deal-price-area">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b;">정상가</span>
+              <div class="deal-original-price">1,590,000원</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: #ef4444; font-weight: 800;">타임특가</span>
+              <div class="deal-final-price">763,200원</div>
+            </div>
+          </div>
+          <div class="deal-btn-group">
+            <button type="button" class="deal-compare-btn" onclick="openShoppingModal('로봇청소기')">⚡ 8대몰 비교</button>
+            <a href="https://www.coupang.com/np/search?component=&q=%EB%A1%9C%EB%B4%87%EC%B2%AD%EC%86%8C%EA%B8%B0" target="_blank" rel="noopener noreferrer" class="deal-direct-btn">특가 보러가기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 올스텐 에어프라이어 (리빙/주방) -->
+      <div class="deals-item-card" data-cat="living">
+        <div>
+          <div class="deals-item-top">
+            <span class="deal-mall-source">🔴 11번가 타임딜 한정특가</span>
+            <span class="discount-badge">61% OFF</span>
+          </div>
+          <div class="deals-item-visual">🍳</div>
+          <h3 class="deal-product-title">풀 스테인리스 304 대용량 16L 오븐형 에어프라이어</h3>
+          <div class="deal-highlight-bullets">
+            <span>• 유해물질 불검출 풀 올스텐 안심 조리 + 360도 회전 로티세리</span>
+            <span>• SKT T멤버십 추가할인 및 슈팅배송 내일도착 보장</span>
+          </div>
+        </div>
+        <div>
+          <div class="deal-stock-bar-wrap">
+            <div class="deal-stock-text">
+              <span>🔥 수량 마감 직전</span>
+              <span>93% 소진 (잔여 7개)</span>
+            </div>
+            <div class="deal-stock-progress">
+              <div class="deal-stock-fill" style="width: 93%;"></div>
+            </div>
+          </div>
+          <div class="deal-price-area">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b;">정상가</span>
+              <div class="deal-original-price">289,000원</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: #ef4444; font-weight: 800;">타임특가</span>
+              <div class="deal-final-price">112,710원</div>
+            </div>
+          </div>
+          <div class="deal-btn-group">
+            <button type="button" class="deal-compare-btn" onclick="openShoppingModal('에어프라이어')">⚡ 8대몰 비교</button>
+            <a href="https://search.11st.co.kr/Search.tmall?kwd=%EC%97%90%EC%96%B4%ED%94%84%EB%9D%BC%EC%9D%B4%EC%96%B4" target="_blank" rel="noopener noreferrer" class="deal-direct-btn">특가 보러가기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 락토핏 생유산균 (식품) -->
+      <div class="deals-item-card" data-cat="food">
+        <div>
+          <div class="deals-item-top">
+            <span class="deal-mall-source">👑 네이버 원쁠딜 1+1 기획전</span>
+            <span class="discount-badge">48% OFF</span>
+          </div>
+          <div class="deals-item-visual">💊</div>
+          <h3 class="deal-product-title">종근당건강 락토핏 생유산균 골드 50포 x 4통 기획세트</h3>
+          <div class="deal-highlight-bullets">
+            <span>• 온가족 10억 보장균수 프로바이오틱스 국민 1위</span>
+            <span>• 네이버플러스 멤버십 N포인트 최대 5% 즉시 적립</span>
+          </div>
+        </div>
+        <div>
+          <div class="deal-stock-bar-wrap">
+            <div class="deal-stock-text">
+              <span>🔥 오늘 한정 판매</span>
+              <span>76% 소진</span>
+            </div>
+            <div class="deal-stock-progress">
+              <div class="deal-stock-fill" style="width: 76%;"></div>
+            </div>
+          </div>
+          <div class="deal-price-area">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b;">정상가</span>
+              <div class="deal-original-price">68,000원</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: #ef4444; font-weight: 800;">타임특가</span>
+              <div class="deal-final-price">35,360원</div>
+            </div>
+          </div>
+          <div class="deal-btn-group">
+            <button type="button" class="deal-compare-btn" onclick="openShoppingModal('락토핏 유산균')">⚡ 8대몰 비교</button>
+            <a href="https://search.shopping.naver.com/search/all?query=%EB%9D%BD%ED%86%A0%ED%95%8F%20%EC%9C%A0%EC%82%B0%EA%B7%A0" target="_blank" rel="noopener noreferrer" class="deal-direct-btn">특가 보러가기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. 스마트워치 울트라2 (디지털) -->
+      <div class="deals-item-card" data-cat="digital">
+        <div>
+          <div class="deals-item-top">
+            <span class="deal-mall-source">🏬 SSG 신세계몰 백화점 단독특가</span>
+            <span class="discount-badge">38% OFF</span>
+          </div>
+          <div class="deals-item-visual">⌚</div>
+          <h3 class="deal-product-title">Apple Watch Ultra 2 / 갤럭시워치7 44mm 정품</h3>
+          <div class="deal-highlight-bullets">
+            <span>• 티타늄 케이스 + 정밀 GPS + 심전도/수면무호흡 센서</span>
+            <span>• 신세계백화점 정품 보증 + 카드사 10% 청구할인</span>
+          </div>
+        </div>
+        <div>
+          <div class="deal-stock-bar-wrap">
+            <div class="deal-stock-text">
+              <span>🔥 인기 색상 마감임박</span>
+              <span>85% 소진</span>
+            </div>
+            <div class="deal-stock-progress">
+              <div class="deal-stock-fill" style="width: 85%;"></div>
+            </div>
+          </div>
+          <div class="deal-price-area">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b;">정상가</span>
+              <div class="deal-original-price">429,000원</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: #ef4444; font-weight: 800;">타임특가</span>
+              <div class="deal-final-price">265,980원</div>
+            </div>
+          </div>
+          <div class="deal-btn-group">
+            <button type="button" class="deal-compare-btn" onclick="openShoppingModal('스마트워치')">⚡ 8대몰 비교</button>
+            <a href="https://www.ssg.com/search.ssg?target=all&query=%EC%8A%A4%EB%A7%88%ED%8A%B8%EC%9B%8C%EC%8Rear" target="_blank" rel="noopener noreferrer" class="deal-direct-btn">특가 보러가기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. 스탠리 텀블러 (리빙) -->
+      <div class="deals-item-card" data-cat="living">
+        <div>
+          <div class="deals-item-top">
+            <span class="deal-mall-source">🛒 G마켓 슈퍼딜 빅스마일데이</span>
+            <span class="discount-badge">45% OFF</span>
+          </div>
+          <div class="deals-item-visual">🥤</div>
+          <h3 class="deal-product-title">스탠리 퀜처 H2.0 플로우 스테이트 진공 텀블러 1.18L</h3>
+          <div class="deal-highlight-bullets">
+            <span>• 48시간 보냉력 + 차량 컵홀더 호환 핸들 손잡이</span>
+            <span>• 스마일클럽 15% 중복할인 쿠폰 적용가</span>
+          </div>
+        </div>
+        <div>
+          <div class="deal-stock-bar-wrap">
+            <div class="deal-stock-text">
+              <span>🔥 베스트 컬러 한정수량</span>
+              <span>81% 소진</span>
+            </div>
+            <div class="deal-stock-progress">
+              <div class="deal-stock-fill" style="width: 81%;"></div>
+            </div>
+          </div>
+          <div class="deal-price-area">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b;">정상가</span>
+              <div class="deal-original-price">59,000원</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: #ef4444; font-weight: 800;">타임특가</span>
+              <div class="deal-final-price">32,450원</div>
+            </div>
+          </div>
+          <div class="deal-btn-group">
+            <button type="button" class="deal-compare-btn" onclick="openShoppingModal('스탠리 텀블러')">⚡ 8대몰 비교</button>
+            <a href="https://browse.gmarket.co.kr/search?keyword=%EC%8A%A4%ED%83%A0%EB%A6%AC%20%ED%85%80%EB%B8%94%EB%9F%AC" target="_blank" rel="noopener noreferrer" class="deal-direct-btn">특가 보러가기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. 인체공학 메쉬 의자 (리빙) -->
+      <div class="deals-item-card" data-cat="living">
+        <div>
+          <div class="deals-item-top">
+            <span class="deal-mall-source">🏠 오늘의집 오늘의딜 단독특가</span>
+            <span class="discount-badge">55% OFF</span>
+          </div>
+          <div class="deals-item-visual">🪑</div>
+          <h3 class="deal-product-title">풀 메쉬 하이엔드 럼버서포트 인체공학 사무용 체어</h3>
+          <div class="deal-highlight-bullets">
+            <span>• 3D 척추 지지 요추받침대 + 135도 무중력 리클라이닝</span>
+            <span>• 오늘의집 첫구매 10% 추가할인 + 무료 설치 배송</span>
+          </div>
+        </div>
+        <div>
+          <div class="deal-stock-bar-wrap">
+            <div class="deal-stock-text">
+              <span>🔥 오늘 24시 마감</span>
+              <span>89% 소진 (잔여 11대)</span>
+            </div>
+            <div class="deal-stock-progress">
+              <div class="deal-stock-fill" style="width: 89%;"></div>
+            </div>
+          </div>
+          <div class="deal-price-area">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b;">정상가</span>
+              <div class="deal-original-price">320,000원</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: #ef4444; font-weight: 800;">타임특가</span>
+              <div class="deal-final-price">144,000원</div>
+            </div>
+          </div>
+          <div class="deal-btn-group">
+            <button type="button" class="deal-compare-btn" onclick="openShoppingModal('사무용의자')">⚡ 8대몰 비교</button>
+            <a href="https://ohou.se/productions/feed?query=%EC%82%AC%EB%AC%B4%EC%9A%A9%EC%9D%98%EC%9E%90" target="_blank" rel="noopener noreferrer" class="deal-direct-btn">특가 보러가기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. 에어팟 프로 2세대 USB-C (디지털) -->
+      <div class="deals-item-card" data-cat="digital">
+        <div>
+          <div class="deals-item-top">
+            <span class="deal-mall-source">🚀 쿠팡 로켓 와우회원 타임특가</span>
+            <span class="discount-badge">31% OFF</span>
+          </div>
+          <div class="deals-item-visual">🎧</div>
+          <h3 class="deal-product-title">Apple 에어팟 프로 2세대 USB-C MagSafe 노이즈캔슬링</h3>
+          <div class="deal-highlight-bullets">
+            <span>• 적응형 오디오 + 2배 강화된 액티브 노캔 + C타입 충전</span>
+            <span>• Apple 코리아 공식 정품 + 오늘 주문 내일 새벽 도착</span>
+          </div>
+        </div>
+        <div>
+          <div class="deal-stock-bar-wrap">
+            <div class="deal-stock-text">
+              <span>🔥 실시간 주문 폭주</span>
+              <span>91% 소진</span>
+            </div>
+            <div class="deal-stock-progress">
+              <div class="deal-stock-fill" style="width: 91%;"></div>
+            </div>
+          </div>
+          <div class="deal-price-area">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b;">정상가</span>
+              <div class="deal-original-price">359,000원</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: #ef4444; font-weight: 800;">타임특가</span>
+              <div class="deal-final-price">247,710원</div>
+            </div>
+          </div>
+          <div class="deal-btn-group">
+            <button type="button" class="deal-compare-btn" onclick="openShoppingModal('에어팟 프로 2세대')">⚡ 8대몰 비교</button>
+            <a href="https://www.coupang.com/np/search?component=&q=%EC%97%90%EC%96%B4%ED%8C%9F%ED%94%84%EB%A1%9C" target="_blank" rel="noopener noreferrer" class="deal-direct-btn">특가 보러가기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. 고려은단 비타민C 1000 (식품) -->
+      <div class="deals-item-card" data-cat="food">
+        <div>
+          <div class="deals-item-top">
+            <span class="deal-mall-source">🔴 11번가 슈팅배송 슈퍼세일</span>
+            <span class="discount-badge">43% OFF</span>
+          </div>
+          <div class="deals-item-visual">🍋</div>
+          <h3 class="deal-product-title">고려은단 비타민C 1000 이지 + 비타민D 180정 (6개월분)</h3>
+          <div class="deal-highlight-bullets">
+            <span>• 영국산 프리미엄 비타민C 원료 100% 사용 안심 섭취</span>
+            <span>• 11번가 단독 쿠폰팩 + 무료배송 즉시할인</span>
+          </div>
+        </div>
+        <div>
+          <div class="deal-stock-bar-wrap">
+            <div class="deal-stock-text">
+              <span>🔥 데일리 영양제 1위</span>
+              <span>78% 소진</span>
+            </div>
+            <div class="deal-stock-progress">
+              <div class="deal-stock-fill" style="width: 78%;"></div>
+            </div>
+          </div>
+          <div class="deal-price-area">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b;">정상가</span>
+              <div class="deal-original-price">42,000원</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: #ef4444; font-weight: 800;">타임특가</span>
+              <div class="deal-final-price">23,940원</div>
+            </div>
+          </div>
+          <div class="deal-btn-group">
+            <button type="button" class="deal-compare-btn" onclick="openShoppingModal('비타민C')">⚡ 8대몰 비교</button>
+            <a href="https://search.11st.co.kr/Search.tmall?kwd=%EA%B3%A0%EB%A0%A4%EC%9D%80%EB%8B%A8%20%EB%B9%84%ED%83%80%EB%AF%BCc" target="_blank" rel="noopener noreferrer" class="deal-direct-btn">특가 보러가기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. rTG 오메가3 (식품) -->
+      <div class="deals-item-card" data-cat="food">
+        <div>
+          <div class="deals-item-top">
+            <span class="deal-mall-source">📦 아마존 직구 Today's Deals</span>
+            <span class="discount-badge">56% OFF</span>
+          </div>
+          <div class="deals-item-visual">🐟</div>
+          <h3 class="deal-product-title">California Gold Nutrition 프리미엄 rTG 오메가3 240캡슐</h3>
+          <div class="deal-highlight-bullets">
+            <span>• 생체 흡수율 높은 rTG 형태 + 중금속 테스트 완벽 통과</span>
+            <span>• 49달러 이상 한국 무료 직배송 프로모션 적용</span>
+          </div>
+        </div>
+        <div>
+          <div class="deal-stock-bar-wrap">
+            <div class="deal-stock-text">
+              <span>🔥 해외 직구 1위</span>
+              <span>83% 소진</span>
+            </div>
+            <div class="deal-stock-progress">
+              <div class="deal-stock-fill" style="width: 83%;"></div>
+            </div>
+          </div>
+          <div class="deal-price-area">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b;">정상가</span>
+              <div class="deal-original-price">58,000원</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: #ef4444; font-weight: 800;">타임특가</span>
+              <div class="deal-final-price">25,520원</div>
+            </div>
+          </div>
+          <div class="deal-btn-group">
+            <button type="button" class="deal-compare-btn" onclick="openShoppingModal('오메가3')">⚡ 8대몰 비교</button>
+            <a href="https://www.amazon.com/s?k=Omega+3+fish+oil" target="_blank" rel="noopener noreferrer" class="deal-direct-btn">특가 보러가기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. 마녀공장 클렌징오일 (뷰티) -->
+      <div class="deals-item-card" data-cat="beauty">
+        <div>
+          <div class="deals-item-top">
+            <span class="deal-mall-source">👑 네이버 뷰티윈도 라이브특가</span>
+            <span class="discount-badge">49% OFF</span>
+          </div>
+          <div class="deals-item-visual">✨</div>
+          <h3 class="deal-product-title">마녀공장 퓨어 클렌징 오일 400ml 대용량 점보 기획</h3>
+          <div class="deal-highlight-bullets">
+            <span>• 블랙헤드/피지 99.7% 세정 임상 완료 + 14가지 식물성 오일</span>
+            <span>• 네이버 단독 1+1 구성 증정 및 N포인트 추가 적립</span>
+          </div>
+        </div>
+        <div>
+          <div class="deal-stock-bar-wrap">
+            <div class="deal-stock-text">
+              <span>🔥 뷰티 랭킹 1위</span>
+              <span>87% 소진</span>
+            </div>
+            <div class="deal-stock-progress">
+              <div class="deal-stock-fill" style="width: 87%;"></div>
+            </div>
+          </div>
+          <div class="deal-price-area">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b;">정상가</span>
+              <div class="deal-original-price">49,000원</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: #ef4444; font-weight: 800;">타임특가</span>
+              <div class="deal-final-price">24,990원</div>
+            </div>
+          </div>
+          <div class="deal-btn-group">
+            <button type="button" class="deal-compare-btn" onclick="openShoppingModal('클렌징오일')">⚡ 8대몰 비교</button>
+            <a href="https://search.shopping.naver.com/search/all?query=%ED%81%B4%EB%A0%8C%EC%A7%95%EC%98%A4%EC%9D%BC" target="_blank" rel="noopener noreferrer" class="deal-direct-btn">특가 보러가기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. 다이슨 슈퍼소닉 드라이기 (뷰티) -->
+      <div class="deals-item-card" data-cat="beauty">
+        <div>
+          <div class="deals-item-top">
+            <span class="deal-mall-source">🏬 SSG 신세계몰 프리미엄 기획전</span>
+            <span class="discount-badge">33% OFF</span>
+          </div>
+          <div class="deals-item-visual">💨</div>
+          <h3 class="deal-product-title">다이슨 슈퍼소닉 헤어드라이어 오리진 정품 보증</h3>
+          <div class="deal-highlight-bullets">
+            <span>• 지능형 열제어로 모발 열손상 방지 + 플라이어웨이 노즐</span>
+            <span>• 신세계백화점 정품 거치대 사은품 증정 및 무이자 12개월</span>
+          </div>
+        </div>
+        <div>
+          <div class="deal-stock-bar-wrap">
+            <div class="deal-stock-text">
+              <span>🔥 백화점 한정 수량</span>
+              <span>84% 소진</span>
+            </div>
+            <div class="deal-stock-progress">
+              <div class="deal-stock-fill" style="width: 84%;"></div>
+            </div>
+          </div>
+          <div class="deal-price-area">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b;">정상가</span>
+              <div class="deal-original-price">499,000원</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: #ef4444; font-weight: 800;">타임특가</span>
+              <div class="deal-final-price">334,330원</div>
+            </div>
+          </div>
+          <div class="deal-btn-group">
+            <button type="button" class="deal-compare-btn" onclick="openShoppingModal('헤어드라이기')">⚡ 8대몰 비교</button>
+            <a href="https://www.ssg.com/search.ssg?target=all&query=%ED%97%A4%EC%96%B4%EB%93%9C%EB%9D%BC%EC%9D%B4%EA%B8%B0" target="_blank" rel="noopener noreferrer" class="deal-direct-btn">특가 보러가기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12. 맥세이프 차량용 무선충전 거치대 (디지털) -->
+      <div class="deals-item-card" data-cat="digital">
+        <div>
+          <div class="deals-item-top">
+            <span class="deal-mall-source">✈️ 알리익스프레스 5일 무료배송</span>
+            <span class="discount-badge">69% OFF</span>
+          </div>
+          <div class="deals-item-visual">🚗</div>
+          <h3 class="deal-product-title">15W 맥세이프 마그네틱 차량용 고속 무선충전 송풍구 거치대</h3>
+          <div class="deal-highlight-bullets">
+            <span>• 네오디뮴 자석 16개 강력 흡착 + 과열방지 쿨링팬 탑재</span>
+            <span>• 알리 한국 직거래 5일 무료배송 + 교환/반품 안심 보장</span>
+          </div>
+        </div>
+        <div>
+          <div class="deal-stock-bar-wrap">
+            <div class="deal-stock-text">
+              <span>🔥 초가성비 직구 1위</span>
+              <span>95% 소진 (잔여 5개)</span>
+            </div>
+            <div class="deal-stock-progress">
+              <div class="deal-stock-fill" style="width: 95%;"></div>
+            </div>
+          </div>
+          <div class="deal-price-area">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b;">정상가</span>
+              <div class="deal-original-price">39,000원</div>
+            </div>
+            <div style="text-align: right;">
+              <span style="font-size: 0.75rem; color: #ef4444; font-weight: 800;">타임특가</span>
+              <div class="deal-final-price">12,090원</div>
+            </div>
+          </div>
+          <div class="deal-btn-group">
+            <button type="button" class="deal-compare-btn" onclick="openShoppingModal('차량용 거치대')">⚡ 8대몰 비교</button>
+            <a href="https://ko.aliexpress.com/wholesale?SearchText=%EC%B0%A8%EB%9F%89%EC%9A%A9%20%EA%B1%B0%EC%B9%98%EB%8C%80" target="_blank" rel="noopener noreferrer" class="deal-direct-btn">특가 보러가기 &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 하단 피드 중간 광고 슬롯 (구글 애드센스 정식 슬롯) -->
+    <div class="ad-slot-container" style="margin: 30px 0;">
+      <div class="ad-slot in-article">
+        <span class="ad-label">광고 영역 (AdSense In-Feed Slot)</span>
+        <p>구글 애드센스 반응형 인피드 디스플레이 광고 영역</p>
+      </div>
+    </div>
+
+    <!-- 8대 쇼핑몰 당월 공식 카드 할인 & 결제 혜택 총정리 가이드 -->
+    <div class="category-summary-box" style="margin-bottom: 40px;">
+      <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--secondary-color); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+        💳 8대 쇼핑몰 결제 전 필수 체크! 당월 카드사 즉시할인 혜택
+      </h3>
+      <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px;">
+        타임딜 상품 구매 시 결제 단계에서 제휴 카드를 선택하시면 추가로 5%~10% 청구할인 및 무이자 할부 혜택을 받으실 수 있습니다.
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px;">
+          <strong style="color: #e11d48; display: block; margin-bottom: 4px;">🚀 쿠팡 로켓</strong>
+          <span style="font-size: 0.82rem; color: #475569;">KB국민 / 삼성 / 롯데카드 최대 10% 즉시할인</span>
+        </div>
+        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px;">
+          <strong style="color: #059669; display: block; margin-bottom: 4px;">👑 네이버 쇼핑</strong>
+          <span style="font-size: 0.82rem; color: #475569;">네이버 현대카드 결제 시 N포인트 최대 5% 적립</span>
+        </div>
+        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px;">
+          <strong style="color: #ea580c; display: block; margin-bottom: 4px;">🔴 11번가</strong>
+          <span style="font-size: 0.82rem; color: #475569;">SKT T멤버십 최대 11% 할인 + 신한카드 5% 청구할인</span>
+        </div>
+        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 12px 14px;">
+          <strong style="color: #b91c1c; display: block; margin-bottom: 4px;">🏬 SSG 신세계몰</strong>
+          <span style="font-size: 0.82rem; color: #475569;">SSG.COM 삼성카드 / 신세계 신한카드 최대 7% 할인</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 푸터 (하단으로 이동 집약된 법적 고지 & 사이트 소개/문의) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>랭커의 쇼핑 (Ranker's Shopping)</h3>
+          <p>대한민국 8대 쇼핑몰(네이버·쿠팡·11번가·SSG 신세계몰·아마존·알리·오늘의집·G마켓) 실시간 1위 랭킹과 팩트 기반의 전 카테고리 종합 쇼핑 큐레이션을 제공합니다.</p>
+        </div>
+        <div class="footer-links">
+          <h4>카테고리 &amp; 랭킹</h4>
+          <ul>
+            <li><a href="ranking.html" target="_blank">🔥 8대 몰 실시간 랭킹</a></li>
+            <li><a href="age-ranking.html" target="_blank">👥 연령별(0~9세부터 70대까지) 랭킹</a></li>
+            <li><a href="deals.html">⚡ 실시간 타임딜·이벤트특가</a></li>
+            <li><a href="index.html#allCategoryArticleGrid">스마트 쇼핑 가이드</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>법적 고지 &amp; 정책</h4>
+          <ul>
+            <li><a href="privacy.html">개인정보처리방침</a></li>
+            <li><a href="terms.html">이용약관 및 면책조항</a></li>
+            <li><a href="about.html">사이트 소개</a></li>
+            <li><a href="contact.html">문의하기 (rkstmtk@gmail.com)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 랭커의 쇼핑 (Ranker's Shopping). All rights reserved. 본 사이트는 공정거래위원회 지침을 준수합니다.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       [8대 쇼핑몰 실시간 가격비교 & 바로가기 모달 창]
+       ======================================================== -->
+  <div id="shoppingSearchModal" class="search-modal-backdrop" aria-hidden="true">
+    <div class="search-modal-dialog" role="dialog" aria-modal="true">
+      <div class="search-modal-header">
+        <div class="search-modal-title-group">
+          <span class="search-modal-badge">⚡ 실시간 8대 공식 쇼핑몰 가격비교</span>
+          <h3 id="modalSearchHeading" class="search-modal-title">
+            '<span id="modalQueryText">상품명</span>' 8대 쇼핑몰 실시간 가격 &amp; 상품 검색
+          </h3>
+          <p class="search-modal-sub">각 쇼핑몰을 클릭하시면 해당 상품의 실시간 검색 결과 및 최저가 페이지로 즉시 이동합니다.</p>
+        </div>
+        <button type="button" id="closeSearchModalBtn" class="search-modal-close" aria-label="창 닫기">&times;</button>
+      </div>
+      <div class="search-modal-body">
+        <div id="modalMallCardsGrid" class="modal-mall-grid"></div>
+      </div>
+      <div class="search-modal-footer">
+        <div class="search-modal-note">
+          💡 <strong>랭커의 스마트 팁:</strong> 플랫폼마다 카드 할인, 적립금, 로켓/쓱/슈팅배송 조건이 다르므로 상위 2~3곳을 직접 비교해 보시는 것을 적극 추천합니다.
+        </div>
+        <button type="button" id="modalDismissBtn" class="modal-dismiss-btn">닫기</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
