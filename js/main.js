@@ -68,6 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 10. 매일 오전 9시 정각 자동 갱신 스케줄러 (브라우저 열림 상태 시 실시간 갱신)
   scheduleNextMorning9Update();
+
+  // 11. 7대 쇼핑몰 실시간 랭킹(ranking.html) 각 상품 다이렉트 검색 링크 동적 보장
+  initRankingMallDirectSearch();
 });
 
 /**
@@ -385,7 +388,40 @@ function escapeHtml(str) {
  * 7대 쇼핑몰 실시간 가격비교 & 바로가기 모달 창 제어 엔진
  */
 function initShoppingSearchModal() {
-  const modal = document.getElementById('shoppingSearchModal');
+  let modal = document.getElementById('shoppingSearchModal');
+
+  // 모달이 DOM에 없을 경우 자동 생성 (age-ranking.html, ranking.html 등 어느 페이지든 안전하게 동작)
+  if (!modal) {
+    const modalWrap = document.createElement('div');
+    modalWrap.innerHTML = `
+      <div id="shoppingSearchModal" class="search-modal-backdrop" aria-hidden="true">
+        <div class="search-modal-dialog" role="dialog" aria-modal="true">
+          <div class="search-modal-header">
+            <div class="search-modal-title-group">
+              <span class="search-modal-badge">⚡ 실시간 7대 공식 쇼핑몰 가격비교</span>
+              <h3 id="modalSearchHeading" class="search-modal-title">
+                '<span id="modalQueryText">상품명</span>' 7대 쇼핑몰 실시간 가격 &amp; 상품 검색
+              </h3>
+              <p class="search-modal-sub">각 쇼핑몰을 클릭하시면 해당 상품의 실시간 검색 결과 및 최저가 페이지로 즉시 이동합니다.</p>
+            </div>
+            <button type="button" id="closeSearchModalBtn" class="search-modal-close" aria-label="창 닫기">&times;</button>
+          </div>
+          <div class="search-modal-body">
+            <div id="modalMallCardsGrid" class="modal-mall-grid"></div>
+          </div>
+          <div class="search-modal-footer">
+            <div class="search-modal-note">
+              💡 <strong>랭커의 스마트 팁:</strong> 플랫폼마다 카드 할인, 적립금, 로켓/쓱배송 조건이 다르므로 상위 2~3곳을 직접 비교해 보시는 것을 적극 추천합니다.
+            </div>
+            <button type="button" id="modalDismissBtn" class="modal-dismiss-btn">닫기</button>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modalWrap.firstElementChild);
+    modal = document.getElementById('shoppingSearchModal');
+  }
+
   const searchInput = document.getElementById('siteSearchInput');
   const searchBtn = document.getElementById('siteSearchBtn');
   const closeBtn = document.getElementById('closeSearchModalBtn');
@@ -395,10 +431,12 @@ function initShoppingSearchModal() {
   const quickTagChips = document.querySelectorAll('.quick-tag-chip');
   const tickerItems = document.querySelectorAll('.keyword-item');
 
-  if (!modal) return;
-
   function openShoppingModal(rawQuery) {
-    const query = (rawQuery || '').trim() || '스마트워치';
+    let query = (rawQuery || '').trim();
+    // 괄호, 대괄호 및 플러스 뒤 사은품 문구 제거하여 검색 최적화
+    query = query.replace(/\([^)]*\)|\[[^]]*\]/g, '').replace(/\s*\+\s*.*$/, '').trim();
+    if (!query) query = '스마트워치';
+
     if (modalQueryText) modalQueryText.textContent = query;
     if (searchInput) searchInput.value = query;
 
@@ -611,6 +649,75 @@ function initShoppingSearchModal() {
     if (e.key === 'Escape' && modal.classList.contains('open')) {
       closeShoppingModal();
     }
+  });
+
+  // 7. [핵심] 전 페이지 공통: .card-compare-btn 또는 [data-query] 클릭 시 7대몰 가격비교 모달 즉시 실행
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.card-compare-btn') || e.target.closest('[data-query]');
+    if (btn) {
+      // 쇼핑몰 바로가기(1~10위 특가 보러가기) 등 실제 외부 링크가 있는 a 태그는 그대로 통과
+      if (btn.tagName === 'A' && btn.getAttribute('href') && !btn.getAttribute('href').startsWith('#') && !btn.getAttribute('href').startsWith('javascript')) {
+        return;
+      }
+      e.preventDefault();
+      e.stopPropagation();
+
+      let query = btn.getAttribute('data-query');
+      if (!query) {
+        const card = btn.closest('.ranking-item-card') || btn.closest('.article-card');
+        const nameEl = card ? card.querySelector('.ranking-product-name, .card-title') : null;
+        query = nameEl ? nameEl.textContent.trim() : '인기상품';
+      }
+      openShoppingModal(query);
+    }
+  });
+}
+
+/**
+ * 7대 쇼핑몰 실시간 랭킹(ranking.html)의 각 상품 '특가 보러가기' 버튼을
+ * 해당 쇼핑몰의 실시간 상품 검색 결과 URL로 자동 연동
+ */
+function initRankingMallDirectSearch() {
+  const panels = document.querySelectorAll('.tab-content-panel');
+  if (panels.length === 0) return;
+
+  panels.forEach(panel => {
+    const pid = panel.id || '';
+    const cards = panel.querySelectorAll('.ranking-item-card');
+
+    cards.forEach(card => {
+      const nameEl = card.querySelector('.ranking-product-name');
+      const actionBtn = card.querySelector('a.ranking-action-btn');
+      if (nameEl && actionBtn) {
+        let title = nameEl.textContent.trim();
+        let cleaned = title.replace(/\([^)]*\)|\[[^]]*\]/g, '').replace(/\s*\+\s*.*$/, '').trim();
+        const qEnc = encodeURIComponent(cleaned);
+
+        let searchUrl = '';
+        if (pid.includes('naver')) {
+          searchUrl = `https://search.shopping.naver.com/search/all?query=${qEnc}`;
+        } else if (pid.includes('coupang')) {
+          searchUrl = `https://www.coupang.com/np/search?component=&q=${qEnc}`;
+        } else if (pid.includes('ssg')) {
+          searchUrl = `https://www.ssg.com/search.ssg?target=all&query=${qEnc}`;
+        } else if (pid.includes('amazon')) {
+          searchUrl = `https://www.amazon.com/s?k=${qEnc}`;
+        } else if (pid.includes('aliexpress')) {
+          searchUrl = `https://ko.aliexpress.com/wholesale?SearchText=${qEnc}`;
+        } else if (pid.includes('todayhouse')) {
+          searchUrl = `https://ohou.se/productions/feed?query=${qEnc}`;
+        } else if (pid.includes('gmarket')) {
+          searchUrl = `https://browse.gmarket.co.kr/search?keyword=${qEnc}`;
+        }
+
+        if (searchUrl) {
+          actionBtn.href = searchUrl;
+          actionBtn.target = '_blank';
+          actionBtn.rel = 'noopener noreferrer';
+          actionBtn.setAttribute('data-query', cleaned);
+        }
+      }
+    });
   });
 }
 
