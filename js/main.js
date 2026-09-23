@@ -432,10 +432,7 @@ function initShoppingSearchModal() {
   const tickerItems = document.querySelectorAll('.keyword-item');
 
   function openShoppingModal(rawQuery) {
-    let query = (rawQuery || '').trim();
-    // 괄호, 대괄호 및 플러스 뒤 사은품 문구 제거하여 검색 최적화
-    query = query.replace(/\([^)]*\)|\[[^]]*\]/g, '').replace(/\s*\+\s*.*$/, '').trim();
-    if (!query) query = '스마트워치';
+    let query = cleanGoldenQuery(rawQuery);
 
     if (modalQueryText) modalQueryText.textContent = query;
     if (searchInput) searchInput.value = query;
@@ -674,6 +671,31 @@ function initShoppingSearchModal() {
 }
 
 /**
+ * 상품명에서 검색 방해 수식어를 정밀 제거하는 황금 검색어 추출기
+ */
+function cleanGoldenQuery(title) {
+  if (!title) return '스마트워치';
+  let q = title.replace(/\([^)]*\)/g, '').replace(/\[[^]]*\]/g, '');
+  if (q.includes(' + ')) {
+    q = q.split(' + ')[0];
+  } else if (q.includes('+') && !q.includes('C-to-C') && !q.includes('iPhone')) {
+    const parts = q.split('+');
+    if (parts.length > 1 && parts[0].trim().length > 3) {
+      q = parts[0];
+    }
+  }
+  const removeWords = [
+    '모델 화이트 본체 세트', '화이트 본체 세트', '본체 세트',
+    '대용량 기획세트', '기획세트', '단독 기획', '번들팩', '실속 선물세트',
+    '국내정품', '정품', '대히트', '독보적 1위', '인기 폭발', '종결자'
+  ];
+  removeWords.forEach(rw => {
+    q = q.split(rw).join('');
+  });
+  return q.replace(/\s+/g, ' ').trim() || '스마트워치';
+}
+
+/**
  * 7대 쇼핑몰 실시간 랭킹(ranking.html)의 각 상품 '특가 보러가기' 버튼을
  * 해당 쇼핑몰의 실시간 상품 검색 결과 URL로 자동 연동
  */
@@ -690,14 +712,14 @@ function initRankingMallDirectSearch() {
       const actionBtn = card.querySelector('a.ranking-action-btn');
       if (nameEl && actionBtn) {
         let title = nameEl.textContent.trim();
-        let cleaned = title.replace(/\([^)]*\)|\[[^]]*\]/g, '').replace(/\s*\+\s*.*$/, '').trim();
+        let cleaned = cleanGoldenQuery(title);
         const qEnc = encodeURIComponent(cleaned);
 
         let searchUrl = '';
         if (pid.includes('naver')) {
           searchUrl = `https://search.shopping.naver.com/search/all?query=${qEnc}`;
         } else if (pid.includes('coupang')) {
-          searchUrl = `https://www.coupang.com/np/search?component=&q=${qEnc}`;
+          searchUrl = `https://www.coupang.com/np/search?component=&q=${qEnc}&channel=user`;
         } else if (pid.includes('ssg')) {
           searchUrl = `https://www.ssg.com/search.ssg?target=all&query=${qEnc}`;
         } else if (pid.includes('amazon')) {
