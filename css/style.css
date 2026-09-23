@@ -133,6 +133,16 @@ img {
   background-color: var(--primary-light);
 }
 
+.nav-wishlist-item {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .nav-wishlist-item {
+    display: block !important;
+  }
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -1416,36 +1426,30 @@ img {
 .platform-tabs {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  gap: 10px;
   background: white;
-  padding: 10px;
+  padding: 12px;
   border-radius: 16px;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-sm);
 }
 
-@media (min-width: 1280px) {
-  .platform-tabs {
-    grid-template-columns: repeat(8, 1fr);
-    gap: 6px;
-    padding: 8px;
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .platform-tabs {
     grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
+    gap: 8px;
+    padding: 10px;
   }
 }
 
 .tab-btn {
   width: 100%;
-  padding: 11px 8px;
+  min-width: 0;
+  padding: 12px 10px;
   border: 1px solid #f1f5f9;
   background: #f8fafc;
   border-radius: 10px;
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   font-weight: 750;
   color: var(--text-color);
   cursor: pointer;
@@ -2462,36 +2466,30 @@ img {
 .age-tabs {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  gap: 10px;
   background: white;
-  padding: 10px;
+  padding: 12px;
   border-radius: 16px;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-sm);
 }
 
-@media (min-width: 1280px) {
-  .age-tabs {
-    grid-template-columns: repeat(8, 1fr);
-    gap: 6px;
-    padding: 8px;
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .age-tabs {
     grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
+    gap: 8px;
+    padding: 10px;
   }
 }
 
 .age-tab-btn {
   width: 100%;
-  padding: 11px 6px;
+  min-width: 0;
+  padding: 12px 8px;
   border: 1px solid #f1f5f9;
   background: #f8fafc;
   border-radius: 10px;
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   font-weight: 750;
   color: var(--text-color);
   cursor: pointer;
